@@ -1,0 +1,15 @@
+# Caddy obtiene y renueva solo el certificado HTTPS (necesario para usar la cámara del teléfono).
+{
+	email {$CORREO_ACME}
+}
+
+{$DOMINIO} {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(self), geolocation=(self), microphone=()"
+	}
+	reverse_proxy app:3000
+}

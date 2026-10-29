@@ -1,0 +1,408 @@
+[
+  {
+    "slug": "jacaranda",
+    "nombre": "Jacaranda",
+    "etapas": [
+      "/sprites/jacaranda/etapa-0.svg",
+      "/sprites/jacaranda/etapa-1.svg",
+      "/sprites/jacaranda/etapa-2.svg",
+      "/sprites/jacaranda/etapa-3.svg",
+      "/sprites/jacaranda/etapa-4.svg",
+      "/sprites/jacaranda/etapa-5.svg",
+      "/sprites/jacaranda/etapa-6.svg"
+    ],
+    "hoja": "/sprites/jacaranda/hoja.svg"
+  },
+  {
+    "slug": "primavera",
+    "nombre": "Primavera",
+    "etapas": [
+      "/sprites/primavera/etapa-0.svg",
+      "/sprites/primavera/etapa-1.svg",
+      "/sprites/primavera/etapa-2.svg",
+      "/sprites/primavera/etapa-3.svg",
+      "/sprites/primavera/etapa-4.svg",
+      "/sprites/primavera/etapa-5.svg",
+      "/sprites/primavera/etapa-6.svg"
+    ],
+    "hoja": "/sprites/primavera/hoja.svg"
+  },
+  {
+    "slug": "rosa-morada",
+    "nombre": "Rosa morada",
+    "etapas": [
+      "/sprites/rosa-morada/etapa-0.svg",
+      "/sprites/rosa-morada/etapa-1.svg",
+      "/sprites/rosa-morada/etapa-2.svg",
+      "/sprites/rosa-morada/etapa-3.svg",
+      "/sprites/rosa-morada/etapa-4.svg",
+      "/sprites/rosa-morada/etapa-5.svg",
+      "/sprites/rosa-morada/etapa-6.svg"
+    ],
+    "hoja": "/sprites/rosa-morada/hoja.svg"
+  },
+  {
+    "slug": "tabachin",
+    "nombre": "Tabachín",
+    "etapas": [
+      "/sprites/tabachin/etapa-0.svg",
+      "/sprites/tabachin/etapa-1.svg",
+      "/sprites/tabachin/etapa-2.svg",
+      "/sprites/tabachin/etapa-3.svg",
+      "/sprites/tabachin/etapa-4.svg",
+      "/sprites/tabachin/etapa-5.svg",
+      "/sprites/tabachin/etapa-6.svg"
+    ],
+    "hoja": "/sprites/tabachin/hoja.svg"
+  },
+  {
+    "slug": "fresno",
+    "nombre": "Fresno",
+    "etapas": [
+      "/sprites/fresno/etapa-0.svg",
+      "/sprites/fresno/etapa-1.svg",
+      "/sprites/fresno/etapa-2.svg",
+      "/sprites/fresno/etapa-3.svg",
+      "/sprites/fresno/etapa-4.svg",
+      "/sprites/fresno/etapa-5.svg",
+      "/sprites/fresno/etapa-6.svg"
+    ],
+    "hoja": "/sprites/fresno/hoja.svg"
+  },
+  {
+    "slug": "ficus-benjamina",
+    "nombre": "Ficus",
+    "etapas": [
+      "/sprites/ficus-benjamina/etapa-0.svg",
+      "/sprites/ficus-benjamina/etapa-1.svg",
+      "/sprites/ficus-benjamina/etapa-2.svg",
+      "/sprites/ficus-benjamina/etapa-3.svg",
+      "/sprites/ficus-benjamina/etapa-4.svg",
+      "/sprites/ficus-benjamina/etapa-5.svg",
+      "/sprites/ficus-benjamina/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ficus-benjamina/hoja.svg"
+  },
+  {
+    "slug": "laurel-de-la-india",
+    "nombre": "Laurel de la India",
+    "etapas": [
+      "/sprites/laurel-de-la-india/etapa-0.svg",
+      "/sprites/laurel-de-la-india/etapa-1.svg",
+      "/sprites/laurel-de-la-india/etapa-2.svg",
+      "/sprites/laurel-de-la-india/etapa-3.svg",
+      "/sprites/laurel-de-la-india/etapa-4.svg",
+      "/sprites/laurel-de-la-india/etapa-5.svg",
+      "/sprites/laurel-de-la-india/etapa-6.svg"
+    ],
+    "hoja": "/sprites/laurel-de-la-india/hoja.svg"
+  },
+  {
+    "slug": "eucalipto",
+    "nombre": "Eucalipto",
+    "etapas": [
+      "/sprites/eucalipto/etapa-0.svg",
+      "/sprites/eucalipto/etapa-1.svg",
+      "/sprites/eucalipto/etapa-2.svg",
+      "/sprites/eucalipto/etapa-3.svg",
+      "/sprites/eucalipto/etapa-4.svg",
+      "/sprites/eucalipto/etapa-5.svg",
+      "/sprites/eucalipto/etapa-6.svg"
+    ],
+    "hoja": "/sprites/eucalipto/hoja.svg"
+  },
+  {
+    "slug": "casuarina",
+    "nombre": "Casuarina",
+    "etapas": [
+      "/sprites/casuarina/etapa-0.svg",
+      "/sprites/casuarina/etapa-1.svg",
+      "/sprites/casuarina/etapa-2.svg",
+      "/sprites/casuarina/etapa-3.svg",
+      "/sprites/casuarina/etapa-4.svg",
+      "/sprites/casuarina/etapa-5.svg",
+      "/sprites/casuarina/etapa-6.svg"
+    ],
+    "hoja": "/sprites/casuarina/hoja.svg"
+  },
+  {
+    "slug": "cedro-blanco",
+    "nombre": "Cedro blanco",
+    "etapas": [
+      "/sprites/cedro-blanco/etapa-0.svg",
+      "/sprites/cedro-blanco/etapa-1.svg",
+      "/sprites/cedro-blanco/etapa-2.svg",
+      "/sprites/cedro-blanco/etapa-3.svg",
+      "/sprites/cedro-blanco/etapa-4.svg",
+      "/sprites/cedro-blanco/etapa-5.svg",
+      "/sprites/cedro-blanco/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cedro-blanco/hoja.svg"
+  },
+  {
+    "slug": "ahuehuete",
+    "nombre": "Ahuehuete",
+    "etapas": [
+      "/sprites/ahuehuete/etapa-0.svg",
+      "/sprites/ahuehuete/etapa-1.svg",
+      "/sprites/ahuehuete/etapa-2.svg",
+      "/sprites/ahuehuete/etapa-3.svg",
+      "/sprites/ahuehuete/etapa-4.svg",
+      "/sprites/ahuehuete/etapa-5.svg",
+      "/sprites/ahuehuete/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ahuehuete/hoja.svg"
+  },
+  {
+    "slug": "pirul",
+    "nombre": "Pirul",
+    "etapas": [
+      "/sprites/pirul/etapa-0.svg",
+      "/sprites/pirul/etapa-1.svg",
+      "/sprites/pirul/etapa-2.svg",
+      "/sprites/pirul/etapa-3.svg",
+      "/sprites/pirul/etapa-4.svg",
+      "/sprites/pirul/etapa-5.svg",
+      "/sprites/pirul/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pirul/hoja.svg"
+  },
+  {
+    "slug": "mezquite",
+    "nombre": "Mezquite",
+    "etapas": [
+      "/sprites/mezquite/etapa-0.svg",
+      "/sprites/mezquite/etapa-1.svg",
+      "/sprites/mezquite/etapa-2.svg",
+      "/sprites/mezquite/etapa-3.svg",
+      "/sprites/mezquite/etapa-4.svg",
+      "/sprites/mezquite/etapa-5.svg",
+      "/sprites/mezquite/etapa-6.svg"
+    ],
+    "hoja": "/sprites/mezquite/hoja.svg"
+  },
+  {
+    "slug": "huizache",
+    "nombre": "Huizache",
+    "etapas": [
+      "/sprites/huizache/etapa-0.svg",
+      "/sprites/huizache/etapa-1.svg",
+      "/sprites/huizache/etapa-2.svg",
+      "/sprites/huizache/etapa-3.svg",
+      "/sprites/huizache/etapa-4.svg",
+      "/sprites/huizache/etapa-5.svg",
+      "/sprites/huizache/etapa-6.svg"
+    ],
+    "hoja": "/sprites/huizache/hoja.svg"
+  },
+  {
+    "slug": "colorin",
+    "nombre": "Colorín",
+    "etapas": [
+      "/sprites/colorin/etapa-0.svg",
+      "/sprites/colorin/etapa-1.svg",
+      "/sprites/colorin/etapa-2.svg",
+      "/sprites/colorin/etapa-3.svg",
+      "/sprites/colorin/etapa-4.svg",
+      "/sprites/colorin/etapa-5.svg",
+      "/sprites/colorin/etapa-6.svg"
+    ],
+    "hoja": "/sprites/colorin/hoja.svg"
+  },
+  {
+    "slug": "tulipan-africano",
+    "nombre": "Tulipán africano",
+    "etapas": [
+      "/sprites/tulipan-africano/etapa-0.svg",
+      "/sprites/tulipan-africano/etapa-1.svg",
+      "/sprites/tulipan-africano/etapa-2.svg",
+      "/sprites/tulipan-africano/etapa-3.svg",
+      "/sprites/tulipan-africano/etapa-4.svg",
+      "/sprites/tulipan-africano/etapa-5.svg",
+      "/sprites/tulipan-africano/etapa-6.svg"
+    ],
+    "hoja": "/sprites/tulipan-africano/hoja.svg"
+  },
+  {
+    "slug": "grevilea",
+    "nombre": "Grevilea",
+    "etapas": [
+      "/sprites/grevilea/etapa-0.svg",
+      "/sprites/grevilea/etapa-1.svg",
+      "/sprites/grevilea/etapa-2.svg",
+      "/sprites/grevilea/etapa-3.svg",
+      "/sprites/grevilea/etapa-4.svg",
+      "/sprites/grevilea/etapa-5.svg",
+      "/sprites/grevilea/etapa-6.svg"
+    ],
+    "hoja": "/sprites/grevilea/hoja.svg"
+  },
+  {
+    "slug": "palma-washingtonia",
+    "nombre": "Palma washingtonia",
+    "etapas": [
+      "/sprites/palma-washingtonia/etapa-0.svg",
+      "/sprites/palma-washingtonia/etapa-1.svg",
+      "/sprites/palma-washingtonia/etapa-2.svg",
+      "/sprites/palma-washingtonia/etapa-3.svg",
+      "/sprites/palma-washingtonia/etapa-4.svg",
+      "/sprites/palma-washingtonia/etapa-5.svg",
+      "/sprites/palma-washingtonia/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palma-washingtonia/hoja.svg"
+  },
+  {
+    "slug": "guamuchil",
+    "nombre": "Guamúchil",
+    "etapas": [
+      "/sprites/guamuchil/etapa-0.svg",
+      "/sprites/guamuchil/etapa-1.svg",
+      "/sprites/guamuchil/etapa-2.svg",
+      "/sprites/guamuchil/etapa-3.svg",
+      "/sprites/guamuchil/etapa-4.svg",
+      "/sprites/guamuchil/etapa-5.svg",
+      "/sprites/guamuchil/etapa-6.svg"
+    ],
+    "hoja": "/sprites/guamuchil/hoja.svg"
+  },
+  {
+    "slug": "parota",
+    "nombre": "Parota",
+    "etapas": [
+      "/sprites/parota/etapa-0.svg",
+      "/sprites/parota/etapa-1.svg",
+      "/sprites/parota/etapa-2.svg",
+      "/sprites/parota/etapa-3.svg",
+      "/sprites/parota/etapa-4.svg",
+      "/sprites/parota/etapa-5.svg",
+      "/sprites/parota/etapa-6.svg"
+    ],
+    "hoja": "/sprites/parota/hoja.svg"
+  },
+  {
+    "slug": "pochote",
+    "nombre": "Pochote",
+    "etapas": [
+      "/sprites/pochote/etapa-0.svg",
+      "/sprites/pochote/etapa-1.svg",
+      "/sprites/pochote/etapa-2.svg",
+      "/sprites/pochote/etapa-3.svg",
+      "/sprites/pochote/etapa-4.svg",
+      "/sprites/pochote/etapa-5.svg",
+      "/sprites/pochote/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pochote/hoja.svg"
+  },
+  {
+    "slug": "trueno",
+    "nombre": "Trueno",
+    "etapas": [
+      "/sprites/trueno/etapa-0.svg",
+      "/sprites/trueno/etapa-1.svg",
+      "/sprites/trueno/etapa-2.svg",
+      "/sprites/trueno/etapa-3.svg",
+      "/sprites/trueno/etapa-4.svg",
+      "/sprites/trueno/etapa-5.svg",
+      "/sprites/trueno/etapa-6.svg"
+    ],
+    "hoja": "/sprites/trueno/hoja.svg"
+  },
+  {
+    "slug": "sauce-lloron",
+    "nombre": "Sauce llorón",
+    "etapas": [
+      "/sprites/sauce-lloron/etapa-0.svg",
+      "/sprites/sauce-lloron/etapa-1.svg",
+      "/sprites/sauce-lloron/etapa-2.svg",
+      "/sprites/sauce-lloron/etapa-3.svg",
+      "/sprites/sauce-lloron/etapa-4.svg",
+      "/sprites/sauce-lloron/etapa-5.svg",
+      "/sprites/sauce-lloron/etapa-6.svg"
+    ],
+    "hoja": "/sprites/sauce-lloron/hoja.svg"
+  },
+  {
+    "slug": "mango",
+    "nombre": "Mango",
+    "etapas": [
+      "/sprites/mango/etapa-0.svg",
+      "/sprites/mango/etapa-1.svg",
+      "/sprites/mango/etapa-2.svg",
+      "/sprites/mango/etapa-3.svg",
+      "/sprites/mango/etapa-4.svg",
+      "/sprites/mango/etapa-5.svg",
+      "/sprites/mango/etapa-6.svg"
+    ],
+    "hoja": "/sprites/mango/hoja.svg"
+  },
+  {
+    "slug": "guayabo",
+    "nombre": "Guayabo",
+    "etapas": [
+      "/sprites/guayabo/etapa-0.svg",
+      "/sprites/guayabo/etapa-1.svg",
+      "/sprites/guayabo/etapa-2.svg",
+      "/sprites/guayabo/etapa-3.svg",
+      "/sprites/guayabo/etapa-4.svg",
+      "/sprites/guayabo/etapa-5.svg",
+      "/sprites/guayabo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/guayabo/hoja.svg"
+  },
+  {
+    "slug": "pata-de-vaca",
+    "nombre": "Pata de vaca",
+    "etapas": [
+      "/sprites/pata-de-vaca/etapa-0.svg",
+      "/sprites/pata-de-vaca/etapa-1.svg",
+      "/sprites/pata-de-vaca/etapa-2.svg",
+      "/sprites/pata-de-vaca/etapa-3.svg",
+      "/sprites/pata-de-vaca/etapa-4.svg",
+      "/sprites/pata-de-vaca/etapa-5.svg",
+      "/sprites/pata-de-vaca/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pata-de-vaca/hoja.svg"
+  },
+  {
+    "slug": "olmo-chino",
+    "nombre": "Olmo chino",
+    "etapas": [
+      "/sprites/olmo-chino/etapa-0.svg",
+      "/sprites/olmo-chino/etapa-1.svg",
+      "/sprites/olmo-chino/etapa-2.svg",
+      "/sprites/olmo-chino/etapa-3.svg",
+      "/sprites/olmo-chino/etapa-4.svg",
+      "/sprites/olmo-chino/etapa-5.svg",
+      "/sprites/olmo-chino/etapa-6.svg"
+    ],
+    "hoja": "/sprites/olmo-chino/hoja.svg"
+  },
+  {
+    "slug": "crespon",
+    "nombre": "Crespón",
+    "etapas": [
+      "/sprites/crespon/etapa-0.svg",
+      "/sprites/crespon/etapa-1.svg",
+      "/sprites/crespon/etapa-2.svg",
+      "/sprites/crespon/etapa-3.svg",
+      "/sprites/crespon/etapa-4.svg",
+      "/sprites/crespon/etapa-5.svg",
+      "/sprites/crespon/etapa-6.svg"
+    ],
+    "hoja": "/sprites/crespon/hoja.svg"
+  },
+  {
+    "slug": "tronadora",
+    "nombre": "Tronadora",
+    "etapas": [
+      "/sprites/tronadora/etapa-0.svg",
+      "/sprites/tronadora/etapa-1.svg",
+      "/sprites/tronadora/etapa-2.svg",
+      "/sprites/tronadora/etapa-3.svg",
+      "/sprites/tronadora/etapa-4.svg",
+      "/sprites/tronadora/etapa-5.svg",
+      "/sprites/tronadora/etapa-6.svg"
+    ],
+    "hoja": "/sprites/tronadora/hoja.svg"
+  }
+]

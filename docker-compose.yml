@@ -1,0 +1,76 @@
+# Producción en la máquina de Oracle:  docker compose up -d --build
+# Desarrollo local (solo la base):     docker compose up -d db
+name: bosque-cucei
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bosque
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bosque}
+      POSTGRES_DB: bosque
+      TZ: America/Mexico_City
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # Solo accesible desde la propia máquina (nunca expuesta a internet).
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bosque -d bosque"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrar:
+    build:
+      context: .
+      target: herramientas
+    environment:
+      DATABASE_URL: postgres://bosque:${POSTGRES_PASSWORD:-bosque}@db:5432/bosque
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+    profiles: ["app"]
+
+  app:
+    build:
+      context: .
+      target: app
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://bosque:${POSTGRES_PASSWORD:-bosque}@db:5432/bosque
+      URL_SITIO: https://${DOMINIO:-localhost}
+    volumes:
+      - fotos:/datos/fotos
+    depends_on:
+      db:
+        condition: service_healthy
+      migrar:
+        condition: service_completed_successfully
+    profiles: ["app"]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      DOMINIO: ${DOMINIO:-localhost}
+      CORREO_ACME: ${CORREO_ACME:-}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_datos:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+    profiles: ["app"]
+
+volumes:
+  pgdata:
+  fotos:
+  caddy_datos:
+  caddy_config:
