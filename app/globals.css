@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/*
+ * Bosque CUCEI · sistema visual «cuaderno de campo».
+ * Papel cálido, tinta verde profundo y acentos tomados de las flores del campus
+ * (jacaranda, primavera, tabachín). Los colores del semáforo solo se usan para estado.
+ */
+
+@theme {
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-papel: #f6f1e7;
+  --color-papel-2: #eee6d6;
+  --color-tarjeta: #fffcf6;
+  --color-linea: #e2d8c6;
+  --color-tinta: #1e2b22;
+  --color-tinta-suave: #56685b;
+  --color-musgo: #2d5a3d;
+  --color-musgo-oscuro: #1d3f2b;
+  --color-musgo-claro: #dfead8;
+  --color-brote: #b5d334;
+  --color-agua: #3b9ae1;
+  --color-agua-claro: #dcedfa;
+  --color-jacaranda: #8e6cc4;
+  --color-primavera: #edbb1f;
+  --color-tabachin: #e4572e;
+  --color-tierra: #8b6a4e;
+
+  --color-estado-normal: #3f8f4f;
+  --color-estado-pendiente: #c9930f;
+  --color-estado-problema: #e07b39;
+  --color-estado-revision: #d64545;
+  --color-estado-sin-datos: #8e978f;
+
+  --shadow-tarjeta: 0 1px 0 rgb(30 43 34 / 0.04), 0 8px 24px -12px rgb(30 43 34 / 0.18);
+  --shadow-flotante: 0 18px 40px -16px rgb(29 63 43 / 0.45);
+
+  --ease-resorte: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-aparecer: aparecer 0.5s var(--ease-suave) both;
+  --animate-pop: pop 0.45s var(--ease-resorte) both;
+  --animate-flotar: flotar 3.2s ease-in-out infinite;
+  --animate-latido: latido 2.2s var(--ease-suave) infinite;
+  --animate-sello: sello 0.5s var(--ease-resorte) both;
+
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+  @keyframes pop {
+    0% {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  }
+  @keyframes flotar {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  @keyframes latido {
+    0% {
+      box-shadow: 0 0 0 0 rgb(181 211 52 / 0.65);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 16px rgb(181 211 52 / 0);
+    }
+  }
+  @keyframes sello {
+    0% {
+      opacity: 0;
+      transform: scale(1.8) rotate(-14deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(-6deg);
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  /* Grano de papel muy sutil. */
+  background-image: radial-gradient(rgb(139 106 78 / 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Títulos en Fraunces con el eje SOFT al máximo: más orgánico. */
+.font-display {
+  font-variation-settings: "SOFT" 100;
+}
+
+::selection {
+  background: var(--color-brote);
+  color: var(--color-tinta);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-agua);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Entradas escalonadas: style={{ "--i": n }} */
+.escalonado > * {
+  animation: aparecer 0.55s var(--ease-suave) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* ───────── Sprites de árboles ───────── */
+.sprite svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.sprite-vivo .sp-arbol {
+  animation: mecer 5.5s ease-in-out infinite;
+  animation-delay: var(--retraso, 0s);
+}
+.sprite-vivo .sp-copa {
+  animation: mecer-copa 4.2s ease-in-out infinite;
+  animation-delay: var(--retraso, 0s);
+}
+.sp-brillo {
+  animation: titilar 2.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes mecer {
+  0%,
+  100% {
+    transform: rotate(-0.8deg);
+  }
+  50% {
+    transform: rotate(0.8deg);
+  }
+}
+@keyframes mecer-copa {
+  0%,
+  100% {
+    transform: rotate(-1.4deg) translateX(-0.5px);
+  }
+  50% {
+    transform: rotate(1.4deg) translateX(0.5px);
+  }
+}
+@keyframes titilar {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ───────── Decoración ───────── */
+.hoja-cayendo {
+  position: absolute;
+  top: -24px;
+  animation: caer var(--duracion, 9s) linear infinite;
+  animation-delay: var(--retraso, 0s);
+  pointer-events: none;
+}
+@keyframes caer {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--deriva, 40px), 110vh, 0) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+.nube {
+  animation: deriva var(--duracion, 60s) linear infinite;
+}
+@keyframes deriva {
+  from {
+    transform: translateX(-30%);
+  }
+  to {
+    transform: translateX(130%);
+  }
+}
+
+.gota-cayendo {
+  animation: gota 0.9s ease-in infinite;
+  animation-delay: var(--retraso, 0s);
+}
+@keyframes gota {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--caida, 90px)) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.brillo-barra {
+  background-image: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.55) 50%, transparent 70%);
+  background-size: 220% 100%;
+  animation: brillo-barra 2.6s ease-in-out infinite;
+}
+@keyframes brillo-barra {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -120% 0;
+  }
+}
+
+.linea-escaneo {
+  animation: escaneo 2.2s ease-in-out infinite;
+}
+@keyframes escaneo {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--recorrido, 220px));
+  }
+}
+
+.anillo-progreso {
+  transition: stroke-dashoffset 1.2s var(--ease-suave);
+}
+
+/* Papel rayado para el cuaderno */
+.rayado {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 27px,
+    rgb(59 154 225 / 0.12) 27px,
+    rgb(59 154 225 / 0.12) 28px
+  );
+}
+
+/* Leaflet: marcadores y tarjetas con nuestro estilo */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--color-papel-2);
+}
+.marcador-arbol {
+  transition: transform 0.2s var(--ease-resorte);
+}
+.marcador-arbol:hover {
+  transform: scale(1.15);
+  z-index: 1000 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hoja-cayendo,
+  .gota-cayendo {
+    display: none;
+  }
+}
