@@ -10,17 +10,14 @@ export function Contador({ valor, duracion = 1100, className = "" }: { valor: nu
   useEffect(() => {
     const elemento = ref.current;
     if (!elemento) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setMostrado(valor);
-      return;
-    }
+    const total = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : duracion;
     let cuadro = 0;
     const observador = new IntersectionObserver(([entrada]) => {
       if (!entrada.isIntersecting) return;
       observador.disconnect();
       const inicio = performance.now();
       const paso = (ahora: number) => {
-        const t = Math.min(1, (ahora - inicio) / duracion);
+        const t = Math.min(1, (ahora - inicio) / total);
         setMostrado(Math.round(valor * (1 - Math.pow(1 - t, 3))));
         if (t < 1) cuadro = requestAnimationFrame(paso);
       };
@@ -35,7 +32,8 @@ export function Contador({ valor, duracion = 1100, className = "" }: { valor: nu
 
   return (
     <span ref={ref} className={`tabular-nums ${className}`}>
-      {mostrado.toLocaleString("es-MX")}
+      <span aria-hidden="true">{mostrado.toLocaleString("es-MX")}</span>
+      <span className="sr-only">{valor.toLocaleString("es-MX")}</span>
     </span>
   );
 }

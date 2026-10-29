@@ -9,7 +9,7 @@ import { usuarioActual, type Usuario } from "@/lib/auth";
 import { guardianesDeLaSemana, herbario, jardinDe, resumenCampus } from "@/lib/consultas/publico";
 import { etapaPorVisitas } from "@/lib/juego/crecimiento";
 import { progresoNivel } from "@/lib/juego/niveles";
-import { claveSemana, estadoRiego, inicioProximaSemana, semanaAnterior } from "@/lib/juego/semana";
+import { claveSemana, diasHasta, estadoRiego, inicioProximaSemana, semanaAnterior } from "@/lib/juego/semana";
 import { progresoMisiones } from "@/lib/servicios/misiones";
 
 export default async function Inicio({ searchParams }: { searchParams: Promise<{ aviso?: string }> }) {
@@ -94,7 +94,7 @@ async function InicioVisitante() {
         <h2 id="como-funciona" className="font-display text-2xl font-bold sm:text-3xl">
           Así funciona
         </h2>
-        <ol className="mt-5 grid gap-3 sm:grid-cols-3 sm:gap-4 escalonado">
+        <ol className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 escalonado">
           {[
             { icono: "qr" as const, titulo: "Escanea la placa", texto: "Cada árbol tiene un código QR. Ábrelo con tu cámara o desde aquí." },
             { icono: "ojo" as const, titulo: "Cuenta cómo lo ves", texto: "Tres toques y listo: menos de 30 segundos. No necesitas saber de árboles." },
@@ -154,7 +154,7 @@ function ReglaDeOro() {
   return (
     <section className="relative overflow-hidden rounded-[28px] bg-musgo-oscuro p-6 text-papel sm:p-8">
       <div className="absolute -right-10 -bottom-16 size-56 rounded-full bg-musgo opacity-60" aria-hidden="true" />
-      <div className="relative grid items-center gap-6 md:grid-cols-[1.3fr_1fr]">
+      <div className="relative grid grid-cols-1 items-center gap-6 md:grid-cols-[1.3fr_1fr]">
         <div>
           <p className="text-xs font-bold tracking-widest text-brote uppercase">La regla del jardín</p>
           <h2 className="font-display mt-2 text-2xl leading-tight font-bold sm:text-3xl">Un riego por árbol, cada semana.</h2>
@@ -231,14 +231,14 @@ async function InicioPersona({ usuario }: { usuario: Usuario }) {
   const pendientes = jardin
     .filter((a) => a.ultima_semana !== semana)
     .sort((a, b) => (a.guardian === b.guardian ? (a.ultima_semana ?? "").localeCompare(b.ultima_semana ?? "") : a.guardian ? -1 : 1));
-  const dias = Math.max(1, Math.ceil((inicioProximaSemana().getTime() - Date.now()) / 86_400_000));
+  const dias = diasHasta(inicioProximaSemana(), 1);
   const descubiertas = especies.filter((e) => e.descubierta).length;
   const rachaActiva =
     usuario.ultima_semana_activa === semana || usuario.ultima_semana_activa === semanaAnterior(semana) ? usuario.racha_semanas : 0;
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      <section className="grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_1fr]">
         <div className="animate-aparecer flex items-center gap-4 rounded-[28px] border border-linea bg-tarjeta p-5 shadow-tarjeta sm:gap-6 sm:p-6">
           <div className="sm:hidden">
             <AnillosNivel xp={usuario.xp} tamano={88} />
@@ -328,7 +328,7 @@ async function InicioPersona({ usuario }: { usuario: Usuario }) {
         </section>
       )}
 
-      <section className="grid gap-4 md:grid-cols-2">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="rounded-[28px] border border-linea bg-tarjeta p-5 shadow-tarjeta sm:p-6">
           <div className="flex items-end justify-between">
             <h2 className="font-display text-xl font-bold sm:text-2xl">Misiones</h2>

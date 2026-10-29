@@ -13,7 +13,7 @@ export function ChipEstado({ estado, compacto = false }: { estado: string; compa
         )}
         <span className="relative inline-flex size-2 rounded-full" style={{ backgroundColor: info.color }} />
       </span>
-      {compacto ? info.etiqueta.split(" ")[0] : info.etiqueta}
+      {compacto ? info.corta : info.etiqueta}
     </span>
   );
 }

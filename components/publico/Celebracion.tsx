@@ -7,6 +7,7 @@ import { ArbolSprite } from "@/components/ArbolSprite";
 import { Icono } from "@/components/Icono";
 import { nombreEtapa } from "@/lib/juego/crecimiento";
 import { tituloNivel } from "@/lib/juego/niveles";
+import { diasHasta } from "@/lib/juego/semana";
 import type { ResultadoObservacion } from "@/lib/servicios/observar";
 import type { ArbolParaObservar } from "./FormularioObservacion";
 
@@ -48,7 +49,7 @@ export function Celebracion({ resultado, arbol }: { resultado: ResultadoObservac
 
   if (!resultado.cuenta) {
     const lunes = new Date(resultado.proximaSemana);
-    const dias = Math.max(1, Math.ceil((lunes.getTime() - Date.now()) / 86_400_000));
+    const dias = diasHasta(lunes, 1);
     return (
       <div className="mx-auto max-w-md pt-4 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative mx-auto w-48">

@@ -22,6 +22,8 @@ export interface ArbolDelJardin {
 }
 
 const TILE = 100;
+/** Altura de la burbuja de riego según la etapa: los árboles chicos la llevan más abajo. */
+const ALTURA_BURBUJA = ["68%", "64%", "56%", "46%", "32%", "22%", "16%"];
 const MARGEN_SUPERIOR = 120;
 
 /** Casillas ordenadas del centro hacia afuera: el jardín crece desde el centro. */
@@ -124,7 +126,8 @@ export function Jardin({ arboles }: { arboles: ArbolDelJardin[] }) {
                 className={`aspect-[5/6] w-full transition ${a.riego === "sediento" ? "saturate-[.4] sepia-[.25]" : ""}`}
               />
               <span
-                className={`absolute top-[18%] right-[6%] grid size-[22%] min-h-5 min-w-5 place-items-center rounded-full border-2 border-tarjeta shadow-tarjeta ${
+                style={{ top: ALTURA_BURBUJA[etapa] }}
+                className={`absolute right-[10%] grid size-[20%] max-h-7 min-h-5 max-w-7 min-w-5 place-items-center rounded-full border-2 border-tarjeta shadow-tarjeta ${
                   a.riego === "regado" ? "bg-agua text-white" : a.riego === "sediento" ? "animate-flotar bg-tabachin text-white" : "animate-flotar bg-tarjeta text-agua"
                 }`}
               >

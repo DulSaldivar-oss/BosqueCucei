@@ -1,4 +1,5 @@
 import { Icono, type NombreIcono } from "@/components/Icono";
+import { diasHasta } from "@/lib/juego/semana";
 import type { ProgresoMision } from "@/lib/servicios/misiones";
 
 const ICONOS: Record<string, NombreIcono> = {
@@ -17,7 +18,7 @@ export function TarjetaMision({ progreso, compacta = false }: { progreso: Progre
   const { mision, completada } = progreso;
   const porcentaje = Math.round((progreso.progreso / mision.meta) * 100);
   const color = COLORES[mision.id % COLORES.length];
-  const dias = Math.max(0, Math.ceil((progreso.cierra.getTime() - Date.now()) / 86_400_000));
+  const dias = diasHasta(progreso.cierra);
   return (
     <article
       className={`relative overflow-hidden rounded-3xl border border-linea bg-tarjeta ${compacta ? "p-3.5" : "p-4 shadow-tarjeta sm:p-5"} ${completada ? "opacity-90" : ""}`}

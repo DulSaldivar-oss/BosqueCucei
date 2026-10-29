@@ -84,7 +84,7 @@ export function FormularioRegistro({ siguiente }: { siguiente: string }) {
     <form action={accion} className="space-y-4">
       <input type="hidden" name="siguiente" value={siguiente} />
       <Error estado={estado} />
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Campo etiqueta="Nombre">
           <input name="nombre" required autoComplete="name" defaultValue={c.nombre} className={estiloEntrada} />
         </Campo>

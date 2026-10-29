@@ -35,11 +35,11 @@ export function etiquetaEstadoReporte(valor: string): string {
 }
 
 export const ESTADOS_ARBOL = {
-  normal: { etiqueta: "Normal", color: "#3F8F4F", fondo: "#E3F1E2" },
-  pendiente: { etiqueta: "Observación pendiente", color: "#C9930F", fondo: "#FBF0CF" },
-  posible_problema: { etiqueta: "Posible problema", color: "#E07B39", fondo: "#FCE6D6" },
-  revision_requerida: { etiqueta: "Revisión requerida", color: "#D64545", fondo: "#F9DCDC" },
-  sin_datos: { etiqueta: "Sin datos recientes", color: "#8E978F", fondo: "#ECEDE8" },
+  normal: { etiqueta: "Normal", corta: "Normal", color: "#3F8F4F", fondo: "#E3F1E2" },
+  pendiente: { etiqueta: "Observación pendiente", corta: "Pendiente", color: "#C9930F", fondo: "#FBF0CF" },
+  posible_problema: { etiqueta: "Posible problema", corta: "Problema", color: "#E07B39", fondo: "#FCE6D6" },
+  revision_requerida: { etiqueta: "Revisión requerida", corta: "Revisión", color: "#D64545", fondo: "#F9DCDC" },
+  sin_datos: { etiqueta: "Sin datos recientes", corta: "Sin datos", color: "#8E978F", fondo: "#ECEDE8" },
 } as const;
 
 export type EstadoArbol = keyof typeof ESTADOS_ARBOL;

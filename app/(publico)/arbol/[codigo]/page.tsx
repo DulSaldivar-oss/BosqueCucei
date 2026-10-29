@@ -21,7 +21,7 @@ import {
 import { urlFoto } from "@/lib/fotos";
 import { ESTADOS_ARBOL, RAREZAS, etiquetaCategoria, etiquetaEstadoReporte, ESTADOS_REPORTE, type EstadoArbol } from "@/lib/juego/catalogos";
 import { etapaPorVisitas, nombreEtapa, siguienteEtapa } from "@/lib/juego/crecimiento";
-import { claveSemana, estadoRiego, inicioProximaSemana } from "@/lib/juego/semana";
+import { claveSemana, diasHasta, estadoRiego, inicioProximaSemana } from "@/lib/juego/semana";
 
 type Props = { params: Promise<{ codigo: string }> };
 
@@ -63,7 +63,7 @@ export default async function FichaArbol({ params }: Props) {
         <Icono nombre="flechaIzq" className="size-4" /> Mapa
       </Link>
 
-      <article className="grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-8">
+      <article className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-8">
         {/* Lámina del ejemplar */}
         <div className="animate-aparecer relative">
           <div className="relative overflow-hidden rounded-[28px] border-8 border-tarjeta bg-gradient-to-b from-[#d6e7ee] via-[#eaf0dd] to-[#efe5cf] shadow-tarjeta">
@@ -139,7 +139,7 @@ export default async function FichaArbol({ params }: Props) {
             id: "info",
             etiqueta: "Información",
             contenido: (
-              <div className="grid gap-4 lg:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <div className="space-y-4 rounded-3xl border border-linea bg-tarjeta p-5 shadow-tarjeta">
                   <p className="leading-relaxed text-pretty">{e.descripcion}</p>
                   {arbol.notas_publicas && <p className="rounded-2xl bg-papel-2/70 p-3 text-sm">{arbol.notas_publicas}</p>}
@@ -266,7 +266,7 @@ function TuArbol({ arbol, relacion, conSesion }: { arbol: Arbol; relacion: Relac
   const etapa = etapaPorVisitas(relacion.numero_visitas);
   const siguiente = siguienteEtapa(relacion.numero_visitas);
   const riego = estadoRiego(relacion.ultima_semana, semana);
-  const dias = Math.max(1, Math.ceil((inicioProximaSemana().getTime() - Date.now()) / 86_400_000));
+  const dias = diasHasta(inicioProximaSemana(), 1);
   return (
     <div className="flex items-center gap-4 rounded-3xl border border-linea bg-tarjeta p-4 shadow-tarjeta">
       <div className="relative w-20 shrink-0">
@@ -309,7 +309,7 @@ function Salud({
     sin_datos: "Hace tiempo que nadie lo observa. ¡Tu visita es muy valiosa!",
   };
   return (
-    <div className="grid gap-4 lg:grid-cols-[1fr_1.2fr]">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_1.2fr]">
       <div className="space-y-4">
         <div className="rounded-3xl p-5" style={{ backgroundColor: info.fondo }}>
           <p className="text-xs font-black tracking-widest uppercase" style={{ color: info.color }}>

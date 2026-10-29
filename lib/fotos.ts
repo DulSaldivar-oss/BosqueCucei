@@ -6,7 +6,8 @@ export const TAMANO_MAXIMO_FOTO = 5 * 1024 * 1024;
 const NOMBRE_VALIDO = /^[0-9a-f-]{36}\.(jpg|png|webp)$/;
 
 export function carpetaFotos() {
-  return path.resolve(process.env.CARPETA_FOTOS ?? "./.datos/fotos");
+  // La carpeta se decide al ejecutar (volumen de Docker); no debe rastrearse al compilar.
+  return path.resolve(/*turbopackIgnore: true*/ process.env.CARPETA_FOTOS ?? "./.datos/fotos");
 }
 
 function extension(bytes: Uint8Array): "jpg" | "png" | "webp" | null {
@@ -29,14 +30,14 @@ export async function guardarFoto(archivo: File): Promise<string> {
   if (!ext) throw new Error("La foto debe ser JPG, PNG o WebP.");
   const nombre = `${randomUUID()}.${ext}`;
   await mkdir(carpetaFotos(), { recursive: true });
-  await writeFile(path.join(carpetaFotos(), nombre), bytes);
+  await writeFile(path.join(/*turbopackIgnore: true*/ carpetaFotos(), nombre), bytes);
   return nombre;
 }
 
 export async function leerFoto(nombre: string) {
   if (!NOMBRE_VALIDO.test(nombre)) return null;
   try {
-    const datos = await readFile(path.join(carpetaFotos(), nombre));
+    const datos = await readFile(path.join(/*turbopackIgnore: true*/ carpetaFotos(), nombre));
     const tipo = nombre.endsWith(".png") ? "image/png" : nombre.endsWith(".webp") ? "image/webp" : "image/jpeg";
     return { datos, tipo };
   } catch {
@@ -45,7 +46,7 @@ export async function leerFoto(nombre: string) {
 }
 
 export async function borrarFoto(nombre: string) {
-  if (NOMBRE_VALIDO.test(nombre)) await unlink(path.join(carpetaFotos(), nombre)).catch(() => {});
+  if (NOMBRE_VALIDO.test(nombre)) await unlink(path.join(/*turbopackIgnore: true*/ carpetaFotos(), nombre)).catch(() => {});
 }
 
 export const urlFoto = (nombre: string | null) => (nombre ? `/fotos/${nombre}` : null);

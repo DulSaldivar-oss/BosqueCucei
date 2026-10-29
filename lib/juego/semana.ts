@@ -102,6 +102,11 @@ export function inicioProximaSemana(instante: Date = new Date()): Date {
   return medianocheLocal(lunes.getUTCFullYear(), lunes.getUTCMonth() + 1, lunes.getUTCDate());
 }
 
+/** Días completos (redondeados hacia arriba) que faltan para una fecha. */
+export function diasHasta(fecha: Date, minimo = 0): number {
+  return Math.max(minimo, Math.ceil((fecha.getTime() - Date.now()) / 86_400_000));
+}
+
 /** Medianoche local de una fecha «AAAA-MM-DD». */
 export function inicioDeDia(texto: string): Date {
   const [anio, mes, dia] = texto.split("-").map(Number);

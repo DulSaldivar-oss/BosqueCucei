@@ -6,7 +6,7 @@ import type { GenomaSprite } from "@/lib/sprites/generar";
 export function PanelCuenta({ titulo, subtitulo, children }: { titulo: string; subtitulo: string; children: React.ReactNode }) {
   const jacaranda = especies.especies.find((e) => e.slug === "jacaranda")!.sprite as unknown as GenomaSprite;
   return (
-    <div className="mx-auto grid max-w-5xl items-center gap-6 md:grid-cols-[1fr_1.1fr] md:gap-10">
+    <div className="mx-auto grid grid-cols-1 max-w-5xl items-center gap-6 md:grid-cols-[1fr_1.1fr] md:gap-10">
       <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[32px] bg-gradient-to-b from-[#d9e8ee] to-[#efe6d2] md:block">
         <ArbolSprite genoma={jacaranda} etapa={6} semilla="entrar" vivo className="absolute inset-x-6 bottom-6" />
         <p className="font-display absolute inset-x-8 top-8 text-3xl leading-tight font-bold text-musgo-oscuro">
