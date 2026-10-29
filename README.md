@@ -34,11 +34,16 @@ Requisitos: Node 22 y PostgreSQL (o Docker para levantarlo).
 ```bash
 npm install
 cp .env.example .env.local          # ajusta DATABASE_URL si hace falta
-docker compose up -d db             # PostgreSQL en localhost:5432 (o usa uno propio)
+docker compose up -d db             # PostgreSQL en localhost:5432 (o usa uno propio, ver abajo)
 npm run db:migrar -- --demo         # esquema, especies, misiones y 71 árboles de demostración
 npm run db:demo                     # personas y 10 semanas de observaciones de ejemplo
 npm run dev                         # http://localhost:3000
 ```
+
+**¿«port 5432 already in use»?** Ya tienes otro PostgreSQL en ese puerto. Tienes dos caminos:
+
+- Publicar el de Docker en otro puerto: crea un archivo `.env` con `PUERTO_DB=5433`, corre `docker compose up -d db` y en `.env.local` usa `DATABASE_URL=postgres://bosque:bosque@localhost:5433/bosque`.
+- O usar tu PostgreSQL local: crea el usuario y la base (`CREATE USER bosque WITH PASSWORD 'bosque'; CREATE DATABASE bosque OWNER bosque;`) y no levantes el contenedor.
 
 Cuentas de demostración (contraseña `bosque123`):
 
