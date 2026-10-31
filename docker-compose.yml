@@ -14,8 +14,9 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     # Solo accesible desde la propia máquina (nunca expuesta a internet).
+    # Si el 5432 ya está ocupado (otro PostgreSQL), usa otro: PUERTO_DB=5433 en .env
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:${PUERTO_DB:-5432}:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U bosque -d bosque"]
       interval: 5s
