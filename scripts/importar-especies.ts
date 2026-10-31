@@ -40,7 +40,7 @@ interface Especie {
   otros_nombres: string[];
   nombre_cientifico: string;
   familia: string;
-  origen: string;
+  origen: string | null;
   distribucion: string | null;
   descripcion: string;
   dato_curioso: string | null;
@@ -272,7 +272,9 @@ for (const especie of objetivo) {
 
   const w = await wikipedia(especie.nombre_cientifico);
   if (w?.url) especie.wikipedia_url = w.url;
-  if (w?.extracto && (sobrescribir || especie.descripcion.startsWith("Pendiente"))) especie.descripcion = w.extracto;
+  // Las especies sin curar (las nuevas del inventario o «Pendiente de redactar») toman el resumen de Wikipedia.
+  const sinRedactar = especie.revisar || especie.descripcion.startsWith("Pendiente");
+  if (w?.extracto && (sobrescribir || sinRedactar)) especie.descripcion = w.extracto;
 
   if (!especie.foto_url || sobrescribir) {
     const foto = await inaturalist(especie.nombre_cientifico);
@@ -281,7 +283,8 @@ for (const especie of objetivo) {
       especie.foto_credito = foto.credito;
     }
   }
-  especie.fuente = "Catálogo curado Bosque CUCEI · GBIF · Wikipedia · iNaturalist";
+  const base = especie.fuente?.startsWith("Inventario") ? "Inventario de árboles de CUCEI" : "Catálogo curado Bosque CUCEI";
+  especie.fuente = `${base} · GBIF · Wikipedia · iNaturalist`;
   await pausa(400);
 }
 

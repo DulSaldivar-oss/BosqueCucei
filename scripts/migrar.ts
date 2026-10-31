@@ -1,12 +1,12 @@
 /**
  * Aplica el esquema y las semillas a PostgreSQL.
  *
- *   npm run db:migrar            migraciones pendientes + semillas que cambiaron
- *   npm run db:migrar -- --demo  además el inventario de demostración (03_arboles_demo.sql)
+ *   npm run db:migrar   migraciones pendientes + semillas que cambiaron
  *
  * db/migraciones/*.sql  se aplican una sola vez, en orden. No se editan una vez aplicadas:
  *                       los cambios van en un archivo nuevo (002_…sql).
- * db/semillas/*.sql     son idempotentes y se vuelven a correr cuando cambia su contenido.
+ * db/semillas/*.sql     son idempotentes y se vuelven a correr cuando cambia su contenido
+ *                       (03_arboles.sql es el inventario oficial: se actualiza con npm run inventario:importar).
  */
 import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
@@ -15,7 +15,6 @@ import pg from "pg";
 import { urlBaseDatos } from "./entorno";
 
 const raiz = path.resolve(import.meta.dirname, "..");
-const conDemo = process.argv.includes("--demo");
 const cliente = new pg.Client({ connectionString: urlBaseDatos() });
 
 async function archivosSql(carpeta: string) {
@@ -65,7 +64,6 @@ try {
 
   console.log("Semillas:");
   for (const s of await archivosSql("semillas")) {
-    if (s.nombre.includes("arboles_demo") && !conDemo) continue;
     if (aplicadas.get(s.nombre) !== s.suma) await aplicar(s.nombre, s.sql, s.suma);
   }
   console.log("Listo.");

@@ -45,6 +45,8 @@ const RUTAS = {
   mensaje: "M5 5h14v10H9l-4 4V5Z",
   calendario: "M5 6h14v14H5V6Zm0 4h14M9 4v4m6-4v4",
   brillo: "M12 3v4m0 10v4M3 12h4m10 0h4M6 6l2.5 2.5m7 7L18 18M6 18l2.5-2.5m7-7L18 6",
+  nube: "M7 18h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6 1.5A3.3 3.3 0 0 0 7 18Z",
+  ruta: "M6 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12-12a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM8 18h7.5a3 3 0 0 0 0-6h-7a3 3 0 0 1 0-6H16",
 } as const;
 
 export type NombreIcono = keyof typeof RUTAS;

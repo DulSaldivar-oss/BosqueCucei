@@ -10,7 +10,20 @@ import { guardarFoto } from "@/lib/fotos";
 import { leerCsv } from "@/lib/csv";
 import { nivelPorXp } from "@/lib/juego/niveles";
 import { diaLocal } from "@/lib/juego/semana";
+import {
+  agruparPorEspecie,
+  claveNombre,
+  especieDesdeInventario,
+  leerExcel,
+  leerFilas,
+  mapearColumnas,
+  normalizarCientifico,
+  type EspecieCatalogo,
+  type ResultadoLectura,
+} from "@/lib/inventario";
+import type { FilaInventario } from "@/lib/inventario-sql";
 import { reevaluarArbol } from "@/lib/servicios/alertas";
+import { sincronizarInventario } from "@/lib/servicios/inventario";
 
 export interface EstadoAccion {
   ok?: string;
@@ -124,11 +137,15 @@ const esquemaArbol = z.object({
   fecha_registro: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Fecha inválida."),
   altura_m: z.string().trim(),
   diametro_cm: z.string().trim(),
+  ancho_copa_m: z.string().trim().default(""),
+  circunferencia_cm: z.string().trim().default(""),
+  co2_kg: z.string().trim().default(""),
+  estado_fitosanitario: z.string().trim().max(80).default(""),
   notas_publicas: z.string().trim().max(1000),
   activo: z.string().optional(),
 });
 
-const numeroOpcional = (v: string) => (v === "" ? null : Number(v));
+const numeroOpcional = (v: string) => (v === "" ? null : Number(v.replace(",", ".")));
 
 export async function guardarArbol(_: EstadoAccion, datos: FormData): Promise<EstadoAccion> {
   await requiereAdmin();
@@ -136,8 +153,14 @@ export async function guardarArbol(_: EstadoAccion, datos: FormData): Promise<Es
   if (!r.success) return { error: r.error.issues[0].message };
   const d = r.data;
   const altura = numeroOpcional(d.altura_m);
-  const diametro = numeroOpcional(d.diametro_cm);
-  if ((altura !== null && !(altura >= 0)) || (diametro !== null && !(diametro >= 0))) return { error: "Altura y diámetro deben ser números." };
+  const copa = numeroOpcional(d.ancho_copa_m);
+  const circunferencia = numeroOpcional(d.circunferencia_cm);
+  const co2 = numeroOpcional(d.co2_kg);
+  let diametro = numeroOpcional(d.diametro_cm);
+  if ([altura, copa, circunferencia, co2, diametro].some((n) => n !== null && !(n >= 0))) {
+    return { error: "Las medidas deben ser números positivos." };
+  }
+  if (diametro === null && circunferencia !== null) diametro = Math.round((circunferencia / Math.PI) * 10) / 10;
 
   let foto: string | null = null;
   const archivo = datos.get("foto");
@@ -161,21 +184,26 @@ export async function guardarArbol(_: EstadoAccion, datos: FormData): Promise<Es
     diametro,
     d.notas_publicas || null,
     d.activo === "si",
+    copa,
+    circunferencia,
+    co2,
+    d.estado_fitosanitario || null,
   ];
   try {
     if (d.id) {
       await consulta(
         `UPDATE arboles SET codigo = $2, qr_id = $3, especie_id = $4, apodo = $5, latitud = $6, longitud = $7, zona = $8,
            fecha_registro = $9, altura_m = $10, diametro_cm = $11, notas_publicas = $12, activo = $13,
-           foto_principal = coalesce($14, foto_principal)
+           ancho_copa_m = $14, circunferencia_cm = $15, co2_kg = $16, estado_fitosanitario = $17,
+           foto_principal = coalesce($18, foto_principal)
          WHERE id = $1`,
         [d.id, ...valores, foto],
       );
     } else {
       await consulta(
         `INSERT INTO arboles (codigo, qr_id, especie_id, apodo, latitud, longitud, zona, fecha_registro, altura_m, diametro_cm,
-                              notas_publicas, activo, foto_principal)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,
+                              notas_publicas, activo, ancho_copa_m, circunferencia_cm, co2_kg, estado_fitosanitario, foto_principal)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)`,
         [...valores, foto],
       );
     }
@@ -193,20 +221,157 @@ export interface ResultadoImportacion extends EstadoAccion {
   vista?: { fila: number; codigo: string; especie: string; zona: string; accion: "crear" | "actualizar" }[];
   errores?: { fila: number; mensaje: string }[];
   csv?: string;
+  /** Solo con el formato del inventario oficial (Excel). */
+  inventario?: {
+    avisos: string[];
+    especiesNuevas: { nombre_cientifico: string; nombre_comun: string; arboles: number }[];
+    resumen: { total: number; crear: number; actualizar: number; sinCambios: number; bajas: number };
+  };
 }
 
+const esExcel = (archivo: File) => /\.xlsx$/i.test(archivo.name) || archivo.type.includes("spreadsheetml");
+
 /**
- * Importa el inventario real desde CSV. Columnas: codigo, especie, latitud, longitud, zona
- * y opcionales qr_id, apodo, altura_m, diametro_cm, fecha_registro. `especie` acepta el
- * identificador, el nombre científico o el nombre común.
+ * Importa el inventario oficial (el Excel del campus, o ese mismo Excel guardado como CSV) con las
+ * reglas de la semilla: la especie sale del nombre científico y las que no existan se crean con un
+ * sprite propuesto; los árboles se sincronizan por número y, si se pide, se dan de baja los que faltan.
  */
+async function importarInventario(lectura: ResultadoLectura, datos: FormData, csv?: string): Promise<ResultadoImportacion> {
+  if (lectura.errores.length) return { csv, errores: lectura.errores, error: "Corrige el archivo y vuelve a intentarlo." };
+  const especies = await consulta<{ id: number; slug: string; nombre_comun: string; otros_nombres: string[]; nombre_cientifico: string }>(
+    "SELECT id, slug, nombre_comun, otros_nombres, nombre_cientifico FROM especies",
+  );
+  const porCientifico = new Map(especies.map((e) => [normalizarCientifico(e.nombre_cientifico), e]));
+  const usados = { slugs: new Set(especies.map((e) => e.slug)), nombres: new Map<string, string>() };
+  for (const e of especies) for (const n of [e.nombre_comun, ...e.otros_nombres]) usados.nombres.set(claveNombre(n), e.nombre_cientifico);
+
+  const slugDe = new Map<string, { slug: string; nombre: string }>();
+  const nuevas: EspecieCatalogo[] = [];
+  const grupos = agruparPorEspecie(lectura.arboles);
+  for (const [cientifico, arboles] of grupos) {
+    const existente = porCientifico.get(cientifico);
+    if (existente) {
+      slugDe.set(cientifico, { slug: existente.slug, nombre: existente.nombre_comun });
+      continue;
+    }
+    const especie = especieDesdeInventario(cientifico, arboles, usados);
+    nuevas.push(especie);
+    slugDe.set(cientifico, { slug: especie.slug, nombre: especie.nombre_comun });
+  }
+
+  const filas: FilaInventario[] = lectura.arboles.map((a) => ({
+    codigo: a.codigo,
+    campus: a.campus,
+    activo: a.activo,
+    especie: slugDe.get(a.cientifico)!.slug,
+    latitud: a.latitud,
+    longitud: a.longitud,
+    zona: a.zona,
+    fecha_registro: a.fechaRegistro,
+    estado_fitosanitario: a.estadoFitosanitario,
+    altura_m: a.alturaM,
+    ancho_copa_m: a.anchoCopaM,
+    circunferencia_cm: a.circunferenciaCm,
+    diametro_cm: a.diametroCm,
+    co2_kg: a.co2Kg,
+  }));
+
+  const actuales = await consulta<{ codigo: string; slug: string; latitud: number; longitud: number; zona: string; activo: boolean; fuente: string }>(
+    "SELECT a.codigo, e.slug, a.latitud, a.longitud, a.zona, a.activo, a.fuente FROM arboles a JOIN especies e ON e.id = a.especie_id",
+  );
+  const porCodigo = new Map(actuales.map((a) => [a.codigo, a]));
+  const enArchivo = new Set(filas.map((f) => f.codigo));
+  const vista: NonNullable<ResultadoImportacion["vista"]> = [];
+  let sinCambios = 0;
+  lectura.arboles.forEach((a, i) => {
+    const f = filas[i];
+    const actual = porCodigo.get(f.codigo);
+    const cambia =
+      !actual ||
+      actual.slug !== f.especie ||
+      Math.abs(actual.latitud - f.latitud) > 1e-7 ||
+      Math.abs(actual.longitud - f.longitud) > 1e-7 ||
+      actual.zona !== f.zona ||
+      actual.activo !== f.activo ||
+      actual.fuente !== "inventario";
+    if (!cambia) sinCambios++;
+    else vista.push({ fila: i + 2, codigo: f.codigo, especie: slugDe.get(a.cientifico)!.nombre, zona: f.zona, accion: actual ? "actualizar" : "crear" });
+  });
+  const bajasPosibles = actuales.filter((a) => a.fuente === "inventario" && a.activo && !enArchivo.has(a.codigo)).length;
+  const bajas = datos.get("bajas") === "si";
+  const inventario: ResultadoImportacion["inventario"] = {
+    avisos: lectura.avisos.map((a) => a.mensaje),
+    especiesNuevas: nuevas.map((e) => ({
+      nombre_cientifico: e.nombre_cientifico,
+      nombre_comun: e.nombre_comun,
+      arboles: grupos.get(e.nombre_cientifico)!.length,
+    })),
+    resumen: {
+      total: filas.length,
+      crear: vista.filter((v) => v.accion === "crear").length,
+      actualizar: vista.filter((v) => v.accion === "actualizar").length,
+      sinCambios,
+      bajas: bajasPosibles,
+    },
+  };
+
+  if (datos.get("modo") !== "importar") return { csv, vista, inventario };
+  try {
+    const resultado = await transaccion(async (c) => {
+      for (const e of nuevas) {
+        await consulta(
+          `INSERT INTO especies (slug, nombre_comun, otros_nombres, nombre_cientifico, familia, origen, descripcion, follaje,
+             floracion_meses, color_flor, sprite, fuente, follaje_texto, clima, floracion_texto)
+           VALUES ($1, $2, $3, $4, $5, NULL, $6, $7, '{}', $8, $9, $10, $11, $12, $13)
+           ON CONFLICT (slug) DO NOTHING`,
+          [e.slug, e.nombre_comun, e.otros_nombres, e.nombre_cientifico, e.familia, e.descripcion, e.follaje, e.color_flor,
+            JSON.stringify(e.sprite), e.fuente, e.follaje_texto ?? null, e.clima ?? null, e.floracion_texto ?? null],
+          c,
+        );
+      }
+      return sincronizarInventario(c, filas, { bajas });
+    });
+    revalidatePath("/", "layout");
+    const partes = [
+      `${resultado.sincronizados} árboles sincronizados`,
+      nuevas.length ? `${nuevas.length} ${nuevas.length === 1 ? "especie nueva" : "especies nuevas"} (revísalas en Especies)` : null,
+      resultado.dadosDeBaja ? `${resultado.dadosDeBaja} dados de baja` : null,
+    ].filter(Boolean);
+    return { ok: `Listo: ${partes.join(", ")}.` };
+  } catch (e) {
+    const mensaje = (e as Error).message;
+    return { csv, vista, inventario, error: mensaje.includes("qr_id") ? "Un árbol nuevo usa un código que ya es el QR de otro árbol." : mensaje };
+  }
+}
+
 export async function importarArboles(_: ResultadoImportacion, datos: FormData): Promise<ResultadoImportacion> {
   await requiereAdmin();
+  const resultado = await importarDesdeFormulario(datos);
+  // El texto solo se devuelve si se pegó: un archivo se vuelve a enviar desde su campo.
+  const archivo = datos.get("archivo");
+  if (archivo instanceof File && archivo.size > 0) delete resultado.csv;
+  return resultado;
+}
+
+async function importarDesdeFormulario(datos: FormData): Promise<ResultadoImportacion> {
   let texto = String(datos.get("csv") ?? "");
   const archivo = datos.get("archivo");
-  if (archivo instanceof File && archivo.size > 0) texto = await archivo.text();
-  if (!texto.trim()) return { error: "Pega el CSV o elige un archivo." };
+  if (archivo instanceof File && archivo.size > 0) {
+    if (esExcel(archivo)) {
+      try {
+        return await importarInventario(await leerExcel(Buffer.from(await archivo.arrayBuffer())), datos);
+      } catch {
+        return { error: "No se pudo leer el Excel. Revisa que sea un archivo .xlsx." };
+      }
+    }
+    texto = await archivo.text();
+  }
+  if (!texto.trim()) return { error: "Elige el Excel del inventario o pega un CSV." };
   const { encabezados, filas } = leerCsv(texto);
+  // El Excel del inventario guardado como CSV conserva sus columnas: se importa igual que el Excel.
+  if (mapearColumnas(encabezados).faltan.length === 0) {
+    return importarInventario(leerFilas([encabezados, ...filas.map((f) => encabezados.map((e) => f[e]))]), datos, texto);
+  }
   const faltan = ["codigo", "especie", "latitud", "longitud", "zona"].filter((c) => !encabezados.includes(c));
   if (faltan.length) return { error: `Faltan columnas: ${faltan.join(", ")}.`, csv: texto };
 
@@ -316,7 +481,7 @@ export async function guardarEspecie(_: EstadoAccion, datos: FormData): Promise<
       nombre_comun: z.string().trim().min(2).max(80),
       nombre_cientifico: z.string().trim().min(3).max(120),
       familia: z.string().trim().min(2).max(80),
-      origen: z.enum(["nativa", "introducida"]),
+      origen: z.enum(["nativa", "introducida", ""]),
       descripcion: z.string().trim().min(10, "La descripción es muy corta.").max(2000),
       dato_curioso: z.string().trim().max(500),
     })
@@ -324,7 +489,7 @@ export async function guardarEspecie(_: EstadoAccion, datos: FormData): Promise<
   if (!r.success) return { error: r.error.issues[0].message };
   const d = r.data;
   await consulta(
-    `UPDATE especies SET nombre_comun = $2, nombre_cientifico = $3, familia = $4, origen = $5, descripcion = $6,
+    `UPDATE especies SET nombre_comun = $2, nombre_cientifico = $3, familia = $4, origen = nullif($5, ''), descripcion = $6,
        dato_curioso = nullif($7, ''), sprite = $8, color_flor = coalesce($9, color_flor) WHERE id = $1`,
     [d.id, d.nombre_comun, d.nombre_cientifico, d.familia, d.origen, d.descripcion, d.dato_curioso, JSON.stringify(genoma), genoma.flor ?? null],
   );

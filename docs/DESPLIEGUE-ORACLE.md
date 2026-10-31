@@ -84,7 +84,7 @@ El script:
 
 1. Revisa que `.env` esté completo (no deja pasar los valores de ejemplo ni contraseñas con caracteres que rompen la URL).
 2. Trae los cambios con `git pull --ff-only` (usa `--sin-actualizar` para omitirlo).
-3. Compila y levanta todo con `docker compose up -d --build`. El servicio `migrar` aplica el esquema y las semillas (ajustes, especies y misiones) antes de que arranque la app, y vuelve a correr en cada despliegue aplicando solo lo pendiente.
+3. Compila y levanta todo con `docker compose up -d --build`. El servicio `migrar` aplica el esquema y las semillas (ajustes, especies, los 1086 árboles del inventario oficial y misiones) antes de que arranque la app, y vuelve a correr en cada despliegue aplicando solo lo pendiente o lo que cambió.
 4. Espera a que `/api/salud` responda (app arriba y conectada a la base) y limpia imágenes viejas.
 
 La primera compilación en ARM tarda unos minutos. Después abre `https://TU_DOMINIO`.
@@ -99,14 +99,15 @@ docker compose logs -f app                # Ctrl+C para salir
 
 ## 7. Datos iniciales
 
-**Inventario real (recomendado):** entra al panel e importa el CSV en `/admin/arboles/importar`.
+**El inventario ya viene cargado:** la semilla `db/semillas/03_arboles.sql` trae los 1086 árboles del Excel oficial (`data/inventario/arboles-cucei.xlsx`) y las 132 especies. Para actualizarlo más adelante, sigue [docs/INVENTARIO.md](INVENTARIO.md): se reemplaza el Excel en el repositorio y el siguiente despliegue sincroniza la base, o se sube desde `/admin/arboles/importar`.
 
-**O datos de demostración** para presentar el prototipo:
+**Personas y observaciones de ejemplo** (solo para presentar el prototipo, no en producción real):
 
 ```bash
-docker compose run --rm migrar npm run db:migrar -- --demo
 docker compose run --rm migrar npm run db:demo
 ```
+
+> Si en esta máquina ya habías cargado el inventario de demostración (`db:migrar -- --demo`), sus códigos CUCEI-0001…0071 ahora son los árboles reales. Los cinco que no existen en el inventario (CUCEI-0024, 0025, 0052, 0054 y 0066) quedan como árboles del panel: desactívalos en `/admin/arboles`.
 
 **Primer administrador:** regístrate en `/registro` y después:
 
@@ -154,7 +155,7 @@ O desde GitHub, sin entrar por SSH: pestaña **Actions → Desplegar en Oracle �
 | --- | --- |
 | Lint, tipos, pruebas y build | ESLint, TypeScript, las pruebas con Vitest (incluidas las de integración contra PostgreSQL 17) y `next build`. |
 | Imagen Docker | Compila las imágenes `app` y `herramientas` para `linux/amd64` y `linux/arm64` (la arquitectura de las máquinas Ampere). |
-| Despliegue completo | Levanta el `docker-compose.yml` real con `./scripts/desplegar.sh`, como en producción. Prueba el sitio por HTTPS a través de Caddy, la redirección de HTTP, las cabeceras de seguridad, y carga los datos de demostración. |
+| Despliegue completo | Levanta el `docker-compose.yml` real con `./scripts/desplegar.sh`, como en producción. Prueba el sitio por HTTPS a través de Caddy, la redirección de HTTP, las cabeceras de seguridad, que la semilla cargó todo el inventario y que el escáner resuelve un número de placa. |
 
 **`.github/workflows/desplegar.yml`** despliega a la máquina por SSH cuando lo lanzas a mano. Configúralo una vez en *Settings → Secrets and variables → Actions*:
 

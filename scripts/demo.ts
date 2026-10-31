@@ -2,7 +2,8 @@
  * Datos de demostración: personas y observaciones de las últimas 10 semanas, registradas
  * con la misma lógica del juego (regla semanal, experiencia, misiones y alertas).
  *
- *   npm run db:migrar -- --demo   (inventario de árboles de demostración)
+ * Usa los árboles del inventario oficial (npm run db:migrar). No la corras en producción.
+ *
  *   npm run db:demo               personas y observaciones
  *   npm run db:demo -- --reiniciar  borra lo anterior de demostración y lo vuelve a crear
  *
@@ -56,7 +57,7 @@ if (existentes[0].n > 0) {
 
 const arboles = await consulta<{ id: number; codigo: string }>("SELECT id, codigo FROM arboles WHERE activo ORDER BY codigo");
 if (arboles.length === 0) {
-  console.error("No hay árboles. Corre primero: npm run db:migrar -- --demo");
+  console.error("No hay árboles. Corre primero: npm run db:migrar");
   process.exit(1);
 }
 const hash = await hashContrasena("bosque123");

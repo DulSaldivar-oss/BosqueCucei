@@ -30,6 +30,10 @@ export default async function NuevoArbol() {
             fecha_registro: diaLocal(new Date()),
             altura_m: null,
             diametro_cm: null,
+            ancho_copa_m: null,
+            circunferencia_cm: null,
+            co2_kg: null,
+            estado_fitosanitario: null,
             notas_publicas: null,
             activo: true,
           }}

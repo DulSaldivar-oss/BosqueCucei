@@ -404,5 +404,1447 @@
       "/sprites/tronadora/etapa-6.svg"
     ],
     "hoja": "/sprites/tronadora/hoja.svg"
+  },
+  {
+    "slug": "ceiba",
+    "nombre": "Ceiba",
+    "etapas": [
+      "/sprites/ceiba/etapa-0.svg",
+      "/sprites/ceiba/etapa-1.svg",
+      "/sprites/ceiba/etapa-2.svg",
+      "/sprites/ceiba/etapa-3.svg",
+      "/sprites/ceiba/etapa-4.svg",
+      "/sprites/ceiba/etapa-5.svg",
+      "/sprites/ceiba/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ceiba/hoja.svg"
+  },
+  {
+    "slug": "nispero",
+    "nombre": "Níspero",
+    "etapas": [
+      "/sprites/nispero/etapa-0.svg",
+      "/sprites/nispero/etapa-1.svg",
+      "/sprites/nispero/etapa-2.svg",
+      "/sprites/nispero/etapa-3.svg",
+      "/sprites/nispero/etapa-4.svg",
+      "/sprites/nispero/etapa-5.svg",
+      "/sprites/nispero/etapa-6.svg"
+    ],
+    "hoja": "/sprites/nispero/hoja.svg"
+  },
+  {
+    "slug": "eucalipto-limon",
+    "nombre": "Eucalipto limón",
+    "etapas": [
+      "/sprites/eucalipto-limon/etapa-0.svg",
+      "/sprites/eucalipto-limon/etapa-1.svg",
+      "/sprites/eucalipto-limon/etapa-2.svg",
+      "/sprites/eucalipto-limon/etapa-3.svg",
+      "/sprites/eucalipto-limon/etapa-4.svg",
+      "/sprites/eucalipto-limon/etapa-5.svg",
+      "/sprites/eucalipto-limon/etapa-6.svg"
+    ],
+    "hoja": "/sprites/eucalipto-limon/hoja.svg"
+  },
+  {
+    "slug": "palo-amarillo",
+    "nombre": "Palo amarillo",
+    "etapas": [
+      "/sprites/palo-amarillo/etapa-0.svg",
+      "/sprites/palo-amarillo/etapa-1.svg",
+      "/sprites/palo-amarillo/etapa-2.svg",
+      "/sprites/palo-amarillo/etapa-3.svg",
+      "/sprites/palo-amarillo/etapa-4.svg",
+      "/sprites/palo-amarillo/etapa-5.svg",
+      "/sprites/palo-amarillo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palo-amarillo/hoja.svg"
+  },
+  {
+    "slug": "laurel-indio",
+    "nombre": "Laurel indio",
+    "etapas": [
+      "/sprites/laurel-indio/etapa-0.svg",
+      "/sprites/laurel-indio/etapa-1.svg",
+      "/sprites/laurel-indio/etapa-2.svg",
+      "/sprites/laurel-indio/etapa-3.svg",
+      "/sprites/laurel-indio/etapa-4.svg",
+      "/sprites/laurel-indio/etapa-5.svg",
+      "/sprites/laurel-indio/etapa-6.svg"
+    ],
+    "hoja": "/sprites/laurel-indio/hoja.svg"
+  },
+  {
+    "slug": "palmera-canaria",
+    "nombre": "Palmera canaria",
+    "etapas": [
+      "/sprites/palmera-canaria/etapa-0.svg",
+      "/sprites/palmera-canaria/etapa-1.svg",
+      "/sprites/palmera-canaria/etapa-2.svg",
+      "/sprites/palmera-canaria/etapa-3.svg",
+      "/sprites/palmera-canaria/etapa-4.svg",
+      "/sprites/palmera-canaria/etapa-5.svg",
+      "/sprites/palmera-canaria/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-canaria/hoja.svg"
+  },
+  {
+    "slug": "magnolia",
+    "nombre": "Magnolia",
+    "etapas": [
+      "/sprites/magnolia/etapa-0.svg",
+      "/sprites/magnolia/etapa-1.svg",
+      "/sprites/magnolia/etapa-2.svg",
+      "/sprites/magnolia/etapa-3.svg",
+      "/sprites/magnolia/etapa-4.svg",
+      "/sprites/magnolia/etapa-5.svg",
+      "/sprites/magnolia/etapa-6.svg"
+    ],
+    "hoja": "/sprites/magnolia/hoja.svg"
+  },
+  {
+    "slug": "fresno-silvestre-mexicano",
+    "nombre": "Fresno silvestre mexicano",
+    "etapas": [
+      "/sprites/fresno-silvestre-mexicano/etapa-0.svg",
+      "/sprites/fresno-silvestre-mexicano/etapa-1.svg",
+      "/sprites/fresno-silvestre-mexicano/etapa-2.svg",
+      "/sprites/fresno-silvestre-mexicano/etapa-3.svg",
+      "/sprites/fresno-silvestre-mexicano/etapa-4.svg",
+      "/sprites/fresno-silvestre-mexicano/etapa-5.svg",
+      "/sprites/fresno-silvestre-mexicano/etapa-6.svg"
+    ],
+    "hoja": "/sprites/fresno-silvestre-mexicano/hoja.svg"
+  },
+  {
+    "slug": "laurel-rosa",
+    "nombre": "Laurel rosa",
+    "etapas": [
+      "/sprites/laurel-rosa/etapa-0.svg",
+      "/sprites/laurel-rosa/etapa-1.svg",
+      "/sprites/laurel-rosa/etapa-2.svg",
+      "/sprites/laurel-rosa/etapa-3.svg",
+      "/sprites/laurel-rosa/etapa-4.svg",
+      "/sprites/laurel-rosa/etapa-5.svg",
+      "/sprites/laurel-rosa/etapa-6.svg"
+    ],
+    "hoja": "/sprites/laurel-rosa/hoja.svg"
+  },
+  {
+    "slug": "tuya-oriental",
+    "nombre": "Tuya oriental",
+    "etapas": [
+      "/sprites/tuya-oriental/etapa-0.svg",
+      "/sprites/tuya-oriental/etapa-1.svg",
+      "/sprites/tuya-oriental/etapa-2.svg",
+      "/sprites/tuya-oriental/etapa-3.svg",
+      "/sprites/tuya-oriental/etapa-4.svg",
+      "/sprites/tuya-oriental/etapa-5.svg",
+      "/sprites/tuya-oriental/etapa-6.svg"
+    ],
+    "hoja": "/sprites/tuya-oriental/hoja.svg"
+  },
+  {
+    "slug": "tuckeroo",
+    "nombre": "Tuckeroo",
+    "etapas": [
+      "/sprites/tuckeroo/etapa-0.svg",
+      "/sprites/tuckeroo/etapa-1.svg",
+      "/sprites/tuckeroo/etapa-2.svg",
+      "/sprites/tuckeroo/etapa-3.svg",
+      "/sprites/tuckeroo/etapa-4.svg",
+      "/sprites/tuckeroo/etapa-5.svg",
+      "/sprites/tuckeroo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/tuckeroo/hoja.svg"
+  },
+  {
+    "slug": "filodendro",
+    "nombre": "Filodendro",
+    "etapas": [
+      "/sprites/filodendro/etapa-0.svg",
+      "/sprites/filodendro/etapa-1.svg",
+      "/sprites/filodendro/etapa-2.svg",
+      "/sprites/filodendro/etapa-3.svg",
+      "/sprites/filodendro/etapa-4.svg",
+      "/sprites/filodendro/etapa-5.svg",
+      "/sprites/filodendro/etapa-6.svg"
+    ],
+    "hoja": "/sprites/filodendro/hoja.svg"
+  },
+  {
+    "slug": "palma-de-betel",
+    "nombre": "Palma de betel",
+    "etapas": [
+      "/sprites/palma-de-betel/etapa-0.svg",
+      "/sprites/palma-de-betel/etapa-1.svg",
+      "/sprites/palma-de-betel/etapa-2.svg",
+      "/sprites/palma-de-betel/etapa-3.svg",
+      "/sprites/palma-de-betel/etapa-4.svg",
+      "/sprites/palma-de-betel/etapa-5.svg",
+      "/sprites/palma-de-betel/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palma-de-betel/hoja.svg"
+  },
+  {
+    "slug": "hibisco",
+    "nombre": "Hibisco",
+    "etapas": [
+      "/sprites/hibisco/etapa-0.svg",
+      "/sprites/hibisco/etapa-1.svg",
+      "/sprites/hibisco/etapa-2.svg",
+      "/sprites/hibisco/etapa-3.svg",
+      "/sprites/hibisco/etapa-4.svg",
+      "/sprites/hibisco/etapa-5.svg",
+      "/sprites/hibisco/etapa-6.svg"
+    ],
+    "hoja": "/sprites/hibisco/hoja.svg"
+  },
+  {
+    "slug": "magnolio",
+    "nombre": "Magnolio",
+    "etapas": [
+      "/sprites/magnolio/etapa-0.svg",
+      "/sprites/magnolio/etapa-1.svg",
+      "/sprites/magnolio/etapa-2.svg",
+      "/sprites/magnolio/etapa-3.svg",
+      "/sprites/magnolio/etapa-4.svg",
+      "/sprites/magnolio/etapa-5.svg",
+      "/sprites/magnolio/etapa-6.svg"
+    ],
+    "hoja": "/sprites/magnolio/hoja.svg"
+  },
+  {
+    "slug": "cheflera",
+    "nombre": "Cheflera",
+    "etapas": [
+      "/sprites/cheflera/etapa-0.svg",
+      "/sprites/cheflera/etapa-1.svg",
+      "/sprites/cheflera/etapa-2.svg",
+      "/sprites/cheflera/etapa-3.svg",
+      "/sprites/cheflera/etapa-4.svg",
+      "/sprites/cheflera/etapa-5.svg",
+      "/sprites/cheflera/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cheflera/hoja.svg"
+  },
+  {
+    "slug": "arbol-orquidea-de-hong-kong",
+    "nombre": "Árbol orquídea de Hong Kong",
+    "etapas": [
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-0.svg",
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-1.svg",
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-2.svg",
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-3.svg",
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-4.svg",
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-5.svg",
+      "/sprites/arbol-orquidea-de-hong-kong/etapa-6.svg"
+    ],
+    "hoja": "/sprites/arbol-orquidea-de-hong-kong/hoja.svg"
+  },
+  {
+    "slug": "cipres-de-monterrey",
+    "nombre": "Ciprés de Monterrey",
+    "etapas": [
+      "/sprites/cipres-de-monterrey/etapa-0.svg",
+      "/sprites/cipres-de-monterrey/etapa-1.svg",
+      "/sprites/cipres-de-monterrey/etapa-2.svg",
+      "/sprites/cipres-de-monterrey/etapa-3.svg",
+      "/sprites/cipres-de-monterrey/etapa-4.svg",
+      "/sprites/cipres-de-monterrey/etapa-5.svg",
+      "/sprites/cipres-de-monterrey/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cipres-de-monterrey/hoja.svg"
+  },
+  {
+    "slug": "vid",
+    "nombre": "Vid",
+    "etapas": [
+      "/sprites/vid/etapa-0.svg",
+      "/sprites/vid/etapa-1.svg",
+      "/sprites/vid/etapa-2.svg",
+      "/sprites/vid/etapa-3.svg",
+      "/sprites/vid/etapa-4.svg",
+      "/sprites/vid/etapa-5.svg",
+      "/sprites/vid/etapa-6.svg"
+    ],
+    "hoja": "/sprites/vid/hoja.svg"
+  },
+  {
+    "slug": "encina",
+    "nombre": "Encina",
+    "etapas": [
+      "/sprites/encina/etapa-0.svg",
+      "/sprites/encina/etapa-1.svg",
+      "/sprites/encina/etapa-2.svg",
+      "/sprites/encina/etapa-3.svg",
+      "/sprites/encina/etapa-4.svg",
+      "/sprites/encina/etapa-5.svg",
+      "/sprites/encina/etapa-6.svg"
+    ],
+    "hoja": "/sprites/encina/hoja.svg"
+  },
+  {
+    "slug": "pino-de-alepo",
+    "nombre": "Pino de Alepo",
+    "etapas": [
+      "/sprites/pino-de-alepo/etapa-0.svg",
+      "/sprites/pino-de-alepo/etapa-1.svg",
+      "/sprites/pino-de-alepo/etapa-2.svg",
+      "/sprites/pino-de-alepo/etapa-3.svg",
+      "/sprites/pino-de-alepo/etapa-4.svg",
+      "/sprites/pino-de-alepo/etapa-5.svg",
+      "/sprites/pino-de-alepo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pino-de-alepo/hoja.svg"
+  },
+  {
+    "slug": "paraiso-sombrilla",
+    "nombre": "Paraíso sombrilla",
+    "etapas": [
+      "/sprites/paraiso-sombrilla/etapa-0.svg",
+      "/sprites/paraiso-sombrilla/etapa-1.svg",
+      "/sprites/paraiso-sombrilla/etapa-2.svg",
+      "/sprites/paraiso-sombrilla/etapa-3.svg",
+      "/sprites/paraiso-sombrilla/etapa-4.svg",
+      "/sprites/paraiso-sombrilla/etapa-5.svg",
+      "/sprites/paraiso-sombrilla/etapa-6.svg"
+    ],
+    "hoja": "/sprites/paraiso-sombrilla/hoja.svg"
+  },
+  {
+    "slug": "higuera-estranguladora",
+    "nombre": "Higuera estranguladora",
+    "etapas": [
+      "/sprites/higuera-estranguladora/etapa-0.svg",
+      "/sprites/higuera-estranguladora/etapa-1.svg",
+      "/sprites/higuera-estranguladora/etapa-2.svg",
+      "/sprites/higuera-estranguladora/etapa-3.svg",
+      "/sprites/higuera-estranguladora/etapa-4.svg",
+      "/sprites/higuera-estranguladora/etapa-5.svg",
+      "/sprites/higuera-estranguladora/etapa-6.svg"
+    ],
+    "hoja": "/sprites/higuera-estranguladora/hoja.svg"
+  },
+  {
+    "slug": "nogal-negro-de-california",
+    "nombre": "Nogal negro de California",
+    "etapas": [
+      "/sprites/nogal-negro-de-california/etapa-0.svg",
+      "/sprites/nogal-negro-de-california/etapa-1.svg",
+      "/sprites/nogal-negro-de-california/etapa-2.svg",
+      "/sprites/nogal-negro-de-california/etapa-3.svg",
+      "/sprites/nogal-negro-de-california/etapa-4.svg",
+      "/sprites/nogal-negro-de-california/etapa-5.svg",
+      "/sprites/nogal-negro-de-california/etapa-6.svg"
+    ],
+    "hoja": "/sprites/nogal-negro-de-california/hoja.svg"
+  },
+  {
+    "slug": "pata-de-elefante",
+    "nombre": "Pata de elefante",
+    "etapas": [
+      "/sprites/pata-de-elefante/etapa-0.svg",
+      "/sprites/pata-de-elefante/etapa-1.svg",
+      "/sprites/pata-de-elefante/etapa-2.svg",
+      "/sprites/pata-de-elefante/etapa-3.svg",
+      "/sprites/pata-de-elefante/etapa-4.svg",
+      "/sprites/pata-de-elefante/etapa-5.svg",
+      "/sprites/pata-de-elefante/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pata-de-elefante/hoja.svg"
+  },
+  {
+    "slug": "naranjo-agrio",
+    "nombre": "Naranjo agrio",
+    "etapas": [
+      "/sprites/naranjo-agrio/etapa-0.svg",
+      "/sprites/naranjo-agrio/etapa-1.svg",
+      "/sprites/naranjo-agrio/etapa-2.svg",
+      "/sprites/naranjo-agrio/etapa-3.svg",
+      "/sprites/naranjo-agrio/etapa-4.svg",
+      "/sprites/naranjo-agrio/etapa-5.svg",
+      "/sprites/naranjo-agrio/etapa-6.svg"
+    ],
+    "hoja": "/sprites/naranjo-agrio/hoja.svg"
+  },
+  {
+    "slug": "dormilona",
+    "nombre": "Dormilona",
+    "etapas": [
+      "/sprites/dormilona/etapa-0.svg",
+      "/sprites/dormilona/etapa-1.svg",
+      "/sprites/dormilona/etapa-2.svg",
+      "/sprites/dormilona/etapa-3.svg",
+      "/sprites/dormilona/etapa-4.svg",
+      "/sprites/dormilona/etapa-5.svg",
+      "/sprites/dormilona/etapa-6.svg"
+    ],
+    "hoja": "/sprites/dormilona/hoja.svg"
+  },
+  {
+    "slug": "roble-de-gambel",
+    "nombre": "Roble de Gambel",
+    "etapas": [
+      "/sprites/roble-de-gambel/etapa-0.svg",
+      "/sprites/roble-de-gambel/etapa-1.svg",
+      "/sprites/roble-de-gambel/etapa-2.svg",
+      "/sprites/roble-de-gambel/etapa-3.svg",
+      "/sprites/roble-de-gambel/etapa-4.svg",
+      "/sprites/roble-de-gambel/etapa-5.svg",
+      "/sprites/roble-de-gambel/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-de-gambel/hoja.svg"
+  },
+  {
+    "slug": "roble-bur",
+    "nombre": "Roble bur",
+    "etapas": [
+      "/sprites/roble-bur/etapa-0.svg",
+      "/sprites/roble-bur/etapa-1.svg",
+      "/sprites/roble-bur/etapa-2.svg",
+      "/sprites/roble-bur/etapa-3.svg",
+      "/sprites/roble-bur/etapa-4.svg",
+      "/sprites/roble-bur/etapa-5.svg",
+      "/sprites/roble-bur/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-bur/hoja.svg"
+  },
+  {
+    "slug": "roble-de-nuttall",
+    "nombre": "Roble de Nuttall",
+    "etapas": [
+      "/sprites/roble-de-nuttall/etapa-0.svg",
+      "/sprites/roble-de-nuttall/etapa-1.svg",
+      "/sprites/roble-de-nuttall/etapa-2.svg",
+      "/sprites/roble-de-nuttall/etapa-3.svg",
+      "/sprites/roble-de-nuttall/etapa-4.svg",
+      "/sprites/roble-de-nuttall/etapa-5.svg",
+      "/sprites/roble-de-nuttall/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-de-nuttall/hoja.svg"
+  },
+  {
+    "slug": "arbol-del-caucho",
+    "nombre": "Árbol del caucho",
+    "etapas": [
+      "/sprites/arbol-del-caucho/etapa-0.svg",
+      "/sprites/arbol-del-caucho/etapa-1.svg",
+      "/sprites/arbol-del-caucho/etapa-2.svg",
+      "/sprites/arbol-del-caucho/etapa-3.svg",
+      "/sprites/arbol-del-caucho/etapa-4.svg",
+      "/sprites/arbol-del-caucho/etapa-5.svg",
+      "/sprites/arbol-del-caucho/etapa-6.svg"
+    ],
+    "hoja": "/sprites/arbol-del-caucho/hoja.svg"
+  },
+  {
+    "slug": "platano",
+    "nombre": "Plátano",
+    "etapas": [
+      "/sprites/platano/etapa-0.svg",
+      "/sprites/platano/etapa-1.svg",
+      "/sprites/platano/etapa-2.svg",
+      "/sprites/platano/etapa-3.svg",
+      "/sprites/platano/etapa-4.svg",
+      "/sprites/platano/etapa-5.svg",
+      "/sprites/platano/etapa-6.svg"
+    ],
+    "hoja": "/sprites/platano/hoja.svg"
+  },
+  {
+    "slug": "ramon",
+    "nombre": "Ramón",
+    "etapas": [
+      "/sprites/ramon/etapa-0.svg",
+      "/sprites/ramon/etapa-1.svg",
+      "/sprites/ramon/etapa-2.svg",
+      "/sprites/ramon/etapa-3.svg",
+      "/sprites/ramon/etapa-4.svg",
+      "/sprites/ramon/etapa-5.svg",
+      "/sprites/ramon/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ramon/hoja.svg"
+  },
+  {
+    "slug": "palmera-de-abanico-china",
+    "nombre": "Palmera de abanico china",
+    "etapas": [
+      "/sprites/palmera-de-abanico-china/etapa-0.svg",
+      "/sprites/palmera-de-abanico-china/etapa-1.svg",
+      "/sprites/palmera-de-abanico-china/etapa-2.svg",
+      "/sprites/palmera-de-abanico-china/etapa-3.svg",
+      "/sprites/palmera-de-abanico-china/etapa-4.svg",
+      "/sprites/palmera-de-abanico-china/etapa-5.svg",
+      "/sprites/palmera-de-abanico-china/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-de-abanico-china/hoja.svg"
+  },
+  {
+    "slug": "eucalipto-robusto",
+    "nombre": "Eucalipto robusto",
+    "etapas": [
+      "/sprites/eucalipto-robusto/etapa-0.svg",
+      "/sprites/eucalipto-robusto/etapa-1.svg",
+      "/sprites/eucalipto-robusto/etapa-2.svg",
+      "/sprites/eucalipto-robusto/etapa-3.svg",
+      "/sprites/eucalipto-robusto/etapa-4.svg",
+      "/sprites/eucalipto-robusto/etapa-5.svg",
+      "/sprites/eucalipto-robusto/etapa-6.svg"
+    ],
+    "hoja": "/sprites/eucalipto-robusto/hoja.svg"
+  },
+  {
+    "slug": "olivo",
+    "nombre": "Olivo",
+    "etapas": [
+      "/sprites/olivo/etapa-0.svg",
+      "/sprites/olivo/etapa-1.svg",
+      "/sprites/olivo/etapa-2.svg",
+      "/sprites/olivo/etapa-3.svg",
+      "/sprites/olivo/etapa-4.svg",
+      "/sprites/olivo/etapa-5.svg",
+      "/sprites/olivo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/olivo/hoja.svg"
+  },
+  {
+    "slug": "dracena-marginata",
+    "nombre": "Drácena marginata",
+    "etapas": [
+      "/sprites/dracena-marginata/etapa-0.svg",
+      "/sprites/dracena-marginata/etapa-1.svg",
+      "/sprites/dracena-marginata/etapa-2.svg",
+      "/sprites/dracena-marginata/etapa-3.svg",
+      "/sprites/dracena-marginata/etapa-4.svg",
+      "/sprites/dracena-marginata/etapa-5.svg",
+      "/sprites/dracena-marginata/etapa-6.svg"
+    ],
+    "hoja": "/sprites/dracena-marginata/hoja.svg"
+  },
+  {
+    "slug": "aguacate",
+    "nombre": "Aguacate",
+    "etapas": [
+      "/sprites/aguacate/etapa-0.svg",
+      "/sprites/aguacate/etapa-1.svg",
+      "/sprites/aguacate/etapa-2.svg",
+      "/sprites/aguacate/etapa-3.svg",
+      "/sprites/aguacate/etapa-4.svg",
+      "/sprites/aguacate/etapa-5.svg",
+      "/sprites/aguacate/etapa-6.svg"
+    ],
+    "hoja": "/sprites/aguacate/hoja.svg"
+  },
+  {
+    "slug": "araucaria-chilena",
+    "nombre": "Araucaria chilena",
+    "etapas": [
+      "/sprites/araucaria-chilena/etapa-0.svg",
+      "/sprites/araucaria-chilena/etapa-1.svg",
+      "/sprites/araucaria-chilena/etapa-2.svg",
+      "/sprites/araucaria-chilena/etapa-3.svg",
+      "/sprites/araucaria-chilena/etapa-4.svg",
+      "/sprites/araucaria-chilena/etapa-5.svg",
+      "/sprites/araucaria-chilena/etapa-6.svg"
+    ],
+    "hoja": "/sprites/araucaria-chilena/hoja.svg"
+  },
+  {
+    "slug": "alheli-amarillo",
+    "nombre": "Alhelí amarillo",
+    "etapas": [
+      "/sprites/alheli-amarillo/etapa-0.svg",
+      "/sprites/alheli-amarillo/etapa-1.svg",
+      "/sprites/alheli-amarillo/etapa-2.svg",
+      "/sprites/alheli-amarillo/etapa-3.svg",
+      "/sprites/alheli-amarillo/etapa-4.svg",
+      "/sprites/alheli-amarillo/etapa-5.svg",
+      "/sprites/alheli-amarillo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/alheli-amarillo/hoja.svg"
+  },
+  {
+    "slug": "arbol-de-la-seda",
+    "nombre": "Árbol de la seda",
+    "etapas": [
+      "/sprites/arbol-de-la-seda/etapa-0.svg",
+      "/sprites/arbol-de-la-seda/etapa-1.svg",
+      "/sprites/arbol-de-la-seda/etapa-2.svg",
+      "/sprites/arbol-de-la-seda/etapa-3.svg",
+      "/sprites/arbol-de-la-seda/etapa-4.svg",
+      "/sprites/arbol-de-la-seda/etapa-5.svg",
+      "/sprites/arbol-de-la-seda/etapa-6.svg"
+    ],
+    "hoja": "/sprites/arbol-de-la-seda/hoja.svg"
+  },
+  {
+    "slug": "palo-de-brasil",
+    "nombre": "Palo de Brasil",
+    "etapas": [
+      "/sprites/palo-de-brasil/etapa-0.svg",
+      "/sprites/palo-de-brasil/etapa-1.svg",
+      "/sprites/palo-de-brasil/etapa-2.svg",
+      "/sprites/palo-de-brasil/etapa-3.svg",
+      "/sprites/palo-de-brasil/etapa-4.svg",
+      "/sprites/palo-de-brasil/etapa-5.svg",
+      "/sprites/palo-de-brasil/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palo-de-brasil/hoja.svg"
+  },
+  {
+    "slug": "roble-de-los-postes",
+    "nombre": "Roble de los postes",
+    "etapas": [
+      "/sprites/roble-de-los-postes/etapa-0.svg",
+      "/sprites/roble-de-los-postes/etapa-1.svg",
+      "/sprites/roble-de-los-postes/etapa-2.svg",
+      "/sprites/roble-de-los-postes/etapa-3.svg",
+      "/sprites/roble-de-los-postes/etapa-4.svg",
+      "/sprites/roble-de-los-postes/etapa-5.svg",
+      "/sprites/roble-de-los-postes/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-de-los-postes/hoja.svg"
+  },
+  {
+    "slug": "roble-rojo-de-texas",
+    "nombre": "Roble rojo de Texas",
+    "etapas": [
+      "/sprites/roble-rojo-de-texas/etapa-0.svg",
+      "/sprites/roble-rojo-de-texas/etapa-1.svg",
+      "/sprites/roble-rojo-de-texas/etapa-2.svg",
+      "/sprites/roble-rojo-de-texas/etapa-3.svg",
+      "/sprites/roble-rojo-de-texas/etapa-4.svg",
+      "/sprites/roble-rojo-de-texas/etapa-5.svg",
+      "/sprites/roble-rojo-de-texas/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-rojo-de-texas/hoja.svg"
+  },
+  {
+    "slug": "nopal-cardon",
+    "nombre": "Nopal cardón",
+    "etapas": [
+      "/sprites/nopal-cardon/etapa-0.svg",
+      "/sprites/nopal-cardon/etapa-1.svg",
+      "/sprites/nopal-cardon/etapa-2.svg",
+      "/sprites/nopal-cardon/etapa-3.svg",
+      "/sprites/nopal-cardon/etapa-4.svg",
+      "/sprites/nopal-cardon/etapa-5.svg",
+      "/sprites/nopal-cardon/etapa-6.svg"
+    ],
+    "hoja": "/sprites/nopal-cardon/hoja.svg"
+  },
+  {
+    "slug": "palmera-de-california",
+    "nombre": "Palmera de California",
+    "etapas": [
+      "/sprites/palmera-de-california/etapa-0.svg",
+      "/sprites/palmera-de-california/etapa-1.svg",
+      "/sprites/palmera-de-california/etapa-2.svg",
+      "/sprites/palmera-de-california/etapa-3.svg",
+      "/sprites/palmera-de-california/etapa-4.svg",
+      "/sprites/palmera-de-california/etapa-5.svg",
+      "/sprites/palmera-de-california/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-de-california/hoja.svg"
+  },
+  {
+    "slug": "pino-de-norfolk",
+    "nombre": "Pino de Norfolk",
+    "etapas": [
+      "/sprites/pino-de-norfolk/etapa-0.svg",
+      "/sprites/pino-de-norfolk/etapa-1.svg",
+      "/sprites/pino-de-norfolk/etapa-2.svg",
+      "/sprites/pino-de-norfolk/etapa-3.svg",
+      "/sprites/pino-de-norfolk/etapa-4.svg",
+      "/sprites/pino-de-norfolk/etapa-5.svg",
+      "/sprites/pino-de-norfolk/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pino-de-norfolk/hoja.svg"
+  },
+  {
+    "slug": "almez",
+    "nombre": "Almez",
+    "etapas": [
+      "/sprites/almez/etapa-0.svg",
+      "/sprites/almez/etapa-1.svg",
+      "/sprites/almez/etapa-2.svg",
+      "/sprites/almez/etapa-3.svg",
+      "/sprites/almez/etapa-4.svg",
+      "/sprites/almez/etapa-5.svg",
+      "/sprites/almez/etapa-6.svg"
+    ],
+    "hoja": "/sprites/almez/hoja.svg"
+  },
+  {
+    "slug": "palo-mulato",
+    "nombre": "Palo mulato",
+    "etapas": [
+      "/sprites/palo-mulato/etapa-0.svg",
+      "/sprites/palo-mulato/etapa-1.svg",
+      "/sprites/palo-mulato/etapa-2.svg",
+      "/sprites/palo-mulato/etapa-3.svg",
+      "/sprites/palo-mulato/etapa-4.svg",
+      "/sprites/palo-mulato/etapa-5.svg",
+      "/sprites/palo-mulato/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palo-mulato/hoja.svg"
+  },
+  {
+    "slug": "jaboticaba",
+    "nombre": "Jaboticaba",
+    "etapas": [
+      "/sprites/jaboticaba/etapa-0.svg",
+      "/sprites/jaboticaba/etapa-1.svg",
+      "/sprites/jaboticaba/etapa-2.svg",
+      "/sprites/jaboticaba/etapa-3.svg",
+      "/sprites/jaboticaba/etapa-4.svg",
+      "/sprites/jaboticaba/etapa-5.svg",
+      "/sprites/jaboticaba/etapa-6.svg"
+    ],
+    "hoja": "/sprites/jaboticaba/hoja.svg"
+  },
+  {
+    "slug": "palo-borracho",
+    "nombre": "Palo borracho",
+    "etapas": [
+      "/sprites/palo-borracho/etapa-0.svg",
+      "/sprites/palo-borracho/etapa-1.svg",
+      "/sprites/palo-borracho/etapa-2.svg",
+      "/sprites/palo-borracho/etapa-3.svg",
+      "/sprites/palo-borracho/etapa-4.svg",
+      "/sprites/palo-borracho/etapa-5.svg",
+      "/sprites/palo-borracho/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palo-borracho/hoja.svg"
+  },
+  {
+    "slug": "bugambilia",
+    "nombre": "Bugambilia",
+    "etapas": [
+      "/sprites/bugambilia/etapa-0.svg",
+      "/sprites/bugambilia/etapa-1.svg",
+      "/sprites/bugambilia/etapa-2.svg",
+      "/sprites/bugambilia/etapa-3.svg",
+      "/sprites/bugambilia/etapa-4.svg",
+      "/sprites/bugambilia/etapa-5.svg",
+      "/sprites/bugambilia/etapa-6.svg"
+    ],
+    "hoja": "/sprites/bugambilia/hoja.svg"
+  },
+  {
+    "slug": "almendro-de-la-india",
+    "nombre": "Almendro de la India",
+    "etapas": [
+      "/sprites/almendro-de-la-india/etapa-0.svg",
+      "/sprites/almendro-de-la-india/etapa-1.svg",
+      "/sprites/almendro-de-la-india/etapa-2.svg",
+      "/sprites/almendro-de-la-india/etapa-3.svg",
+      "/sprites/almendro-de-la-india/etapa-4.svg",
+      "/sprites/almendro-de-la-india/etapa-5.svg",
+      "/sprites/almendro-de-la-india/etapa-6.svg"
+    ],
+    "hoja": "/sprites/almendro-de-la-india/hoja.svg"
+  },
+  {
+    "slug": "yaca",
+    "nombre": "Yaca",
+    "etapas": [
+      "/sprites/yaca/etapa-0.svg",
+      "/sprites/yaca/etapa-1.svg",
+      "/sprites/yaca/etapa-2.svg",
+      "/sprites/yaca/etapa-3.svg",
+      "/sprites/yaca/etapa-4.svg",
+      "/sprites/yaca/etapa-5.svg",
+      "/sprites/yaca/etapa-6.svg"
+    ],
+    "hoja": "/sprites/yaca/hoja.svg"
+  },
+  {
+    "slug": "fresno-de-arizona",
+    "nombre": "Fresno de Arizona",
+    "etapas": [
+      "/sprites/fresno-de-arizona/etapa-0.svg",
+      "/sprites/fresno-de-arizona/etapa-1.svg",
+      "/sprites/fresno-de-arizona/etapa-2.svg",
+      "/sprites/fresno-de-arizona/etapa-3.svg",
+      "/sprites/fresno-de-arizona/etapa-4.svg",
+      "/sprites/fresno-de-arizona/etapa-5.svg",
+      "/sprites/fresno-de-arizona/etapa-6.svg"
+    ],
+    "hoja": "/sprites/fresno-de-arizona/hoja.svg"
+  },
+  {
+    "slug": "ginkgo",
+    "nombre": "Ginkgo",
+    "etapas": [
+      "/sprites/ginkgo/etapa-0.svg",
+      "/sprites/ginkgo/etapa-1.svg",
+      "/sprites/ginkgo/etapa-2.svg",
+      "/sprites/ginkgo/etapa-3.svg",
+      "/sprites/ginkgo/etapa-4.svg",
+      "/sprites/ginkgo/etapa-5.svg",
+      "/sprites/ginkgo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ginkgo/hoja.svg"
+  },
+  {
+    "slug": "guaje",
+    "nombre": "Guaje",
+    "etapas": [
+      "/sprites/guaje/etapa-0.svg",
+      "/sprites/guaje/etapa-1.svg",
+      "/sprites/guaje/etapa-2.svg",
+      "/sprites/guaje/etapa-3.svg",
+      "/sprites/guaje/etapa-4.svg",
+      "/sprites/guaje/etapa-5.svg",
+      "/sprites/guaje/etapa-6.svg"
+    ],
+    "hoja": "/sprites/guaje/hoja.svg"
+  },
+  {
+    "slug": "guanabana",
+    "nombre": "Guanábana",
+    "etapas": [
+      "/sprites/guanabana/etapa-0.svg",
+      "/sprites/guanabana/etapa-1.svg",
+      "/sprites/guanabana/etapa-2.svg",
+      "/sprites/guanabana/etapa-3.svg",
+      "/sprites/guanabana/etapa-4.svg",
+      "/sprites/guanabana/etapa-5.svg",
+      "/sprites/guanabana/etapa-6.svg"
+    ],
+    "hoja": "/sprites/guanabana/hoja.svg"
+  },
+  {
+    "slug": "arbol-de-hierro-de-ceilan",
+    "nombre": "Árbol de hierro de Ceilán",
+    "etapas": [
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-0.svg",
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-1.svg",
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-2.svg",
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-3.svg",
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-4.svg",
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-5.svg",
+      "/sprites/arbol-de-hierro-de-ceilan/etapa-6.svg"
+    ],
+    "hoja": "/sprites/arbol-de-hierro-de-ceilan/hoja.svg"
+  },
+  {
+    "slug": "bambu-de-la-suerte",
+    "nombre": "Bambú de la suerte",
+    "etapas": [
+      "/sprites/bambu-de-la-suerte/etapa-0.svg",
+      "/sprites/bambu-de-la-suerte/etapa-1.svg",
+      "/sprites/bambu-de-la-suerte/etapa-2.svg",
+      "/sprites/bambu-de-la-suerte/etapa-3.svg",
+      "/sprites/bambu-de-la-suerte/etapa-4.svg",
+      "/sprites/bambu-de-la-suerte/etapa-5.svg",
+      "/sprites/bambu-de-la-suerte/etapa-6.svg"
+    ],
+    "hoja": "/sprites/bambu-de-la-suerte/hoja.svg"
+  },
+  {
+    "slug": "neem",
+    "nombre": "Neem",
+    "etapas": [
+      "/sprites/neem/etapa-0.svg",
+      "/sprites/neem/etapa-1.svg",
+      "/sprites/neem/etapa-2.svg",
+      "/sprites/neem/etapa-3.svg",
+      "/sprites/neem/etapa-4.svg",
+      "/sprites/neem/etapa-5.svg",
+      "/sprites/neem/etapa-6.svg"
+    ],
+    "hoja": "/sprites/neem/hoja.svg"
+  },
+  {
+    "slug": "palmera-enana",
+    "nombre": "Palmera enana",
+    "etapas": [
+      "/sprites/palmera-enana/etapa-0.svg",
+      "/sprites/palmera-enana/etapa-1.svg",
+      "/sprites/palmera-enana/etapa-2.svg",
+      "/sprites/palmera-enana/etapa-3.svg",
+      "/sprites/palmera-enana/etapa-4.svg",
+      "/sprites/palmera-enana/etapa-5.svg",
+      "/sprites/palmera-enana/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-enana/hoja.svg"
+  },
+  {
+    "slug": "ailanto",
+    "nombre": "Ailanto",
+    "etapas": [
+      "/sprites/ailanto/etapa-0.svg",
+      "/sprites/ailanto/etapa-1.svg",
+      "/sprites/ailanto/etapa-2.svg",
+      "/sprites/ailanto/etapa-3.svg",
+      "/sprites/ailanto/etapa-4.svg",
+      "/sprites/ailanto/etapa-5.svg",
+      "/sprites/ailanto/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ailanto/hoja.svg"
+  },
+  {
+    "slug": "aligustre-comun",
+    "nombre": "Aligustre común",
+    "etapas": [
+      "/sprites/aligustre-comun/etapa-0.svg",
+      "/sprites/aligustre-comun/etapa-1.svg",
+      "/sprites/aligustre-comun/etapa-2.svg",
+      "/sprites/aligustre-comun/etapa-3.svg",
+      "/sprites/aligustre-comun/etapa-4.svg",
+      "/sprites/aligustre-comun/etapa-5.svg",
+      "/sprites/aligustre-comun/etapa-6.svg"
+    ],
+    "hoja": "/sprites/aligustre-comun/hoja.svg"
+  },
+  {
+    "slug": "cocotero",
+    "nombre": "Cocotero",
+    "etapas": [
+      "/sprites/cocotero/etapa-0.svg",
+      "/sprites/cocotero/etapa-1.svg",
+      "/sprites/cocotero/etapa-2.svg",
+      "/sprites/cocotero/etapa-3.svg",
+      "/sprites/cocotero/etapa-4.svg",
+      "/sprites/cocotero/etapa-5.svg",
+      "/sprites/cocotero/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cocotero/hoja.svg"
+  },
+  {
+    "slug": "roble-de-los-pantanos",
+    "nombre": "Roble de los pantanos",
+    "etapas": [
+      "/sprites/roble-de-los-pantanos/etapa-0.svg",
+      "/sprites/roble-de-los-pantanos/etapa-1.svg",
+      "/sprites/roble-de-los-pantanos/etapa-2.svg",
+      "/sprites/roble-de-los-pantanos/etapa-3.svg",
+      "/sprites/roble-de-los-pantanos/etapa-4.svg",
+      "/sprites/roble-de-los-pantanos/etapa-5.svg",
+      "/sprites/roble-de-los-pantanos/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-de-los-pantanos/hoja.svg"
+  },
+  {
+    "slug": "cedro-de-virginia",
+    "nombre": "Cedro de Virginia",
+    "etapas": [
+      "/sprites/cedro-de-virginia/etapa-0.svg",
+      "/sprites/cedro-de-virginia/etapa-1.svg",
+      "/sprites/cedro-de-virginia/etapa-2.svg",
+      "/sprites/cedro-de-virginia/etapa-3.svg",
+      "/sprites/cedro-de-virginia/etapa-4.svg",
+      "/sprites/cedro-de-virginia/etapa-5.svg",
+      "/sprites/cedro-de-virginia/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cedro-de-virginia/hoja.svg"
+  },
+  {
+    "slug": "granado",
+    "nombre": "Granado",
+    "etapas": [
+      "/sprites/granado/etapa-0.svg",
+      "/sprites/granado/etapa-1.svg",
+      "/sprites/granado/etapa-2.svg",
+      "/sprites/granado/etapa-3.svg",
+      "/sprites/granado/etapa-4.svg",
+      "/sprites/granado/etapa-5.svg",
+      "/sprites/granado/etapa-6.svg"
+    ],
+    "hoja": "/sprites/granado/hoja.svg"
+  },
+  {
+    "slug": "cedro-rojo",
+    "nombre": "Cedro rojo",
+    "etapas": [
+      "/sprites/cedro-rojo/etapa-0.svg",
+      "/sprites/cedro-rojo/etapa-1.svg",
+      "/sprites/cedro-rojo/etapa-2.svg",
+      "/sprites/cedro-rojo/etapa-3.svg",
+      "/sprites/cedro-rojo/etapa-4.svg",
+      "/sprites/cedro-rojo/etapa-5.svg",
+      "/sprites/cedro-rojo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cedro-rojo/hoja.svg"
+  },
+  {
+    "slug": "arce-negundo",
+    "nombre": "Arce negundo",
+    "etapas": [
+      "/sprites/arce-negundo/etapa-0.svg",
+      "/sprites/arce-negundo/etapa-1.svg",
+      "/sprites/arce-negundo/etapa-2.svg",
+      "/sprites/arce-negundo/etapa-3.svg",
+      "/sprites/arce-negundo/etapa-4.svg",
+      "/sprites/arce-negundo/etapa-5.svg",
+      "/sprites/arce-negundo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/arce-negundo/hoja.svg"
+  },
+  {
+    "slug": "hibisco-maritimo",
+    "nombre": "Hibisco marítimo",
+    "etapas": [
+      "/sprites/hibisco-maritimo/etapa-0.svg",
+      "/sprites/hibisco-maritimo/etapa-1.svg",
+      "/sprites/hibisco-maritimo/etapa-2.svg",
+      "/sprites/hibisco-maritimo/etapa-3.svg",
+      "/sprites/hibisco-maritimo/etapa-4.svg",
+      "/sprites/hibisco-maritimo/etapa-5.svg",
+      "/sprites/hibisco-maritimo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/hibisco-maritimo/hoja.svg"
+  },
+  {
+    "slug": "olmo-americano",
+    "nombre": "Olmo americano",
+    "etapas": [
+      "/sprites/olmo-americano/etapa-0.svg",
+      "/sprites/olmo-americano/etapa-1.svg",
+      "/sprites/olmo-americano/etapa-2.svg",
+      "/sprites/olmo-americano/etapa-3.svg",
+      "/sprites/olmo-americano/etapa-4.svg",
+      "/sprites/olmo-americano/etapa-5.svg",
+      "/sprites/olmo-americano/etapa-6.svg"
+    ],
+    "hoja": "/sprites/olmo-americano/hoja.svg"
+  },
+  {
+    "slug": "tamarindo",
+    "nombre": "Tamarindo",
+    "etapas": [
+      "/sprites/tamarindo/etapa-0.svg",
+      "/sprites/tamarindo/etapa-1.svg",
+      "/sprites/tamarindo/etapa-2.svg",
+      "/sprites/tamarindo/etapa-3.svg",
+      "/sprites/tamarindo/etapa-4.svg",
+      "/sprites/tamarindo/etapa-5.svg",
+      "/sprites/tamarindo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/tamarindo/hoja.svg"
+  },
+  {
+    "slug": "capulin",
+    "nombre": "Capulín",
+    "etapas": [
+      "/sprites/capulin/etapa-0.svg",
+      "/sprites/capulin/etapa-1.svg",
+      "/sprites/capulin/etapa-2.svg",
+      "/sprites/capulin/etapa-3.svg",
+      "/sprites/capulin/etapa-4.svg",
+      "/sprites/capulin/etapa-5.svg",
+      "/sprites/capulin/etapa-6.svg"
+    ],
+    "hoja": "/sprites/capulin/hoja.svg"
+  },
+  {
+    "slug": "cafeto",
+    "nombre": "Cafeto",
+    "etapas": [
+      "/sprites/cafeto/etapa-0.svg",
+      "/sprites/cafeto/etapa-1.svg",
+      "/sprites/cafeto/etapa-2.svg",
+      "/sprites/cafeto/etapa-3.svg",
+      "/sprites/cafeto/etapa-4.svg",
+      "/sprites/cafeto/etapa-5.svg",
+      "/sprites/cafeto/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cafeto/hoja.svg"
+  },
+  {
+    "slug": "roble-negro-de-california",
+    "nombre": "Roble negro de California",
+    "etapas": [
+      "/sprites/roble-negro-de-california/etapa-0.svg",
+      "/sprites/roble-negro-de-california/etapa-1.svg",
+      "/sprites/roble-negro-de-california/etapa-2.svg",
+      "/sprites/roble-negro-de-california/etapa-3.svg",
+      "/sprites/roble-negro-de-california/etapa-4.svg",
+      "/sprites/roble-negro-de-california/etapa-5.svg",
+      "/sprites/roble-negro-de-california/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-negro-de-california/hoja.svg"
+  },
+  {
+    "slug": "palma-areca",
+    "nombre": "Palma areca",
+    "etapas": [
+      "/sprites/palma-areca/etapa-0.svg",
+      "/sprites/palma-areca/etapa-1.svg",
+      "/sprites/palma-areca/etapa-2.svg",
+      "/sprites/palma-areca/etapa-3.svg",
+      "/sprites/palma-areca/etapa-4.svg",
+      "/sprites/palma-areca/etapa-5.svg",
+      "/sprites/palma-areca/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palma-areca/hoja.svg"
+  },
+  {
+    "slug": "llorasangre",
+    "nombre": "Llorasangre",
+    "etapas": [
+      "/sprites/llorasangre/etapa-0.svg",
+      "/sprites/llorasangre/etapa-1.svg",
+      "/sprites/llorasangre/etapa-2.svg",
+      "/sprites/llorasangre/etapa-3.svg",
+      "/sprites/llorasangre/etapa-4.svg",
+      "/sprites/llorasangre/etapa-5.svg",
+      "/sprites/llorasangre/etapa-6.svg"
+    ],
+    "hoja": "/sprites/llorasangre/hoja.svg"
+  },
+  {
+    "slug": "ceiba-roja",
+    "nombre": "Ceiba roja",
+    "etapas": [
+      "/sprites/ceiba-roja/etapa-0.svg",
+      "/sprites/ceiba-roja/etapa-1.svg",
+      "/sprites/ceiba-roja/etapa-2.svg",
+      "/sprites/ceiba-roja/etapa-3.svg",
+      "/sprites/ceiba-roja/etapa-4.svg",
+      "/sprites/ceiba-roja/etapa-5.svg",
+      "/sprites/ceiba-roja/etapa-6.svg"
+    ],
+    "hoja": "/sprites/ceiba-roja/hoja.svg"
+  },
+  {
+    "slug": "eucalipto-gunnii",
+    "nombre": "Eucalipto gunnii",
+    "etapas": [
+      "/sprites/eucalipto-gunnii/etapa-0.svg",
+      "/sprites/eucalipto-gunnii/etapa-1.svg",
+      "/sprites/eucalipto-gunnii/etapa-2.svg",
+      "/sprites/eucalipto-gunnii/etapa-3.svg",
+      "/sprites/eucalipto-gunnii/etapa-4.svg",
+      "/sprites/eucalipto-gunnii/etapa-5.svg",
+      "/sprites/eucalipto-gunnii/etapa-6.svg"
+    ],
+    "hoja": "/sprites/eucalipto-gunnii/hoja.svg"
+  },
+  {
+    "slug": "feijoa",
+    "nombre": "Feijoa",
+    "etapas": [
+      "/sprites/feijoa/etapa-0.svg",
+      "/sprites/feijoa/etapa-1.svg",
+      "/sprites/feijoa/etapa-2.svg",
+      "/sprites/feijoa/etapa-3.svg",
+      "/sprites/feijoa/etapa-4.svg",
+      "/sprites/feijoa/etapa-5.svg",
+      "/sprites/feijoa/etapa-6.svg"
+    ],
+    "hoja": "/sprites/feijoa/hoja.svg"
+  },
+  {
+    "slug": "palma-real",
+    "nombre": "Palma real",
+    "etapas": [
+      "/sprites/palma-real/etapa-0.svg",
+      "/sprites/palma-real/etapa-1.svg",
+      "/sprites/palma-real/etapa-2.svg",
+      "/sprites/palma-real/etapa-3.svg",
+      "/sprites/palma-real/etapa-4.svg",
+      "/sprites/palma-real/etapa-5.svg",
+      "/sprites/palma-real/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palma-real/hoja.svg"
+  },
+  {
+    "slug": "acacia-de-tres-espinas",
+    "nombre": "Acacia de tres espinas",
+    "etapas": [
+      "/sprites/acacia-de-tres-espinas/etapa-0.svg",
+      "/sprites/acacia-de-tres-espinas/etapa-1.svg",
+      "/sprites/acacia-de-tres-espinas/etapa-2.svg",
+      "/sprites/acacia-de-tres-espinas/etapa-3.svg",
+      "/sprites/acacia-de-tres-espinas/etapa-4.svg",
+      "/sprites/acacia-de-tres-espinas/etapa-5.svg",
+      "/sprites/acacia-de-tres-espinas/etapa-6.svg"
+    ],
+    "hoja": "/sprites/acacia-de-tres-espinas/hoja.svg"
+  },
+  {
+    "slug": "palmera-de-bismarck",
+    "nombre": "Palmera de Bismarck",
+    "etapas": [
+      "/sprites/palmera-de-bismarck/etapa-0.svg",
+      "/sprites/palmera-de-bismarck/etapa-1.svg",
+      "/sprites/palmera-de-bismarck/etapa-2.svg",
+      "/sprites/palmera-de-bismarck/etapa-3.svg",
+      "/sprites/palmera-de-bismarck/etapa-4.svg",
+      "/sprites/palmera-de-bismarck/etapa-5.svg",
+      "/sprites/palmera-de-bismarck/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-de-bismarck/hoja.svg"
+  },
+  {
+    "slug": "moringa",
+    "nombre": "Moringa",
+    "etapas": [
+      "/sprites/moringa/etapa-0.svg",
+      "/sprites/moringa/etapa-1.svg",
+      "/sprites/moringa/etapa-2.svg",
+      "/sprites/moringa/etapa-3.svg",
+      "/sprites/moringa/etapa-4.svg",
+      "/sprites/moringa/etapa-5.svg",
+      "/sprites/moringa/etapa-6.svg"
+    ],
+    "hoja": "/sprites/moringa/hoja.svg"
+  },
+  {
+    "slug": "niaouli",
+    "nombre": "Niaouli",
+    "etapas": [
+      "/sprites/niaouli/etapa-0.svg",
+      "/sprites/niaouli/etapa-1.svg",
+      "/sprites/niaouli/etapa-2.svg",
+      "/sprites/niaouli/etapa-3.svg",
+      "/sprites/niaouli/etapa-4.svg",
+      "/sprites/niaouli/etapa-5.svg",
+      "/sprites/niaouli/etapa-6.svg"
+    ],
+    "hoja": "/sprites/niaouli/hoja.svg"
+  },
+  {
+    "slug": "nopal",
+    "nombre": "Nopal",
+    "etapas": [
+      "/sprites/nopal/etapa-0.svg",
+      "/sprites/nopal/etapa-1.svg",
+      "/sprites/nopal/etapa-2.svg",
+      "/sprites/nopal/etapa-3.svg",
+      "/sprites/nopal/etapa-4.svg",
+      "/sprites/nopal/etapa-5.svg",
+      "/sprites/nopal/etapa-6.svg"
+    ],
+    "hoja": "/sprites/nopal/hoja.svg"
+  },
+  {
+    "slug": "arbol-de-los-lapices",
+    "nombre": "Árbol de los lápices",
+    "etapas": [
+      "/sprites/arbol-de-los-lapices/etapa-0.svg",
+      "/sprites/arbol-de-los-lapices/etapa-1.svg",
+      "/sprites/arbol-de-los-lapices/etapa-2.svg",
+      "/sprites/arbol-de-los-lapices/etapa-3.svg",
+      "/sprites/arbol-de-los-lapices/etapa-4.svg",
+      "/sprites/arbol-de-los-lapices/etapa-5.svg",
+      "/sprites/arbol-de-los-lapices/etapa-6.svg"
+    ],
+    "hoja": "/sprites/arbol-de-los-lapices/hoja.svg"
+  },
+  {
+    "slug": "liquidambar",
+    "nombre": "Liquidámbar",
+    "etapas": [
+      "/sprites/liquidambar/etapa-0.svg",
+      "/sprites/liquidambar/etapa-1.svg",
+      "/sprites/liquidambar/etapa-2.svg",
+      "/sprites/liquidambar/etapa-3.svg",
+      "/sprites/liquidambar/etapa-4.svg",
+      "/sprites/liquidambar/etapa-5.svg",
+      "/sprites/liquidambar/etapa-6.svg"
+    ],
+    "hoja": "/sprites/liquidambar/hoja.svg"
+  },
+  {
+    "slug": "fruta-milagrosa",
+    "nombre": "Fruta milagrosa",
+    "etapas": [
+      "/sprites/fruta-milagrosa/etapa-0.svg",
+      "/sprites/fruta-milagrosa/etapa-1.svg",
+      "/sprites/fruta-milagrosa/etapa-2.svg",
+      "/sprites/fruta-milagrosa/etapa-3.svg",
+      "/sprites/fruta-milagrosa/etapa-4.svg",
+      "/sprites/fruta-milagrosa/etapa-5.svg",
+      "/sprites/fruta-milagrosa/etapa-6.svg"
+    ],
+    "hoja": "/sprites/fruta-milagrosa/hoja.svg"
+  },
+  {
+    "slug": "cerezo-japones",
+    "nombre": "Cerezo japonés",
+    "etapas": [
+      "/sprites/cerezo-japones/etapa-0.svg",
+      "/sprites/cerezo-japones/etapa-1.svg",
+      "/sprites/cerezo-japones/etapa-2.svg",
+      "/sprites/cerezo-japones/etapa-3.svg",
+      "/sprites/cerezo-japones/etapa-4.svg",
+      "/sprites/cerezo-japones/etapa-5.svg",
+      "/sprites/cerezo-japones/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cerezo-japones/hoja.svg"
+  },
+  {
+    "slug": "bambu-comun",
+    "nombre": "Bambú común",
+    "etapas": [
+      "/sprites/bambu-comun/etapa-0.svg",
+      "/sprites/bambu-comun/etapa-1.svg",
+      "/sprites/bambu-comun/etapa-2.svg",
+      "/sprites/bambu-comun/etapa-3.svg",
+      "/sprites/bambu-comun/etapa-4.svg",
+      "/sprites/bambu-comun/etapa-5.svg",
+      "/sprites/bambu-comun/etapa-6.svg"
+    ],
+    "hoja": "/sprites/bambu-comun/hoja.svg"
+  },
+  {
+    "slug": "papayo",
+    "nombre": "Papayo",
+    "etapas": [
+      "/sprites/papayo/etapa-0.svg",
+      "/sprites/papayo/etapa-1.svg",
+      "/sprites/papayo/etapa-2.svg",
+      "/sprites/papayo/etapa-3.svg",
+      "/sprites/papayo/etapa-4.svg",
+      "/sprites/papayo/etapa-5.svg",
+      "/sprites/papayo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/papayo/hoja.svg"
+  },
+  {
+    "slug": "guano-de-costa",
+    "nombre": "Guano de costa",
+    "etapas": [
+      "/sprites/guano-de-costa/etapa-0.svg",
+      "/sprites/guano-de-costa/etapa-1.svg",
+      "/sprites/guano-de-costa/etapa-2.svg",
+      "/sprites/guano-de-costa/etapa-3.svg",
+      "/sprites/guano-de-costa/etapa-4.svg",
+      "/sprites/guano-de-costa/etapa-5.svg",
+      "/sprites/guano-de-costa/etapa-6.svg"
+    ],
+    "hoja": "/sprites/guano-de-costa/hoja.svg"
+  },
+  {
+    "slug": "roble-tanoak",
+    "nombre": "Roble tanoak",
+    "etapas": [
+      "/sprites/roble-tanoak/etapa-0.svg",
+      "/sprites/roble-tanoak/etapa-1.svg",
+      "/sprites/roble-tanoak/etapa-2.svg",
+      "/sprites/roble-tanoak/etapa-3.svg",
+      "/sprites/roble-tanoak/etapa-4.svg",
+      "/sprites/roble-tanoak/etapa-5.svg",
+      "/sprites/roble-tanoak/etapa-6.svg"
+    ],
+    "hoja": "/sprites/roble-tanoak/hoja.svg"
+  },
+  {
+    "slug": "duranta",
+    "nombre": "Duranta",
+    "etapas": [
+      "/sprites/duranta/etapa-0.svg",
+      "/sprites/duranta/etapa-1.svg",
+      "/sprites/duranta/etapa-2.svg",
+      "/sprites/duranta/etapa-3.svg",
+      "/sprites/duranta/etapa-4.svg",
+      "/sprites/duranta/etapa-5.svg",
+      "/sprites/duranta/etapa-6.svg"
+    ],
+    "hoja": "/sprites/duranta/hoja.svg"
+  },
+  {
+    "slug": "palmera-datilera",
+    "nombre": "Palmera datilera",
+    "etapas": [
+      "/sprites/palmera-datilera/etapa-0.svg",
+      "/sprites/palmera-datilera/etapa-1.svg",
+      "/sprites/palmera-datilera/etapa-2.svg",
+      "/sprites/palmera-datilera/etapa-3.svg",
+      "/sprites/palmera-datilera/etapa-4.svg",
+      "/sprites/palmera-datilera/etapa-5.svg",
+      "/sprites/palmera-datilera/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-datilera/hoja.svg"
+  },
+  {
+    "slug": "pistacho-chino",
+    "nombre": "Pistacho chino",
+    "etapas": [
+      "/sprites/pistacho-chino/etapa-0.svg",
+      "/sprites/pistacho-chino/etapa-1.svg",
+      "/sprites/pistacho-chino/etapa-2.svg",
+      "/sprites/pistacho-chino/etapa-3.svg",
+      "/sprites/pistacho-chino/etapa-4.svg",
+      "/sprites/pistacho-chino/etapa-5.svg",
+      "/sprites/pistacho-chino/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pistacho-chino/hoja.svg"
+  },
+  {
+    "slug": "fresno-rojo",
+    "nombre": "Fresno rojo",
+    "etapas": [
+      "/sprites/fresno-rojo/etapa-0.svg",
+      "/sprites/fresno-rojo/etapa-1.svg",
+      "/sprites/fresno-rojo/etapa-2.svg",
+      "/sprites/fresno-rojo/etapa-3.svg",
+      "/sprites/fresno-rojo/etapa-4.svg",
+      "/sprites/fresno-rojo/etapa-5.svg",
+      "/sprites/fresno-rojo/etapa-6.svg"
+    ],
+    "hoja": "/sprites/fresno-rojo/hoja.svg"
+  },
+  {
+    "slug": "encino-de-california",
+    "nombre": "Encino de California",
+    "etapas": [
+      "/sprites/encino-de-california/etapa-0.svg",
+      "/sprites/encino-de-california/etapa-1.svg",
+      "/sprites/encino-de-california/etapa-2.svg",
+      "/sprites/encino-de-california/etapa-3.svg",
+      "/sprites/encino-de-california/etapa-4.svg",
+      "/sprites/encino-de-california/etapa-5.svg",
+      "/sprites/encino-de-california/etapa-6.svg"
+    ],
+    "hoja": "/sprites/encino-de-california/hoja.svg"
+  },
+  {
+    "slug": "palmera-de-madagascar",
+    "nombre": "Palmera de Madagascar",
+    "etapas": [
+      "/sprites/palmera-de-madagascar/etapa-0.svg",
+      "/sprites/palmera-de-madagascar/etapa-1.svg",
+      "/sprites/palmera-de-madagascar/etapa-2.svg",
+      "/sprites/palmera-de-madagascar/etapa-3.svg",
+      "/sprites/palmera-de-madagascar/etapa-4.svg",
+      "/sprites/palmera-de-madagascar/etapa-5.svg",
+      "/sprites/palmera-de-madagascar/etapa-6.svg"
+    ],
+    "hoja": "/sprites/palmera-de-madagascar/hoja.svg"
+  },
+  {
+    "slug": "cariota",
+    "nombre": "Cariota",
+    "etapas": [
+      "/sprites/cariota/etapa-0.svg",
+      "/sprites/cariota/etapa-1.svg",
+      "/sprites/cariota/etapa-2.svg",
+      "/sprites/cariota/etapa-3.svg",
+      "/sprites/cariota/etapa-4.svg",
+      "/sprites/cariota/etapa-5.svg",
+      "/sprites/cariota/etapa-6.svg"
+    ],
+    "hoja": "/sprites/cariota/hoja.svg"
+  },
+  {
+    "slug": "pimienta-de-brasil",
+    "nombre": "Pimienta de Brasil",
+    "etapas": [
+      "/sprites/pimienta-de-brasil/etapa-0.svg",
+      "/sprites/pimienta-de-brasil/etapa-1.svg",
+      "/sprites/pimienta-de-brasil/etapa-2.svg",
+      "/sprites/pimienta-de-brasil/etapa-3.svg",
+      "/sprites/pimienta-de-brasil/etapa-4.svg",
+      "/sprites/pimienta-de-brasil/etapa-5.svg",
+      "/sprites/pimienta-de-brasil/etapa-6.svg"
+    ],
+    "hoja": "/sprites/pimienta-de-brasil/hoja.svg"
   }
 ]

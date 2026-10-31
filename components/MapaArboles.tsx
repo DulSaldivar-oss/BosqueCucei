@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChipEstado } from "@/components/ChipEstado";
 import { Icono } from "@/components/Icono";
+import { distanciaMetros, fueraDeLugar } from "@/lib/geo";
 import { ESTADOS_ARBOL, type EstadoArbol } from "@/lib/juego/catalogos";
 
 export interface PuntoDelMapa {
@@ -27,43 +28,40 @@ type Filtro = "todos" | "atencion" | "jardin" | "pendientes";
 
 const ATENCION = new Set(["pendiente", "posible_problema", "revision_requerida"]);
 
-function distanciaMetros(a: [number, number], b: [number, number]) {
-  const r = 6371000;
-  const rad = Math.PI / 180;
-  const dLat = (b[0] - a[0]) * rad;
-  const dLng = (b[1] - a[1]) * rad;
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[0] * rad) * Math.cos(b[0] * rad) * Math.sin(dLng / 2) ** 2;
-  return 2 * r * Math.asin(Math.sqrt(h));
-}
-
+/**
+ * El tamaño del marcador depende del zoom (variable --pin en el contenedor, ver globals.css):
+ * con el inventario completo, a zoom de campus los pines grandes se taparían unos a otros.
+ */
 function htmlMarcador(p: PuntoDelMapa, seleccionado: boolean) {
   const estado = ESTADOS_ARBOL[p.estado as EstadoArbol] ?? ESTADOS_ARBOL.sin_datos;
-  const tam = seleccionado ? 38 : 28;
   const pulso =
-    p.estado === "revision_requerida"
-      ? `<span style="position:absolute;inset:-6px;border-radius:999px;border:3px solid ${estado.color};animation:ping 1.6s cubic-bezier(0,0,.2,1) infinite"></span>`
-      : "";
-  const insignia = p.regado
-    ? `<span style="position:absolute;right:-4px;top:-4px;width:14px;height:14px;border-radius:99px;background:#3B9AE1;border:2px solid #fff"></span>`
-    : "";
-  return `<span class="marcador-arbol" style="position:relative;display:block;width:${tam}px;height:${tam}px">
+    p.estado === "revision_requerida" ? `<span class="marcador-pulso" style="border-color:${estado.color}"></span>` : "";
+  const insignia = p.regado ? `<span class="marcador-regado"></span>` : "";
+  return `<span class="marcador-arbol${seleccionado ? " elegido" : ""}">
     ${pulso}
-    <span style="position:absolute;inset:0;border-radius:999px 999px 999px 4px;transform:rotate(-45deg);background:${estado.color};box-shadow:0 6px 14px -6px rgba(30,43,34,.6)"></span>
-    <span style="position:absolute;inset:${tam * 0.2}px;border-radius:999px;background:${p.color};border:2px solid #fffcf6;opacity:${p.descubierto || !insignia ? 1 : 0.95}"></span>
+    <span class="marcador-gota" style="background:${estado.color}"></span>
+    <span class="marcador-centro" style="background:${p.color}"></span>
     ${insignia}
   </span>`;
+}
+
+function escalaPorZoom(zoom: number) {
+  return zoom <= 16 ? "lejos" : zoom === 17 ? "medio" : zoom === 18 ? "cerca" : "detalle";
 }
 
 export function MapaArboles({
   puntos,
   conSesion = false,
   inicial,
+  especie: especieInicial,
   className = "h-[60vh]",
   enlaceBase = "/arbol",
 }: {
   puntos: PuntoDelMapa[];
   conSesion?: boolean;
   inicial?: string;
+  /** Slug de especie para mostrar solo sus árboles. */
+  especie?: string;
   className?: string;
   enlaceBase?: string;
 }) {
@@ -71,19 +69,28 @@ export function MapaArboles({
   const mapa = useRef<L.Map | null>(null);
   const capa = useRef<L.LayerGroup | null>(null);
   const leaflet = useRef<typeof L | null>(null);
+  const marcadores = useRef(new Map<string, L.Marker>());
+  const yoMarcador = useRef<L.CircleMarker | null>(null);
   const [listo, setListo] = useState(false);
   const [filtro, setFiltro] = useState<Filtro>("todos");
+  const [especie, setEspecie] = useState<string | null>(
+    especieInicial && puntos.some((p) => p.slug === especieInicial) ? especieInicial : null,
+  );
   const [elegido, setElegido] = useState<string | null>(inicial ?? null);
+  const elegidoActual = useRef(elegido);
   const [yo, setYo] = useState<[number, number] | null>(null);
   const [errorUbicacion, setErrorUbicacion] = useState("");
 
   const visibles = useMemo(
     () =>
-      puntos.filter((p) =>
-        filtro === "todos" ? true : filtro === "atencion" ? ATENCION.has(p.estado) : filtro === "jardin" ? p.descubierto : !p.descubierto,
+      puntos.filter(
+        (p) =>
+          (!especie || p.slug === especie) &&
+          (filtro === "todos" ? true : filtro === "atencion" ? ATENCION.has(p.estado) : filtro === "jardin" ? p.descubierto : !p.descubierto),
       ),
-    [puntos, filtro],
+    [puntos, filtro, especie],
   );
+  const nombreEspecie = especie ? puntos.find((p) => p.slug === especie)?.especie : null;
 
   useEffect(() => {
     let cancelado = false;
@@ -98,42 +105,74 @@ export function MapaArboles({
         maxZoom: 20,
       }).addTo(m);
       Lf.control.zoom({ position: "bottomright" }).addTo(m);
-      const limites = Lf.latLngBounds(puntos.map((p) => [p.latitud, p.longitud] as [number, number]));
+      // Encuadre inicial: los árboles (de la especie, si hay filtro) sin los que tienen coordenadas fuera de lugar.
+      const base = especie ? puntos.filter((p) => p.slug === especie) : puntos;
+      const lejos = new Set(fueraDeLugar(base).map((p) => p.codigo));
+      const limites = Lf.latLngBounds(base.filter((p) => !lejos.has(p.codigo)).map((p) => [p.latitud, p.longitud] as [number, number]));
       if (limites.isValid()) m.fitBounds(limites, { padding: [30, 30], maxZoom: 18 });
       else m.setView([20.6566, -103.3253], 17);
+      const escalar = () => contenedor.current?.setAttribute("data-zoom", escalaPorZoom(m.getZoom()));
+      m.on("zoomend", escalar);
+      escalar();
       capa.current = Lf.layerGroup().addTo(m);
       mapa.current = m;
       setListo(true);
     });
+    const registro = marcadores.current;
     return () => {
       cancelado = true;
       mapa.current?.remove();
       mapa.current = null;
+      registro.clear();
     };
     // Los puntos iniciales solo sirven para encuadrar el mapa la primera vez.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Los marcadores se crean solo cuando cambia el filtro; elegir uno solo actualiza dos marcadores.
   useEffect(() => {
     const Lf = leaflet.current;
-    if (!listo || !Lf || !capa.current) return;
-    capa.current.clearLayers();
+    const grupo = capa.current;
+    if (!listo || !Lf || !grupo) return;
+    grupo.clearLayers();
+    marcadores.current.clear();
+    const conTeclado = visibles.length <= 150;
     for (const p of visibles) {
-      const seleccionado = p.codigo === elegido;
-      const icono = Lf.divIcon({
-        html: htmlMarcador(p, seleccionado),
-        className: "",
-        iconSize: [seleccionado ? 38 : 28, seleccionado ? 38 : 28],
-        iconAnchor: [seleccionado ? 4 : 3, seleccionado ? 36 : 27],
-      });
-      Lf.marker([p.latitud, p.longitud], { icon: icono, zIndexOffset: seleccionado ? 1000 : 0, keyboard: true, title: `${p.apodo ?? p.especie} ${p.codigo}` })
+      const seleccionado = p.codigo === elegidoActual.current;
+      const marcador = Lf.marker([p.latitud, p.longitud], {
+        icon: Lf.divIcon({ html: htmlMarcador(p, seleccionado), className: "", iconSize: [0, 0], iconAnchor: [0, 0] }),
+        zIndexOffset: seleccionado ? 1000 : 0,
+        keyboard: conTeclado,
+        title: `${p.apodo ?? p.especie} ${p.codigo}`,
+      })
         .on("click", () => setElegido(p.codigo))
-        .addTo(capa.current);
+        .addTo(grupo);
+      marcadores.current.set(p.codigo, marcador);
     }
-    if (yo) {
-      Lf.circleMarker(yo, { radius: 9, color: "#fff", weight: 3, fillColor: "#3B9AE1", fillOpacity: 1 }).addTo(capa.current);
+  }, [listo, visibles]);
+
+  useEffect(() => {
+    const anterior = elegidoActual.current;
+    elegidoActual.current = elegido;
+    for (const [codigo, activo] of [
+      [anterior, false],
+      [elegido, true],
+    ] as const) {
+      const marcador = codigo ? marcadores.current.get(codigo) : undefined;
+      if (!marcador) continue;
+      marcador.getElement()?.querySelector(".marcador-arbol")?.classList.toggle("elegido", activo);
+      marcador.setZIndexOffset(activo ? 1000 : 0);
     }
-  }, [listo, visibles, elegido, yo]);
+  }, [elegido]);
+
+  useEffect(() => {
+    const Lf = leaflet.current;
+    if (!listo || !Lf || !mapa.current) return;
+    yoMarcador.current?.remove();
+    yoMarcador.current = yo
+      ? Lf.circleMarker(yo, { radius: 9, color: "#fff", weight: 3, fillColor: "#3B9AE1", fillOpacity: 1 }).addTo(mapa.current)
+      : null;
+  }, [listo, yo]);
 
   useEffect(() => {
     if (!listo || !inicial) return;
@@ -174,6 +213,16 @@ export function MapaArboles({
   return (
     <div className="space-y-3">
       <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 [&::-webkit-scrollbar]:hidden">
+        {nombreEspecie && (
+          <button
+            type="button"
+            onClick={() => setEspecie(null)}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-musgo px-4 py-2 text-sm font-bold whitespace-nowrap text-papel transition active:scale-95"
+            aria-label={`Quitar el filtro de especie ${nombreEspecie}`}
+          >
+            {nombreEspecie} · {visibles.length} <Icono nombre="cerrar" className="size-3.5" grosor={2.4} />
+          </button>
+        )}
         {filtros.map(([id, texto]) => (
           <button
             key={id}
@@ -190,7 +239,7 @@ export function MapaArboles({
       </div>
 
       <div className={`relative isolate overflow-hidden rounded-[28px] border border-linea shadow-tarjeta ${className}`}>
-        <div ref={contenedor} className="absolute inset-0 z-0" aria-label="Mapa del campus con los árboles" role="application" />
+        <div ref={contenedor} className="mapa-arboles absolute inset-0 z-0" aria-label="Mapa del campus con los árboles" role="application" />
         {!listo && <div className="absolute inset-0 z-10 animate-pulse bg-papel-2" aria-hidden="true" />}
 
         <button

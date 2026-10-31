@@ -4,495 +4,4645 @@
     {
       "slug": "jacaranda",
       "nombre_comun": "Jacaranda",
-      "otros_nombres": ["Jacarandá", "Tarco"],
+      "otros_nombres": [
+        "Jacarandá",
+        "Tarco"
+      ],
       "nombre_cientifico": "Jacaranda mimosifolia",
       "familia": "Bignoniaceae",
       "origen": "introducida",
       "distribucion": "Sudamérica (Argentina y Bolivia).",
       "descripcion": "Árbol de copa amplia y follaje fino parecido al de un helecho. A finales del invierno se cubre de racimos de flores violeta en forma de campana.",
       "dato_curioso": "Se popularizó en México a inicios del siglo XX; hoy su floración anuncia la primavera en las avenidas de Guadalajara.",
-      "beneficios": ["Sombra ligera", "Alimento para abejas y colibríes", "Reduce la temperatura del entorno"],
+      "beneficios": [
+        "Sombra ligera",
+        "Alimento para abejas y colibríes",
+        "Reduce la temperatura del entorno"
+      ],
       "altura_max_m": 15,
       "follaje": "semicaducifolio",
-      "floracion_meses": [2, 3, 4],
+      "floracion_meses": [
+        2,
+        3,
+        4
+      ],
       "color_flor": "#8E6CC4",
-      "sprite": { "copa": "paraguas", "hojas": ["#3F6B3B", "#5E8F4B", "#8DB766"], "tronco": "#6B5444", "flor": "#8E6CC4", "densidadFlor": 0.95, "alto": 1, "ancho": 1.1 }
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#3F6B3B",
+          "#5E8F4B",
+          "#8DB766"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.95,
+        "alto": 1,
+        "ancho": 1.1
+      },
+      "follaje_texto": "Caducifolio",
+      "clima": "Tropical, subtropical, cálido",
+      "floracion_texto": "Flores en racimos de color morado o azul; fruto en cápsula"
     },
     {
       "slug": "primavera",
       "nombre_comun": "Primavera",
-      "otros_nombres": ["Palo blanco", "Árbol de oro"],
+      "otros_nombres": [
+        "Palo blanco",
+        "Árbol de oro"
+      ],
       "nombre_cientifico": "Roseodendron donnell-smithii",
       "familia": "Bignoniaceae",
       "origen": "nativa",
       "distribucion": "Vertiente del Pacífico de México y Centroamérica.",
       "descripcion": "Árbol alto de tronco claro y recto. Tira sus hojas en la temporada seca y después se cubre por completo de flores amarillo dorado.",
       "dato_curioso": "Durante su floración la copa no tiene hojas: todo el color que ves son flores.",
-      "beneficios": ["Alimento para polinizadores", "Madera apreciada", "Captura de carbono"],
+      "beneficios": [
+        "Alimento para polinizadores",
+        "Madera apreciada",
+        "Captura de carbono"
+      ],
       "altura_max_m": 25,
       "follaje": "caducifolio",
-      "floracion_meses": [2, 3, 4],
+      "floracion_meses": [
+        2,
+        3,
+        4
+      ],
       "color_flor": "#EDBB1F",
-      "sprite": { "copa": "abierta", "hojas": ["#466D3A", "#679448", "#97BE5E"], "tronco": "#B8A58C", "flor": "#EDBB1F", "densidadFlor": 1, "alto": 1.2, "ancho": 0.95 }
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#466D3A",
+          "#679448",
+          "#97BE5E"
+        ],
+        "tronco": "#B8A58C",
+        "flor": "#EDBB1F",
+        "densidadFlor": 1,
+        "alto": 1.2,
+        "ancho": 0.95
+      }
     },
     {
       "slug": "rosa-morada",
       "nombre_comun": "Rosa morada",
-      "otros_nombres": ["Amapa", "Macuilís", "Maquilishuat"],
+      "otros_nombres": [
+        "Amapa",
+        "Macuilís",
+        "Maquilishuat",
+        "Apamate",
+        "Trompeta rosa"
+      ],
       "nombre_cientifico": "Tabebuia rosea",
       "familia": "Bignoniaceae",
       "origen": "nativa",
       "distribucion": "Del sur de México hasta el norte de Sudamérica.",
       "descripcion": "Árbol de hojas compuestas de cinco folíolos. En la temporada seca se llena de flores rosa lila en forma de trompeta.",
       "dato_curioso": "Es el árbol nacional de El Salvador, donde se le llama maquilishuat.",
-      "beneficios": ["Alimento para abejas y colibríes", "Sombra amplia", "Madera para muebles"],
+      "beneficios": [
+        "Alimento para abejas y colibríes",
+        "Sombra amplia",
+        "Madera para muebles"
+      ],
       "altura_max_m": 25,
       "follaje": "caducifolio",
-      "floracion_meses": [2, 3, 4],
+      "floracion_meses": [
+        2,
+        3,
+        4
+      ],
       "color_flor": "#E58DBB",
-      "sprite": { "copa": "redonda", "hojas": ["#3E6A3A", "#5C8C49", "#8AB463"], "tronco": "#7A6553", "flor": "#E58DBB", "densidadFlor": 0.85, "alto": 1.1, "ancho": 1 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#7A6553",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.85,
+        "alto": 1.1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores rosadas, frutos en cápsulas"
     },
     {
       "slug": "tabachin",
       "nombre_comun": "Tabachín",
-      "otros_nombres": ["Flamboyán", "Framboyán"],
+      "otros_nombres": [
+        "Flamboyán",
+        "Framboyán"
+      ],
       "nombre_cientifico": "Delonix regia",
       "familia": "Fabaceae",
       "origen": "introducida",
       "distribucion": "Madagascar.",
       "descripcion": "Árbol de copa muy extendida en forma de sombrilla y hojas finamente divididas. Al inicio de las lluvias se cubre de flores rojo anaranjado.",
       "dato_curioso": "Sus vainas leñosas pueden medir más de medio metro y suenan como sonaja cuando se secan.",
-      "beneficios": ["Sombra muy amplia", "Alimento para polinizadores", "Reduce la temperatura del entorno"],
+      "beneficios": [
+        "Sombra muy amplia",
+        "Alimento para polinizadores",
+        "Reduce la temperatura del entorno"
+      ],
       "altura_max_m": 12,
       "follaje": "semicaducifolio",
-      "floracion_meses": [5, 6, 7],
+      "floracion_meses": [
+        5,
+        6,
+        7
+      ],
       "color_flor": "#E4572E",
-      "sprite": { "copa": "paraguas", "hojas": ["#3B6936", "#5A8E45", "#8BBA5E"], "tronco": "#6E5A48", "flor": "#E4572E", "densidadFlor": 0.9, "alto": 0.85, "ancho": 1.35 }
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#3B6936",
+          "#5A8E45",
+          "#8BBA5E"
+        ],
+        "tronco": "#6E5A48",
+        "flor": "#E4572E",
+        "densidadFlor": 0.9,
+        "alto": 0.85,
+        "ancho": 1.35
+      },
+      "follaje_texto": "Caduco",
+      "clima": "Tropical y subtropical",
+      "floracion_texto": "Flores rojas o anaranjadas llamativas; frutos en vainas largas y duras"
     },
     {
       "slug": "fresno",
       "nombre_comun": "Fresno",
-      "otros_nombres": ["Fresno de Uhde"],
+      "otros_nombres": [
+        "Fresno de Uhde"
+      ],
       "nombre_cientifico": "Fraxinus uhdei",
       "familia": "Oleaceae",
       "origen": "nativa",
       "distribucion": "México y Centroamérica, cerca de ríos y cañadas.",
       "descripcion": "Árbol de crecimiento rápido con hojas compuestas y copa redondeada. Es de los más plantados en calles y parques de Guadalajara.",
       "dato_curioso": "Sus semillas tienen un ala que las hace girar como hélice al caer.",
-      "beneficios": ["Sombra densa", "Captura de carbono", "Refugio para aves"],
+      "beneficios": [
+        "Sombra densa",
+        "Captura de carbono",
+        "Refugio para aves"
+      ],
       "altura_max_m": 25,
       "follaje": "semicaducifolio",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "redonda", "hojas": ["#2F5E35", "#4A8044", "#78AA5A"], "tronco": "#7C6A58", "alto": 1.15, "ancho": 1 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1.15,
+        "ancho": 1
+      },
+      "follaje_texto": "Caduco o semi-persistente",
+      "clima": "Templado y subtropical",
+      "floracion_texto": "Flores pequeñas; frutos en sámaras aladas"
     },
     {
       "slug": "ficus-benjamina",
       "nombre_comun": "Ficus",
-      "otros_nombres": ["Laurel benjamina", "Árbol de hule chico"],
+      "otros_nombres": [
+        "Laurel benjamina",
+        "Árbol de hule chico"
+      ],
       "nombre_cientifico": "Ficus benjamina",
       "familia": "Moraceae",
       "origen": "introducida",
       "distribucion": "Sur y sureste de Asia y norte de Australia.",
       "descripcion": "Árbol perenne de hojas brillantes y ramas colgantes. Muy usado en camellones y patios por su sombra constante.",
       "dato_curioso": "Sus raíces son tan fuertes que pueden levantar banquetas y romper tuberías.",
-      "beneficios": ["Sombra todo el año", "Frutos para aves", "Barrera contra el polvo"],
+      "beneficios": [
+        "Sombra todo el año",
+        "Frutos para aves",
+        "Barrera contra el polvo"
+      ],
       "altura_max_m": 20,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "redonda", "hojas": ["#24502E", "#3B7140", "#5F9850"], "tronco": "#8A7B6A", "alto": 0.95, "ancho": 1.15 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 0.95,
+        "ancho": 1.15
+      },
+      "follaje_texto": "Persistente",
+      "clima": "Tropical, subtropical, cálido-templado",
+      "floracion_texto": "Higos pequeños no comestibles"
     },
     {
       "slug": "laurel-de-la-india",
       "nombre_comun": "Laurel de la India",
-      "otros_nombres": ["Ficus de la India"],
+      "otros_nombres": [
+        "Ficus de la India"
+      ],
       "nombre_cientifico": "Ficus microcarpa",
       "familia": "Moraceae",
       "origen": "introducida",
       "distribucion": "Sur de Asia hasta Australia.",
       "descripcion": "Árbol perenne de copa enorme y tronco grueso, común en plazas. Con los años desarrolla raíces aéreas que bajan de las ramas.",
       "dato_curioso": "Sus higos diminutos solo pueden ser polinizados por una avispa específica.",
-      "beneficios": ["Sombra muy amplia", "Refugio para aves", "Reduce la temperatura del entorno"],
+      "beneficios": [
+        "Sombra muy amplia",
+        "Refugio para aves",
+        "Reduce la temperatura del entorno"
+      ],
       "altura_max_m": 20,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "redonda", "hojas": ["#1F4A2B", "#356B3B", "#56904B"], "tronco": "#93877A", "alto": 0.9, "ancho": 1.4 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#1F4A2B",
+          "#356B3B",
+          "#56904B"
+        ],
+        "tronco": "#93877A",
+        "alto": 0.9,
+        "ancho": 1.4
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical, cálido",
+      "floracion_texto": "Flores pequeñas dentro del higo; fruto en higos comestibles para fauna"
     },
     {
       "slug": "eucalipto",
       "nombre_comun": "Eucalipto",
-      "otros_nombres": ["Eucalipto rojo"],
+      "otros_nombres": [
+        "Eucalipto rojo"
+      ],
       "nombre_cientifico": "Eucalyptus camaldulensis",
       "familia": "Myrtaceae",
       "origen": "introducida",
       "distribucion": "Australia.",
       "descripcion": "Árbol muy alto de corteza lisa que se desprende en tiras. Sus hojas alargadas cuelgan de lado y desprenden un aroma característico.",
       "dato_curioso": "Sus hojas giran de canto al sol para perder menos agua; por eso su sombra es ligera.",
-      "beneficios": ["Rompevientos", "Alimento para abejas", "Crecimiento rápido"],
+      "beneficios": [
+        "Rompevientos",
+        "Alimento para abejas",
+        "Crecimiento rápido"
+      ],
       "altura_max_m": 40,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "columnar", "hojas": ["#4C6B4E", "#6B8C66", "#9AB58E"], "tronco": "#D6CFC2", "alto": 1.35, "ancho": 0.85 }
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#4C6B4E",
+          "#6B8C66",
+          "#9AB58E"
+        ],
+        "tronco": "#D6CFC2",
+        "alto": 1.35,
+        "ancho": 0.85
+      }
     },
     {
       "slug": "casuarina",
       "nombre_comun": "Casuarina",
-      "otros_nombres": ["Pino australiano"],
+      "otros_nombres": [
+        "Pino australiano"
+      ],
       "nombre_cientifico": "Casuarina equisetifolia",
       "familia": "Casuarinaceae",
       "origen": "introducida",
       "distribucion": "Australia y sureste de Asia.",
       "descripcion": "Árbol de silueta cónica que parece un pino, con ramillas verdes y delgadas que suenan con el viento.",
       "dato_curioso": "Lo que parecen agujas son ramitas; sus hojas verdaderas son escamas diminutas.",
-      "beneficios": ["Rompevientos", "Fija nitrógeno en el suelo", "Controla la erosión"],
+      "beneficios": [
+        "Rompevientos",
+        "Fija nitrógeno en el suelo",
+        "Controla la erosión"
+      ],
       "altura_max_m": 25,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "conica", "hojas": ["#344F3A", "#4D6B4F", "#748F6E"], "tronco": "#6A5747", "alto": 1.25, "ancho": 0.8 }
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#344F3A",
+          "#4D6B4F",
+          "#748F6E"
+        ],
+        "tronco": "#6A5747",
+        "alto": 1.25,
+        "ancho": 0.8
+      },
+      "follaje_texto": "\"Hojas\" reducidas transformadas en escamas finas de color verde, dispuestas en filamentos",
+      "clima": "Tropical y subtropical; ideal en zonas costeras y de clima cálido, aunque tolera cierta aridez",
+      "floracion_texto": "Produce flores diminutas e inconspicuas en amentos; el fruto es una cápsula leñosa que se abre para liberar semillas aladas, facilitando su dispersión"
     },
     {
       "slug": "cedro-blanco",
       "nombre_comun": "Cedro blanco",
-      "otros_nombres": ["Ciprés mexicano"],
+      "otros_nombres": [
+        "Ciprés mexicano",
+        "Ciprés de México"
+      ],
       "nombre_cientifico": "Cupressus lusitanica",
       "familia": "Cupressaceae",
       "origen": "nativa",
       "distribucion": "Montañas de México y Centroamérica.",
       "descripcion": "Conífera de copa cónica y follaje en escamas de color verde azulado. Se usa mucho como cortina rompevientos.",
       "dato_curioso": "Su nombre dice «lusitanica» (de Portugal) porque fue descrito a partir de árboles plantados allá, pero es originario de México.",
-      "beneficios": ["Rompevientos", "Refugio para aves", "Captura de carbono"],
+      "beneficios": [
+        "Rompevientos",
+        "Refugio para aves",
+        "Captura de carbono"
+      ],
       "altura_max_m": 25,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "conica", "hojas": ["#2A4D3E", "#3F6A54", "#64907A"], "tronco": "#6B4F3A", "alto": 1.2, "ancho": 0.9 }
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#2A4D3E",
+          "#3F6A54",
+          "#64907A"
+        ],
+        "tronco": "#6B4F3A",
+        "alto": 1.2,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Hojas en forma de escamas, densas y de color verde oscuro, que pueden adquirir tonalidades grisáceas con la edad",
+      "clima": "Cálido y seco; se adapta también a climas templados",
+      "floracion_texto": "Flores diminutas y poco vistosas en racimos; fruto en cápsula que al madurar libera pequeñas semillas"
     },
     {
       "slug": "ahuehuete",
       "nombre_comun": "Ahuehuete",
-      "otros_nombres": ["Sabino", "Ciprés de Moctezuma"],
+      "otros_nombres": [
+        "Sabino",
+        "Ciprés de Moctezuma"
+      ],
       "nombre_cientifico": "Taxodium mucronatum",
       "familia": "Cupressaceae",
       "origen": "nativa",
       "distribucion": "México, a la orilla de ríos y manantiales.",
       "descripcion": "Conífera longeva de tronco muy grueso y ramillas colgantes. Necesita suelos húmedos y puede vivir más de mil años.",
       "dato_curioso": "Es el árbol nacional de México; el Árbol del Tule, en Oaxaca, es un ahuehuete.",
-      "beneficios": ["Longevidad excepcional", "Protege riberas", "Refugio para aves"],
+      "beneficios": [
+        "Longevidad excepcional",
+        "Protege riberas",
+        "Refugio para aves"
+      ],
       "altura_max_m": 40,
       "follaje": "semicaducifolio",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "columnar", "hojas": ["#2E5A3A", "#47784E", "#6E9E68"], "tronco": "#7A5A40", "alto": 1.25, "ancho": 1.1 }
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#2E5A3A",
+          "#47784E",
+          "#6E9E68"
+        ],
+        "tronco": "#7A5A40",
+        "alto": 1.25,
+        "ancho": 1.1
+      },
+      "follaje_texto": "Hojas en forma de escamas o aguja, de color verde oscuro, de carácter perenne",
+      "clima": "Tropical a subtropical; prefiere ambientes cálidos y con disponibilidad de agua",
+      "floracion_texto": "Produce pequeños conos; la floración es poco vistosa y los frutos (conos) maduran a tonos marrones"
     },
     {
       "slug": "pirul",
       "nombre_comun": "Pirul",
-      "otros_nombres": ["Pirú", "Árbol del Perú"],
+      "otros_nombres": [
+        "Pirú",
+        "Árbol del Perú",
+        "Falso pimentero"
+      ],
       "nombre_cientifico": "Schinus molle",
       "familia": "Anacardiaceae",
       "origen": "introducida",
       "distribucion": "Andes de Sudamérica.",
       "descripcion": "Árbol de ramas colgantes y hojas aromáticas. Produce racimos de frutos pequeños color rosa.",
       "dato_curioso": "Llegó a México en el siglo XVI; sus frutos se venden como «pimienta rosa».",
-      "beneficios": ["Resiste la sequía", "Frutos para aves", "Sombra ligera"],
+      "beneficios": [
+        "Resiste la sequía",
+        "Frutos para aves",
+        "Sombra ligera"
+      ],
       "altura_max_m": 15,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": "#E07A8F",
-      "sprite": { "copa": "llorona", "hojas": ["#4A6B3E", "#6A8D52", "#98B677"], "tronco": "#6F5848", "flor": "#E07A8F", "densidadFlor": 0.5, "alto": 0.95, "ancho": 1.15 }
+      "sprite": {
+        "copa": "llorona",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#6F5848",
+        "flor": "#E07A8F",
+        "densidadFlor": 0.5,
+        "alto": 0.95,
+        "ancho": 1.15
+      },
+      "follaje_texto": "Persistente",
+      "clima": "Cálido, templado, resistente a sequías",
+      "floracion_texto": "Flores pequeñas y blancas; frutos en racimos rosados"
     },
     {
       "slug": "mezquite",
       "nombre_comun": "Mezquite",
-      "otros_nombres": ["Mezquite dulce"],
+      "otros_nombres": [
+        "Mezquite dulce"
+      ],
       "nombre_cientifico": "Prosopis laevigata",
       "familia": "Fabaceae",
       "origen": "nativa",
       "distribucion": "Centro y norte de México.",
       "descripcion": "Árbol espinoso de tronco torcido y copa abierta, adaptado a climas secos. Florece en espigas color crema.",
       "dato_curioso": "Con sus vainas dulces se preparaba harina y pinole desde tiempos prehispánicos.",
-      "beneficios": ["Fija nitrógeno en el suelo", "Resiste la sequía", "Vainas comestibles"],
+      "beneficios": [
+        "Fija nitrógeno en el suelo",
+        "Resiste la sequía",
+        "Vainas comestibles"
+      ],
       "altura_max_m": 10,
       "follaje": "caducifolio",
-      "floracion_meses": [3, 4, 5],
+      "floracion_meses": [
+        3,
+        4,
+        5
+      ],
       "color_flor": "#E8D27C",
-      "sprite": { "copa": "paraguas", "hojas": ["#4F6D3A", "#6F8F4D", "#9DB46F"], "tronco": "#5C4636", "flor": "#E8D27C", "densidadFlor": 0.45, "alto": 0.8, "ancho": 1.2 }
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#4F6D3A",
+          "#6F8F4D",
+          "#9DB46F"
+        ],
+        "tronco": "#5C4636",
+        "flor": "#E8D27C",
+        "densidadFlor": 0.45,
+        "alto": 0.8,
+        "ancho": 1.2
+      }
     },
     {
       "slug": "huizache",
       "nombre_comun": "Huizache",
-      "otros_nombres": ["Acacia aromática", "Vinorama"],
+      "otros_nombres": [
+        "Acacia aromática",
+        "Vinorama"
+      ],
       "nombre_cientifico": "Vachellia farnesiana",
       "familia": "Fabaceae",
       "origen": "nativa",
       "distribucion": "Regiones cálidas de América.",
       "descripcion": "Árbol pequeño y espinoso de hojas finas. En invierno se llena de bolitas amarillas muy perfumadas.",
       "dato_curioso": "Sus flores se usan en perfumería francesa con el nombre de «cassie».",
-      "beneficios": ["Fija nitrógeno en el suelo", "Alimento para abejas", "Resiste la sequía"],
+      "beneficios": [
+        "Fija nitrógeno en el suelo",
+        "Alimento para abejas",
+        "Resiste la sequía"
+      ],
       "altura_max_m": 8,
       "follaje": "semicaducifolio",
-      "floracion_meses": [12, 1, 2, 3],
+      "floracion_meses": [
+        12,
+        1,
+        2,
+        3
+      ],
       "color_flor": "#F5C518",
-      "sprite": { "copa": "paraguas", "hojas": ["#4B6A38", "#6A8A4A", "#97B26A"], "tronco": "#5B4535", "flor": "#F5C518", "densidadFlor": 0.7, "alto": 0.7, "ancho": 1.1 }
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#4B6A38",
+          "#6A8A4A",
+          "#97B26A"
+        ],
+        "tronco": "#5B4535",
+        "flor": "#F5C518",
+        "densidadFlor": 0.7,
+        "alto": 0.7,
+        "ancho": 1.1
+      }
     },
     {
       "slug": "colorin",
       "nombre_comun": "Colorín",
-      "otros_nombres": ["Pichoco", "Zompantle"],
+      "otros_nombres": [
+        "Pichoco",
+        "Zompantle"
+      ],
       "nombre_cientifico": "Erythrina coralloides",
       "familia": "Fabaceae",
       "origen": "nativa",
       "distribucion": "Centro y sur de México.",
       "descripcion": "Árbol de ramas gruesas con pequeñas espinas. Antes de echar hojas se cubre de flores rojas alargadas.",
       "dato_curioso": "Sus semillas rojas son tóxicas, pero sus flores cocidas («gasparitos») se comen en el centro del país.",
-      "beneficios": ["Alimento para colibríes", "Fija nitrógeno en el suelo", "Cercas vivas"],
+      "beneficios": [
+        "Alimento para colibríes",
+        "Fija nitrógeno en el suelo",
+        "Cercas vivas"
+      ],
       "altura_max_m": 10,
       "follaje": "caducifolio",
-      "floracion_meses": [1, 2, 3],
+      "floracion_meses": [
+        1,
+        2,
+        3
+      ],
       "color_flor": "#D7263D",
-      "sprite": { "copa": "abierta", "hojas": ["#43683A", "#62904C", "#90B868"], "tronco": "#8C7A68", "flor": "#D7263D", "densidadFlor": 0.85, "alto": 0.9, "ancho": 1 }
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#43683A",
+          "#62904C",
+          "#90B868"
+        ],
+        "tronco": "#8C7A68",
+        "flor": "#D7263D",
+        "densidadFlor": 0.85,
+        "alto": 0.9,
+        "ancho": 1
+      }
     },
     {
       "slug": "tulipan-africano",
       "nombre_comun": "Tulipán africano",
-      "otros_nombres": ["Galeana", "Llama del bosque"],
+      "otros_nombres": [
+        "Galeana",
+        "Llama del bosque"
+      ],
       "nombre_cientifico": "Spathodea campanulata",
       "familia": "Bignoniaceae",
       "origen": "introducida",
       "distribucion": "África tropical.",
       "descripcion": "Árbol de hojas grandes y brillantes que da racimos de flores rojo anaranjado en forma de copa durante buena parte del año.",
       "dato_curioso": "Sus botones guardan agua; en muchos países los niños los usan como pistolas de agua.",
-      "beneficios": ["Floración larga", "Alimento para aves", "Sombra densa"],
+      "beneficios": [
+        "Floración larga",
+        "Alimento para aves",
+        "Sombra densa"
+      ],
       "altura_max_m": 20,
       "follaje": "perenne",
-      "floracion_meses": [11, 12, 1, 2, 3, 4],
+      "floracion_meses": [
+        11,
+        12,
+        1,
+        2,
+        3,
+        4
+      ],
       "color_flor": "#F05D23",
-      "sprite": { "copa": "redonda", "hojas": ["#2C5A32", "#447A42", "#6CA05A"], "tronco": "#7E6B58", "flor": "#F05D23", "densidadFlor": 0.6, "alto": 1.1, "ancho": 1 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7E6B58",
+        "flor": "#F05D23",
+        "densidadFlor": 0.6,
+        "alto": 1.1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores rojas-anaranjadas, frutos en cápsulas"
     },
     {
       "slug": "grevilea",
       "nombre_comun": "Grevilea",
-      "otros_nombres": ["Roble australiano", "Roble plateado"],
+      "otros_nombres": [
+        "Roble australiano",
+        "Roble plateado"
+      ],
       "nombre_cientifico": "Grevillea robusta",
       "familia": "Proteaceae",
       "origen": "introducida",
       "distribucion": "Este de Australia.",
       "descripcion": "Árbol alto y esbelto de hojas parecidas a las de un helecho, plateadas por debajo. En primavera da flores anaranjadas en forma de cepillo.",
       "dato_curioso": "Pese a llamarse «roble australiano», no es pariente de los robles.",
-      "beneficios": ["Alimento para aves y abejas", "Rompevientos", "Crecimiento rápido"],
+      "beneficios": [
+        "Alimento para aves y abejas",
+        "Rompevientos",
+        "Crecimiento rápido"
+      ],
       "altura_max_m": 30,
       "follaje": "perenne",
-      "floracion_meses": [3, 4, 5],
+      "floracion_meses": [
+        3,
+        4,
+        5
+      ],
       "color_flor": "#F2A541",
-      "sprite": { "copa": "columnar", "hojas": ["#3E5F3E", "#5F805A", "#93AE86"], "tronco": "#5E4A3C", "flor": "#F2A541", "densidadFlor": 0.55, "alto": 1.3, "ancho": 0.85 }
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#3E5F3E",
+          "#5F805A",
+          "#93AE86"
+        ],
+        "tronco": "#5E4A3C",
+        "flor": "#F2A541",
+        "densidadFlor": 0.55,
+        "alto": 1.3,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Verde",
+      "clima": "Subtropical",
+      "floracion_texto": "Flores anaranjadas, frutos leñosos"
     },
     {
       "slug": "palma-washingtonia",
       "nombre_comun": "Palma washingtonia",
-      "otros_nombres": ["Palma de abanico", "Palma colorada"],
+      "otros_nombres": [
+        "Palma de abanico",
+        "Palma colorada",
+        "Palmera de abanico mexicana"
+      ],
       "nombre_cientifico": "Washingtonia robusta",
       "familia": "Arecaceae",
       "origen": "nativa",
       "distribucion": "Baja California Sur y Sonora, México.",
       "descripcion": "Palma muy alta y delgada con hojas en forma de abanico. Las hojas secas quedan colgando y forman una falda alrededor del tronco.",
       "dato_curioso": "No es un árbol en sentido estricto: su tronco no forma madera ni anillos de crecimiento.",
-      "beneficios": ["Refugio para aves y murciélagos", "Resiste la sequía", "Referencia visual del paisaje"],
+      "beneficios": [
+        "Refugio para aves y murciélagos",
+        "Resiste la sequía",
+        "Referencia visual del paisaje"
+      ],
       "altura_max_m": 25,
       "follaje": "perenne",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "palmera", "hojas": ["#35643B", "#52864A", "#82AE63"], "tronco": "#9C8468", "alto": 1.4, "ancho": 0.9 }
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#35643B",
+          "#52864A",
+          "#82AE63"
+        ],
+        "tronco": "#9C8468",
+        "alto": 1.4,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores blancas, frutos negros"
     },
     {
       "slug": "guamuchil",
       "nombre_comun": "Guamúchil",
-      "otros_nombres": ["Pinzán", "Guamúchil dulce"],
+      "otros_nombres": [
+        "Pinzán",
+        "Guamúchil dulce"
+      ],
       "nombre_cientifico": "Pithecellobium dulce",
       "familia": "Fabaceae",
       "origen": "nativa",
       "distribucion": "De México a Sudamérica.",
       "descripcion": "Árbol espinoso de copa redondeada. Sus vainas enroscadas se abren y muestran una pulpa blanca o rosada comestible.",
       "dato_curioso": "En los mercados de Jalisco se venden sus vainas en temporada como golosina.",
-      "beneficios": ["Frutos comestibles", "Fija nitrógeno en el suelo", "Resiste la sequía"],
+      "beneficios": [
+        "Frutos comestibles",
+        "Fija nitrógeno en el suelo",
+        "Resiste la sequía"
+      ],
       "altura_max_m": 15,
       "follaje": "semicaducifolio",
-      "floracion_meses": [1, 2, 3],
+      "floracion_meses": [
+        1,
+        2,
+        3
+      ],
       "color_flor": null,
-      "sprite": { "copa": "redonda", "hojas": ["#3A6237", "#568447", "#84AE60"], "tronco": "#6E5B4B", "flor": "#E9A3B6", "densidadFlor": 0.35, "alto": 0.95, "ancho": 1.1 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6237",
+          "#568447",
+          "#84AE60"
+        ],
+        "tronco": "#6E5B4B",
+        "flor": "#E9A3B6",
+        "densidadFlor": 0.35,
+        "alto": 0.95,
+        "ancho": 1.1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Cálido, subtropical, semiárido",
+      "floracion_texto": "Flores blancas y aromáticas; fruto en vaina curvada con pulpa dulce"
     },
     {
       "slug": "parota",
       "nombre_comun": "Parota",
-      "otros_nombres": ["Guanacaste", "Orejón"],
+      "otros_nombres": [
+        "Guanacaste",
+        "Orejón"
+      ],
       "nombre_cientifico": "Enterolobium cyclocarpum",
       "familia": "Fabaceae",
       "origen": "nativa",
       "distribucion": "De México a Sudamérica, en zonas cálidas.",
       "descripcion": "Árbol gigante de copa muy ancha y tronco robusto. Sus frutos son vainas enrolladas con forma de oreja.",
       "dato_curioso": "Por la forma de sus frutos también se le llama «orejón»; es el árbol nacional de Costa Rica.",
-      "beneficios": ["Sombra enorme", "Fija nitrógeno en el suelo", "Alimento para fauna"],
+      "beneficios": [
+        "Sombra enorme",
+        "Fija nitrógeno en el suelo",
+        "Alimento para fauna"
+      ],
       "altura_max_m": 30,
       "follaje": "caducifolio",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "paraguas", "hojas": ["#355F34", "#517F45", "#7FAA5C"], "tronco": "#5F4B3B", "alto": 1, "ancho": 1.45 }
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#355F34",
+          "#517F45",
+          "#7FAA5C"
+        ],
+        "tronco": "#5F4B3B",
+        "alto": 1,
+        "ancho": 1.45
+      },
+      "follaje_texto": "Caducifolio",
+      "clima": "Cálido, tropical, subtropical",
+      "floracion_texto": "Flores blancas globosas; fruto en vaina dura y retorcida"
     },
     {
       "slug": "pochote",
       "nombre_comun": "Pochote",
-      "otros_nombres": ["Ceiba de hoja de castaño", "Pochota"],
+      "otros_nombres": [
+        "Ceiba de hoja de castaño",
+        "Pochota"
+      ],
       "nombre_cientifico": "Ceiba aesculifolia",
       "familia": "Malvaceae",
       "origen": "nativa",
       "distribucion": "Selvas secas de México y Centroamérica.",
       "descripcion": "Árbol de tronco verdoso cubierto de espinas cónicas. En la temporada seca da flores grandes color crema.",
       "dato_curioso": "Sus frutos guardan una fibra algodonosa con la que se rellenaban almohadas.",
-      "beneficios": ["Alimento para murciélagos polinizadores", "Resiste la sequía", "Especie del bosque seco de Jalisco"],
+      "beneficios": [
+        "Alimento para murciélagos polinizadores",
+        "Resiste la sequía",
+        "Especie del bosque seco de Jalisco"
+      ],
       "altura_max_m": 15,
       "follaje": "caducifolio",
-      "floracion_meses": [1, 2, 3],
+      "floracion_meses": [
+        1,
+        2,
+        3
+      ],
       "color_flor": "#F1E4C3",
-      "sprite": { "copa": "abierta", "hojas": ["#46693B", "#658E4C", "#94B76C"], "tronco": "#8E9A7A", "flor": "#F1E4C3", "densidadFlor": 0.55, "alto": 1, "ancho": 1.05 }
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#46693B",
+          "#658E4C",
+          "#94B76C"
+        ],
+        "tronco": "#8E9A7A",
+        "flor": "#F1E4C3",
+        "densidadFlor": 0.55,
+        "alto": 1,
+        "ancho": 1.05
+      }
     },
     {
       "slug": "trueno",
       "nombre_comun": "Trueno",
-      "otros_nombres": ["Aligustre", "Ligustro"],
+      "otros_nombres": [
+        "Aligustre",
+        "Ligustro"
+      ],
       "nombre_cientifico": "Ligustrum lucidum",
       "familia": "Oleaceae",
       "origen": "introducida",
       "distribucion": "China.",
       "descripcion": "Árbol perenne de hojas brillantes muy usado en banquetas. Da racimos de florecitas blancas y luego frutos negro azulado.",
       "dato_curioso": "Se propaga tan fácil con ayuda de las aves que en algunos países se considera especie invasora.",
-      "beneficios": ["Sombra todo el año", "Frutos para aves", "Tolera la contaminación"],
+      "beneficios": [
+        "Sombra todo el año",
+        "Frutos para aves",
+        "Tolera la contaminación"
+      ],
       "altura_max_m": 12,
       "follaje": "perenne",
-      "floracion_meses": [4, 5, 6],
+      "floracion_meses": [
+        4,
+        5,
+        6
+      ],
       "color_flor": "#F4F1E8",
-      "sprite": { "copa": "redonda", "hojas": ["#264F32", "#3C6E44", "#629553"], "tronco": "#7B7062", "flor": "#F4F1E8", "densidadFlor": 0.4, "alto": 0.9, "ancho": 1 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#264F32",
+          "#3C6E44",
+          "#629553"
+        ],
+        "tronco": "#7B7062",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.4,
+        "alto": 0.9,
+        "ancho": 1
+      }
     },
     {
       "slug": "sauce-lloron",
       "nombre_comun": "Sauce llorón",
-      "otros_nombres": ["Sauce de Babilonia"],
+      "otros_nombres": [
+        "Sauce de Babilonia"
+      ],
       "nombre_cientifico": "Salix babylonica",
       "familia": "Salicaceae",
       "origen": "introducida",
       "distribucion": "Norte de China.",
       "descripcion": "Árbol de ramas largas y colgantes que casi tocan el suelo. Prefiere lugares húmedos, cerca de fuentes o canales.",
       "dato_curioso": "De la corteza de los sauces se obtuvo la salicina, antecesora de la aspirina.",
-      "beneficios": ["Controla la erosión", "Sombra fresca", "Refugio para aves"],
+      "beneficios": [
+        "Controla la erosión",
+        "Sombra fresca",
+        "Refugio para aves"
+      ],
       "altura_max_m": 15,
       "follaje": "caducifolio",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "llorona", "hojas": ["#4F7A3E", "#73A055", "#A5C978"], "tronco": "#6D5A48", "alto": 1, "ancho": 1.2 }
+      "sprite": {
+        "copa": "llorona",
+        "hojas": [
+          "#4F7A3E",
+          "#73A055",
+          "#A5C978"
+        ],
+        "tronco": "#6D5A48",
+        "alto": 1,
+        "ancho": 1.2
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores amarillas, frutos en cápsulas"
     },
     {
       "slug": "mango",
       "nombre_comun": "Mango",
-      "otros_nombres": ["Mango manila", "Mango ataulfo"],
+      "otros_nombres": [
+        "Mango manila",
+        "Mango ataulfo"
+      ],
       "nombre_cientifico": "Mangifera indica",
       "familia": "Anacardiaceae",
       "origen": "introducida",
       "distribucion": "Sur de Asia.",
       "descripcion": "Árbol perenne de copa densa y hojas largas; los brotes nuevos salen rojizos. Sus frutos maduran al inicio del verano.",
       "dato_curioso": "Llegó a México desde Filipinas con el Galeón de Manila.",
-      "beneficios": ["Frutos comestibles", "Sombra densa", "Alimento para fauna"],
+      "beneficios": [
+        "Frutos comestibles",
+        "Sombra densa",
+        "Alimento para fauna"
+      ],
       "altura_max_m": 25,
       "follaje": "perenne",
-      "floracion_meses": [1, 2, 3],
+      "floracion_meses": [
+        1,
+        2,
+        3
+      ],
       "color_flor": "#F4A259",
-      "sprite": { "copa": "redonda", "hojas": ["#1F4B2C", "#336A3A", "#5B9150"], "tronco": "#5E4B3D", "flor": "#F4A259", "densidadFlor": 0.35, "alto": 1, "ancho": 1.15 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#1F4B2C",
+          "#336A3A",
+          "#5B9150"
+        ],
+        "tronco": "#5E4B3D",
+        "flor": "#F4A259",
+        "densidadFlor": 0.35,
+        "alto": 1,
+        "ancho": 1.15
+      },
+      "follaje_texto": "Perenne",
+      "clima": "Tropical, subtropical",
+      "floracion_texto": "Flores pequeñas, amarillentas; frutos carnosos, dulces y de pulpa anaranjada"
     },
     {
       "slug": "guayabo",
       "nombre_comun": "Guayabo",
-      "otros_nombres": ["Guayaba"],
+      "otros_nombres": [
+        "Guayaba"
+      ],
       "nombre_cientifico": "Psidium guajava",
       "familia": "Myrtaceae",
       "origen": "nativa",
       "distribucion": "América tropical.",
       "descripcion": "Árbol pequeño de tronco liso y manchado, con flores blancas de muchos estambres y frutos aromáticos.",
       "dato_curioso": "Su corteza se descama en placas y deja el tronco pintado de verde, café y rojizo.",
-      "beneficios": ["Frutos comestibles", "Alimento para aves", "Usos medicinales tradicionales"],
+      "beneficios": [
+        "Frutos comestibles",
+        "Alimento para aves",
+        "Usos medicinales tradicionales"
+      ],
       "altura_max_m": 8,
       "follaje": "perenne",
-      "floracion_meses": [3, 4, 5],
+      "floracion_meses": [
+        3,
+        4,
+        5
+      ],
       "color_flor": "#FFF6DF",
-      "sprite": { "copa": "abierta", "hojas": ["#3D6A3A", "#5A8E4A", "#89B766"], "tronco": "#A0785A", "flor": "#FFF6DF", "densidadFlor": 0.4, "alto": 0.7, "ancho": 1 }
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3D6A3A",
+          "#5A8E4A",
+          "#89B766"
+        ],
+        "tronco": "#A0785A",
+        "flor": "#FFF6DF",
+        "densidadFlor": 0.4,
+        "alto": 0.7,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical, cálido",
+      "floracion_texto": "Flores blancas aromáticas; fruto redondo, amarillo o rosado, comestible"
     },
     {
       "slug": "pata-de-vaca",
       "nombre_comun": "Pata de vaca",
-      "otros_nombres": ["Orquídea de pobre", "Bauhinia"],
+      "otros_nombres": [
+        "Orquídea de pobre",
+        "Bauhinia"
+      ],
       "nombre_cientifico": "Bauhinia variegata",
       "familia": "Fabaceae",
       "origen": "introducida",
       "distribucion": "Sur y sureste de Asia.",
       "descripcion": "Árbol mediano de hojas partidas en dos lóbulos. Sus flores rosa lila recuerdan a una orquídea.",
       "dato_curioso": "Sus hojas tienen forma de pezuña, de ahí su nombre.",
-      "beneficios": ["Floración vistosa", "Alimento para polinizadores", "Tamaño ideal para banquetas"],
+      "beneficios": [
+        "Floración vistosa",
+        "Alimento para polinizadores",
+        "Tamaño ideal para banquetas"
+      ],
       "altura_max_m": 10,
       "follaje": "semicaducifolio",
-      "floracion_meses": [1, 2, 3, 4],
+      "floracion_meses": [
+        1,
+        2,
+        3,
+        4
+      ],
       "color_flor": "#D98CB3",
-      "sprite": { "copa": "redonda", "hojas": ["#4A7040", "#6A9552", "#9CBF77"], "tronco": "#76675A", "flor": "#D98CB3", "densidadFlor": 0.75, "alto": 0.85, "ancho": 1 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A7040",
+          "#6A9552",
+          "#9CBF77"
+        ],
+        "tronco": "#76675A",
+        "flor": "#D98CB3",
+        "densidadFlor": 0.75,
+        "alto": 0.85,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas bilobuladas (forma de mariposa), de color verde brillante; pueden ser caducas o semi-perennes según el clima",
+      "clima": "Tropical y subtropical; tolera heladas leves",
+      "floracion_texto": "Flores grandes y vistosas, con forma orquídea, en tonos rosados, púrpura o blancos, que aparecen en primavera o verano; fruto en forma de vaina con semillas dispersas por el viento"
     },
     {
       "slug": "olmo-chino",
       "nombre_comun": "Olmo chino",
-      "otros_nombres": ["Olmo"],
+      "otros_nombres": [
+        "Olmo"
+      ],
       "nombre_cientifico": "Ulmus parvifolia",
       "familia": "Ulmaceae",
       "origen": "introducida",
       "distribucion": "China, Corea y Japón.",
       "descripcion": "Árbol de hojas pequeñas y aserradas, con ramas finas algo colgantes. Su corteza se desprende en placas de colores.",
       "dato_curioso": "Es una de las especies favoritas para hacer bonsáis.",
-      "beneficios": ["Sombra moderada", "Tolera la contaminación", "Resiste la sequía"],
+      "beneficios": [
+        "Sombra moderada",
+        "Tolera la contaminación",
+        "Resiste la sequía"
+      ],
       "altura_max_m": 15,
       "follaje": "semicaducifolio",
       "floracion_meses": [],
       "color_flor": null,
-      "sprite": { "copa": "redonda", "hojas": ["#3A6439", "#58884A", "#87B064"], "tronco": "#8A735E", "alto": 1, "ancho": 1.05 }
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#8A735E",
+        "alto": 1,
+        "ancho": 1.05
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Templado, subtropical",
+      "floracion_texto": "Flores pequeñas y discretas; fruto en samaras aladas"
     },
     {
       "slug": "crespon",
       "nombre_comun": "Crespón",
-      "otros_nombres": ["Astronómica", "Árbol de Júpiter"],
+      "otros_nombres": [
+        "Astronómica",
+        "Árbol de Júpiter"
+      ],
       "nombre_cientifico": "Lagerstroemia indica",
       "familia": "Lythraceae",
       "origen": "introducida",
       "distribucion": "China y sureste de Asia.",
       "descripcion": "Árbol pequeño de tronco liso y jaspeado. En verano se cubre de racimos de flores rosas con pétalos arrugados.",
       "dato_curioso": "Sus pétalos parecen papel crepé; por eso se le llama crespón.",
-      "beneficios": ["Floración larga", "Tamaño ideal para banquetas", "Alimento para polinizadores"],
+      "beneficios": [
+        "Floración larga",
+        "Tamaño ideal para banquetas",
+        "Alimento para polinizadores"
+      ],
       "altura_max_m": 7,
       "follaje": "caducifolio",
-      "floracion_meses": [6, 7, 8, 9],
+      "floracion_meses": [
+        6,
+        7,
+        8,
+        9
+      ],
       "color_flor": "#E26D9A",
-      "sprite": { "copa": "abierta", "hojas": ["#42693C", "#5F8F4C", "#8DB86A"], "tronco": "#A98E78", "flor": "#E26D9A", "densidadFlor": 0.85, "alto": 0.7, "ancho": 0.9 }
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#42693C",
+          "#5F8F4C",
+          "#8DB86A"
+        ],
+        "tronco": "#A98E78",
+        "flor": "#E26D9A",
+        "densidadFlor": 0.85,
+        "alto": 0.7,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Hojas simples, alternas, de color verde oscuro que en otoño adquieren tonalidades rojizas o amarillentas",
+      "clima": "Tropical y subtropical; crece en zonas cálidas con inviernos suaves",
+      "floracion_texto": "Floración espectacular en verano: racimos de flores con tonalidades que varían entre rosa, púrpura, blanco o rojo; fruto en forma de cápsula con semillas aladas, de rápida germinación"
     },
     {
       "slug": "tronadora",
       "nombre_comun": "Tronadora",
-      "otros_nombres": ["Retama", "Lluvia de oro"],
+      "otros_nombres": [
+        "Retama",
+        "Lluvia de oro"
+      ],
       "nombre_cientifico": "Tecoma stans",
       "familia": "Bignoniaceae",
       "origen": "nativa",
       "distribucion": "Regiones cálidas de América, incluido el occidente de México.",
       "descripcion": "Árbol pequeño o arbusto grande de hojas aserradas. Florece en racimos de campanas amarillas muy visitadas por colibríes.",
       "dato_curioso": "Es la flor nacional de las Bahamas y de las Islas Vírgenes de Estados Unidos.",
-      "beneficios": ["Alimento para colibríes y abejas", "Resiste la sequía", "Crecimiento rápido"],
+      "beneficios": [
+        "Alimento para colibríes y abejas",
+        "Resiste la sequía",
+        "Crecimiento rápido"
+      ],
       "altura_max_m": 6,
       "follaje": "semicaducifolio",
-      "floracion_meses": [8, 9, 10, 11, 12],
+      "floracion_meses": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
       "color_flor": "#F7C531",
-      "sprite": { "copa": "abierta", "hojas": ["#3F6A38", "#5D9047", "#8DBB63"], "tronco": "#6C5A49", "flor": "#F7C531", "densidadFlor": 0.7, "alto": 0.65, "ancho": 0.95 }
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3F6A38",
+          "#5D9047",
+          "#8DBB63"
+        ],
+        "tronco": "#6C5A49",
+        "flor": "#F7C531",
+        "densidadFlor": 0.7,
+        "alto": 0.65,
+        "ancho": 0.95
+      }
+    },
+    {
+      "slug": "ceiba",
+      "nombre_comun": "Ceiba",
+      "otros_nombres": [
+        "Caiba"
+      ],
+      "nombre_cientifico": "Ceiba pentandra",
+      "familia": "Malvaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Ceiba (Ceiba pentandra) es una especie de la familia Malvaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas, perennes en clima tropical, que pueden ser caducifolias en zonas más frías",
+      "clima": "Tropical; tolera periodos de sequía moderada",
+      "floracion_texto": "Flores grandes, de tonos rosados o blancos, con aroma dulce; fruto en forma de cápsula leñosa que al madurar libera semillas recubiertas de fibra (kapok)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "nispero",
+      "nombre_comun": "Níspero",
+      "otros_nombres": [
+        "Níspero del Japón"
+      ],
+      "nombre_cientifico": "Eriobotrya japonica",
+      "familia": "Rosaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Níspero (Eriobotrya japonica) es una especie de la familia Rosaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F2994A",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#76675A",
+        "flor": "#F2994A",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Subtropical, templado",
+      "floracion_texto": "Flores blancas en racimos; fruto comestible, amarillo-naranja",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "eucalipto-limon",
+      "nombre_comun": "Eucalipto limón",
+      "otros_nombres": [],
+      "nombre_cientifico": "Eucalyptus citriodora",
+      "familia": "Myrtaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Eucalipto limón (Eucalyptus citriodora) es una especie de la familia Myrtaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#76675A",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1.3,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Siempreverde",
+      "clima": "Templado a cálido",
+      "floracion_texto": "Pequeñas flores blancas; fruto tipo cápsula",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palo-amarillo",
+      "nombre_comun": "Palo amarillo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Terminalia amazonia",
+      "familia": "Combretaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Palo amarillo (Terminalia amazonia) es una especie de la familia Combretaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#76675A",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores blancas, frutos secos alados",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "laurel-indio",
+      "nombre_comun": "Laurel indio",
+      "otros_nombres": [],
+      "nombre_cientifico": "Cordia lutea",
+      "familia": "Boraginaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Laurel indio (Cordia lutea) es una especie de la familia Boraginaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#5E4B3D",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Cálido, subtropical",
+      "floracion_texto": "Flores amarillas en racimos, frutales, con frutos pequeños comestibles",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-canaria",
+      "nombre_comun": "Palmera canaria",
+      "otros_nombres": [],
+      "nombre_cientifico": "Phoenix canariensis",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palmera canaria (Phoenix canariensis) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F2994A",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Subtropical",
+      "floracion_texto": "Flores amarillas, frutos anaranjados",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "magnolia",
+      "nombre_comun": "Magnolia",
+      "otros_nombres": [
+        "Magnolia de flor grande"
+      ],
+      "nombre_cientifico": "Magnolia grandiflora",
+      "familia": "Magnoliaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Magnolia (Magnolia grandiflora) es una especie de la familia Magnoliaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perenne",
+      "clima": "Templado, subtropical",
+      "floracion_texto": "Flores grandes, blancas y fragantes; frutos en conos leñosos con semillas rojas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "fresno-silvestre-mexicano",
+      "nombre_comun": "Fresno silvestre mexicano",
+      "otros_nombres": [],
+      "nombre_cientifico": "Fraxinus mexicanus",
+      "familia": "Oleaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Fresno silvestre mexicano (Fraxinus mexicanus) es una especie de la familia Oleaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Caduco",
+      "clima": "Templado a subtropical",
+      "floracion_texto": "Flores pequeñas, frutos en sámaras aladas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "laurel-rosa",
+      "nombre_comun": "Laurel rosa",
+      "otros_nombres": [
+        "Adelfa",
+        "Rosa laurel"
+      ],
+      "nombre_cientifico": "Nerium oleander",
+      "familia": "Apocynaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Laurel rosa (Nerium oleander) es una especie de la familia Apocynaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Cálido, subtropical",
+      "floracion_texto": "Flores en racimos, de colores variados (blanco, rosa, rojo), no produce frutos comestibles",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "tuya-oriental",
+      "nombre_comun": "Tuya oriental",
+      "otros_nombres": [],
+      "nombre_cientifico": "Platycladus orientalis",
+      "familia": "Cupressaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Tuya oriental (Platycladus orientalis) es una especie de la familia Cupressaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.2,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Conos pequeños y leñosos",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "tuckeroo",
+      "nombre_comun": "Tuckeroo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Cupaniopsis anacardioides",
+      "familia": "Sapindaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Tuckeroo (Cupaniopsis anacardioides) es una especie de la familia Sapindaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F2994A",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#F2994A",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical y subtropical",
+      "floracion_texto": "Flores amarillas, frutos naranjas en cápsulas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "filodendro",
+      "nombre_comun": "Filodendro",
+      "otros_nombres": [],
+      "nombre_cientifico": "Philodendron spp.",
+      "familia": "Araceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Filodendro (Philodendron spp.) es una especie de la familia Araceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Persistente",
+      "clima": "Tropical y subtropical húmedo",
+      "floracion_texto": "Inflorescencia en espádice, frutos bayas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palma-de-betel",
+      "nombre_comun": "Palma de betel",
+      "otros_nombres": [
+        "Nuez de betel"
+      ],
+      "nombre_cientifico": "Areca catechu",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palma de betel (Areca catechu) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Hojas largas, pinnadas, de color verde brillante",
+      "clima": "Tropical, con alta humedad y temperaturas cálidas",
+      "floracion_texto": "Inflorescencias pequeñas; fruto en forma de drupa oval, de donde se extrae la nuez de betel (betel nut)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "hibisco",
+      "nombre_comun": "Hibisco",
+      "otros_nombres": [
+        "Tulipán"
+      ],
+      "nombre_cientifico": "Hibiscus rosa-sinensis",
+      "familia": "Malvaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Hibisco (Hibiscus rosa-sinensis) es una especie de la familia Malvaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical, cálido",
+      "floracion_texto": "Flores grandes y vistosas de varios colores; fruto en cápsula",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "magnolio",
+      "nombre_comun": "Magnolio",
+      "otros_nombres": [],
+      "nombre_cientifico": "Magnolia spp.",
+      "familia": "Magnoliaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Magnolio (Magnolia spp.) es una especie de la familia Magnoliaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#76675A",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Templado, subtropical",
+      "floracion_texto": "Flores grandes, blancas o rosadas en forma de copa; frutos en conos leñosos con semillas rojas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cheflera",
+      "nombre_comun": "Cheflera",
+      "otros_nombres": [
+        "Árbol paraguas"
+      ],
+      "nombre_cientifico": "Schefflera actinophylla",
+      "familia": "Araliaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Cheflera (Schefflera actinophylla) es una especie de la familia Araliaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas, con 7 a 9 folíolos, de color verde brillante, coriáceas",
+      "clima": "Tropical y subtropical; tolera heladas leves",
+      "floracion_texto": "Flores pequeñas y poco vistosas agrupadas en racimos; fruto es una drupa pequeña, de importancia menor en cultivo ornamental",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "arbol-orquidea-de-hong-kong",
+      "nombre_comun": "Árbol orquídea de Hong Kong",
+      "otros_nombres": [
+        "Bauhinia de Hong Kong",
+        "Árbol de las orquídeas"
+      ],
+      "nombre_cientifico": "Bauhinia blakeana",
+      "familia": "Fabaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Árbol orquídea de Hong Kong (Bauhinia blakeana) es una especie de la familia Fabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#8E6CC4",
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.85,
+        "alto": 0.95,
+        "ancho": 1.25
+      },
+      "follaje_texto": "Hojas simples, bilobuladas, de forma distintiva y de color verde brillante",
+      "clima": "Tropical y subtropical; se adapta a climas cálidos y moderadamente húmedos",
+      "floracion_texto": "Flores grandes, vistosas y de forma orquídea (entre 3 y 7 cm de diámetro), de tonos rosados a púrpuras, con aroma delicado; el fruto es una vaina que contiene semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cipres-de-monterrey",
+      "nombre_comun": "Ciprés de Monterrey",
+      "otros_nombres": [],
+      "nombre_cientifico": "Cupressus macrocarpa",
+      "familia": "Cupressaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Ciprés de Monterrey (Cupressus macrocarpa) es una especie de la familia Cupressaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.2,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Hojas en escamas, de color verde azulado, densamente dispuestas en verticilos",
+      "clima": "Mediterráneo; tolera inviernos suaves y veranos cálidos y secos",
+      "floracion_texto": "Flores pequeñas y poco vistosas; fruto es una cápsula leñosa que se abre para liberar semillas aladas, aunque su floración es poco notable",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "vid",
+      "nombre_comun": "Vid",
+      "otros_nombres": [],
+      "nombre_cientifico": "Vitis vinifera",
+      "familia": "Vitaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Vid (Vitis vinifera) es una especie de la familia Vitaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores pequeñas, frutos en racimos (uvas)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "encina",
+      "nombre_comun": "Encina",
+      "otros_nombres": [
+        "Encino siempreverde"
+      ],
+      "nombre_cientifico": "Quercus ilex",
+      "familia": "Fagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Encina (Quercus ilex) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas perennes, coriáceas, de color verde oscuro, diseñadas para retener agua",
+      "clima": "Mediterráneo; veranos calurosos y secos, inviernos suaves",
+      "floracion_texto": "Flores pequeñas y discretas en primavera; fruto es una bellota madura en otoño, importante para la fauna",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "pino-de-alepo",
+      "nombre_comun": "Pino de Alepo",
+      "otros_nombres": [
+        "Pino carrasco"
+      ],
+      "nombre_cientifico": "Pinus halepensis",
+      "familia": "Pinaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Pino de Alepo (Pinus halepensis) es una especie de la familia Pinaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "alto": 1.2,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Verde",
+      "clima": "Mediterráneo",
+      "floracion_texto": "Conos leñosos, semillas aladas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "paraiso-sombrilla",
+      "nombre_comun": "Paraíso sombrilla",
+      "otros_nombres": [],
+      "nombre_cientifico": "Melia azedarach",
+      "familia": "Meliaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Paraíso sombrilla (Melia azedarach) es una especie de la familia Meliaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#8E6CC4",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores lila, frutos amarillos y tóxicos",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "higuera-estranguladora",
+      "nombre_comun": "Higuera estranguladora",
+      "otros_nombres": [],
+      "nombre_cientifico": "Ficus aurea",
+      "familia": "Moraceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Higuera estranguladora (Ficus aurea) es una especie de la familia Moraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical, cálido",
+      "floracion_texto": "Flores pequeñas dentro del higo; fruto en higos comestibles para fauna",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "nogal-negro-de-california",
+      "nombre_comun": "Nogal negro de California",
+      "otros_nombres": [],
+      "nombre_cientifico": "Juglans californica",
+      "familia": "Juglandaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Nogal negro de California (Juglans californica) es una especie de la familia Juglandaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Mediterráneo, templado",
+      "floracion_texto": "Flores en amentos; fruto en nuez, comestible",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "pata-de-elefante",
+      "nombre_comun": "Pata de elefante",
+      "otros_nombres": [
+        "Monja",
+        "Yuca pie de elefante"
+      ],
+      "nombre_cientifico": "Beaucarnea recurvata",
+      "familia": "Asparagaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Pata de elefante (Beaucarnea recurvata) es una especie de la familia Asparagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores blancas, frutos pequeños y secos",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "naranjo-agrio",
+      "nombre_comun": "Naranjo agrio",
+      "otros_nombres": [
+        "Naranja agria"
+      ],
+      "nombre_cientifico": "Citrus aurantium",
+      "familia": "Rutaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Naranjo agrio (Citrus aurantium) es una especie de la familia Rutaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perenne",
+      "clima": "Cálido, subtropical",
+      "floracion_texto": "Flores blancas y fragantes; frutos pequeños, redondos y de sabor amargo",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "dormilona",
+      "nombre_comun": "Dormilona",
+      "otros_nombres": [
+        "Mimosa",
+        "Vergonzosa"
+      ],
+      "nombre_cientifico": "Mimosa pudica",
+      "familia": "Fabaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Dormilona (Mimosa pudica) es una especie de la familia Fabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.45,
+        "alto": 0.95,
+        "ancho": 1.25
+      },
+      "follaje_texto": "Perenne",
+      "clima": "Cálido, tropical",
+      "floracion_texto": "Flores rosadas y esponjosas; frutos en vainas con semillas pequeñas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-de-gambel",
+      "nombre_comun": "Roble de Gambel",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus gambelii",
+      "familia": "Fagaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Roble de Gambel (Quercus gambelii) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores poco vistosas, bellotas pequeñas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-bur",
+      "nombre_comun": "Roble bur",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus macrocarpa",
+      "familia": "Fagaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Roble bur (Quercus macrocarpa) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores poco vistosas, bellotas grandes",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-de-nuttall",
+      "nombre_comun": "Roble de Nuttall",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus texana",
+      "familia": "Fagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Roble de Nuttall (Quercus texana) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores poco vistosas, bellotas pequeñas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "arbol-del-caucho",
+      "nombre_comun": "Árbol del caucho",
+      "otros_nombres": [
+        "Siringa"
+      ],
+      "nombre_cientifico": "Hevea brasiliensis",
+      "familia": "Euphorbiaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Árbol del caucho (Hevea brasiliensis) es una especie de la familia Euphorbiaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas, de 3 a 5 folíolos, de color verde brillante",
+      "clima": "Tropical, cálido y húmedo; no tolera heladas",
+      "floracion_texto": "Flores pequeñas y poco vistosas, de carácter unisexuales, agrupadas en inflorescencias; fruto en forma de cápsula que al madurar se abre liberando semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "platano",
+      "nombre_comun": "Plátano",
+      "otros_nombres": [],
+      "nombre_cientifico": "Musa paradisiaca",
+      "familia": "Musaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Plátano (Musa paradisiaca) es una especie de la familia Musaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores amarillas, frutos alargados (plátanos)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "ramon",
+      "nombre_comun": "Ramón",
+      "otros_nombres": [
+        "Capomo",
+        "Ojite"
+      ],
+      "nombre_cientifico": "Brosimum alicastrum",
+      "familia": "Moraceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Ramón (Brosimum alicastrum) es una especie de la familia Moraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas perennes de color verde brillante",
+      "clima": "Tropical y subtropical",
+      "floracion_texto": "Principalmente por semilla; también se utiliza el injerto para asegurar uniformidad en cultivos comerciales",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-de-abanico-china",
+      "nombre_comun": "Palmera de abanico china",
+      "otros_nombres": [],
+      "nombre_cientifico": "Livistona chinensis",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palmera de abanico china (Livistona chinensis) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Subtropical",
+      "floracion_texto": "Flores crema, frutos azul oscuro",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "eucalipto-robusto",
+      "nombre_comun": "Eucalipto robusto",
+      "otros_nombres": [],
+      "nombre_cientifico": "Eucalyptus robusta",
+      "familia": "Myrtaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Eucalipto robusto (Eucalyptus robusta) es una especie de la familia Myrtaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#76675A",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1.3,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Siempreverde",
+      "clima": "Templado a cálido",
+      "floracion_texto": "Flores blancas; fruto tipo cápsula",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "olivo",
+      "nombre_comun": "Olivo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Olea europaea",
+      "familia": "Oleaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Olivo (Olea europaea) es una especie de la familia Oleaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Mediterráneo, subtropical",
+      "floracion_texto": "Flores pequeñas, blancas; fruto en drupa (aceitunas)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "dracena-marginata",
+      "nombre_comun": "Drácena marginata",
+      "otros_nombres": [
+        "Drácena de Madagascar",
+        "Drácena"
+      ],
+      "nombre_cientifico": "Dracaena marginata",
+      "familia": "Asparagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Drácena marginata (Dracaena marginata) es una especie de la familia Asparagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Árbol esbelto y alto, con tronco delgado y copa en forma de abanico",
+      "clima": "Fibroso, moderadamente profundo; adaptado a contenedores",
+      "floracion_texto": "Flores pequeñas y poco vistosas; fruto en cápsula que libera semillas (en condiciones óptimas en exterior)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "aguacate",
+      "nombre_comun": "Aguacate",
+      "otros_nombres": [
+        "Aguacatero"
+      ],
+      "nombre_cientifico": "Persea americana",
+      "familia": "Lauraceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Aguacate (Persea americana) es una especie de la familia Lauraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas perennes, coriáceas, de color verde oscuro y brillantes",
+      "clima": "Climas tropicales y subtropicales; puede cultivarse en zonas templadas, pero es sensible a las heladas",
+      "floracion_texto": "Florece en racimos de pequeñas flores verdosas; el fruto es una baya de pulpa cremosa con una semilla grande",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "araucaria-chilena",
+      "nombre_comun": "Araucaria chilena",
+      "otros_nombres": [
+        "Pehuén"
+      ],
+      "nombre_cientifico": "Araucaria araucana",
+      "familia": "Araucariaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Araucaria chilena (Araucaria araucana) es una especie de la familia Araucariaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1.2,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Hojas aciculares, rígidas y perennes, de color verde azulado",
+      "clima": "Templado oceánico; inviernos fríos moderados y veranos secos",
+      "floracion_texto": "Produce conos pequeños que contienen semillas; la \"almendra\" (pehuén) es comestible",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "alheli-amarillo",
+      "nombre_comun": "Alhelí amarillo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Erysimum cheiri",
+      "familia": "Brassicaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Alhelí amarillo (Erysimum cheiri) es una especie de la familia Brassicaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#8E6CC4",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas simples, estrechas y lanceoladas, con punta definida",
+      "clima": "Climas templados; se favorece el día largo",
+      "floracion_texto": "Inflorescencias terminales en racimos; flores de 2–3 cm de diámetro en tonos amarillos, rosados, rojos o púrpuras; fruto en forma de siliqua alargada",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "arbol-de-la-seda",
+      "nombre_comun": "Árbol de la seda",
+      "otros_nombres": [
+        "Acacia de Constantinopla"
+      ],
+      "nombre_cientifico": "Albizia julibrissin",
+      "familia": "Fabaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Árbol de la seda (Albizia julibrissin) es una especie de la familia Fabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.45,
+        "alto": 0.95,
+        "ancho": 1.25
+      },
+      "follaje_texto": "Caducifolio, compuesto, delicado y plumoso",
+      "clima": "Templado; soporta calor y sequía moderada; no tolera heladas intensas",
+      "floracion_texto": "Floración de junio a septiembre: inflorescencias globosas con numerosos estambres rosa; frutos en forma de vainas alargadas que maduran en otoño",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palo-de-brasil",
+      "nombre_comun": "Palo de Brasil",
+      "otros_nombres": [
+        "Árbol de la felicidad"
+      ],
+      "nombre_cientifico": "Dracaena fragrans",
+      "familia": "Asparagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palo de Brasil (Dracaena fragrans) es una especie de la familia Asparagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F2994A",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores blancas, frutos anaranjados",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-de-los-postes",
+      "nombre_comun": "Roble de los postes",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus stellata",
+      "familia": "Fagaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Roble de los postes (Quercus stellata) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores poco vistosas, bellotas pequeñas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-rojo-de-texas",
+      "nombre_comun": "Roble rojo de Texas",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus buckleyi",
+      "familia": "Fagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Roble rojo de Texas (Quercus buckleyi) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores poco vistosas, bellotas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "nopal-cardon",
+      "nombre_comun": "Nopal cardón",
+      "otros_nombres": [],
+      "nombre_cientifico": "Opuntia streptacantha",
+      "familia": "Cactaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Nopal cardón (Opuntia streptacantha) es una especie de la familia Cactaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Suculento",
+      "clima": "Cálido, seco, subtropical",
+      "floracion_texto": "Flores grandes, de color amarillo o rojo; frutos comestibles (tunas)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-de-california",
+      "nombre_comun": "Palmera de California",
+      "otros_nombres": [],
+      "nombre_cientifico": "Washingtonia filifera",
+      "familia": "Arecaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Palmera de California (Washingtonia filifera) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Árido",
+      "floracion_texto": "Flores blancas, frutos oscuros",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "pino-de-norfolk",
+      "nombre_comun": "Pino de Norfolk",
+      "otros_nombres": [
+        "Araucaria",
+        "Araucaria excelsa"
+      ],
+      "nombre_cientifico": "Araucaria heterophylla",
+      "familia": "Araucariaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Pino de Norfolk (Araucaria heterophylla) es una especie de la familia Araucariaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1.2,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Hojas aciculares, perennes y dispuestas en espirales, de tono verde azulado",
+      "clima": "Climas tropicales y subtropicales; tolera heladas leves en microclimas protegidos",
+      "floracion_texto": "Produce conos pequeños poco vistosos; fruto leñoso con semillas aladas dispersadas por el viento; la floración es discreta",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "almez",
+      "nombre_comun": "Almez",
+      "otros_nombres": [],
+      "nombre_cientifico": "Celtis australis",
+      "familia": "Cannabaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Almez (Celtis australis) es una especie de la familia Cannabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#8E6CC4",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas caducas, simples, de forma oval (5–15 cm), de color verde brillante que se tornan amarillas en otoño",
+      "clima": "Climas mediterráneos y templados; tolera periodos secos",
+      "floracion_texto": "Pequeñas flores verdosas agrupadas en racimos; fruto en forma de drupa, de color rojo a púrpura, de carácter comestible",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palo-mulato",
+      "nombre_comun": "Palo mulato",
+      "otros_nombres": [
+        "Chaca"
+      ],
+      "nombre_cientifico": "Bursera simaruba",
+      "familia": "Burseraceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Palo mulato (Bursera simaruba) es una especie de la familia Burseraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Siempreverde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores pequeñas; fruto tipo drupa",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "jaboticaba",
+      "nombre_comun": "Jaboticaba",
+      "otros_nombres": [],
+      "nombre_cientifico": "Plinia cauliflora",
+      "familia": "Myrtaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Jaboticaba (Plinia cauliflora) es una especie de la familia Myrtaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#8E6CC4",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#76675A",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical, cálido",
+      "floracion_texto": "Flores pequeñas blancas; fruto redondo, morado o negro, comestible",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palo-borracho",
+      "nombre_comun": "Palo borracho",
+      "otros_nombres": [],
+      "nombre_cientifico": "Ceiba speciosa",
+      "familia": "Malvaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palo borracho (Ceiba speciosa) es una especie de la familia Malvaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas, bipinnadas, de color verde brillante; caducifolio en zonas de estación seca",
+      "clima": "Tropical y subtropical; climas cálidos con estación seca definida",
+      "floracion_texto": "Flores grandes y trompeteadas (generalmente de tonos rosados o rojizos) que aparecen en primavera antes de la brotación del follaje; fruto en forma de cápsula leñosa que se abre para liberar semillas recubiertas de fibra (kapok)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "bugambilia",
+      "nombre_comun": "Bugambilia",
+      "otros_nombres": [
+        "Buganvilla"
+      ],
+      "nombre_cientifico": "Bougainvillea spp.",
+      "familia": "Nyctaginaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Bugambilia (Bougainvillea spp.) es una especie de la familia Nyctaginaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#8E6CC4",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#8E6CC4",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas simples y perennes en climas cálidos; de color verde brillante; en climas más fríos, puede volverse caduca",
+      "clima": "Tropical y subtropical; requiere sol pleno y calor; sensible a heladas",
+      "floracion_texto": "Las \"flores\" son en realidad brácteas de colores intensos (rojo, rosa, púrpura, naranja o blanco) que rodean diminutas flores reales; el fruto es una pequeña cápsula",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "almendro-de-la-india",
+      "nombre_comun": "Almendro de la India",
+      "otros_nombres": [
+        "Almendro tropical"
+      ],
+      "nombre_cientifico": "Terminalia catappa",
+      "familia": "Combretaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Almendro de la India (Terminalia catappa) es una especie de la familia Combretaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Árbol de gran porte, con copa amplia y aparasolada; 15–35 m de altura",
+      "clima": null,
+      "floracion_texto": "Flores pequeñas y discretas (blancas o verdosas) en inflorescencias; fruto en forma de drupa (5–7 cm) que madura pasando de verde a amarilla o roja, con una semilla comestible",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "yaca",
+      "nombre_comun": "Yaca",
+      "otros_nombres": [
+        "Jaca",
+        "Árbol de Yaca"
+      ],
+      "nombre_cientifico": "Artocarpus heterophyllus",
+      "familia": "Moraceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Yaca (Artocarpus heterophyllus) es una especie de la familia Moraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas perennes, grandes, coriáceas, de forma oval o lanceolada y color verde brillante",
+      "clima": "Tropical y subtropical; requiere clima cálido y humedad; no tolera heladas",
+      "floracion_texto": "Florece en racimos de pequeñas flores; el fruto es grande, pulposo, rugoso y de sabor dulce, pudiendo pesar entre 10 y 50 kg y contener numerosas semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "fresno-de-arizona",
+      "nombre_comun": "Fresno de Arizona",
+      "otros_nombres": [],
+      "nombre_cientifico": "Fraxinus velutina",
+      "familia": "Oleaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Fresno de Arizona (Fraxinus velutina) es una especie de la familia Oleaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#76675A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Caduco",
+      "clima": "Árido, semiárido y templado",
+      "floracion_texto": "Flores pequeñas y discretas; frutos en sámaras aladas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "ginkgo",
+      "nombre_comun": "Ginkgo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Ginkgo biloba",
+      "familia": "Ginkgoaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Ginkgo (Ginkgo biloba) es una especie de la familia Ginkgoaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Caducifolio",
+      "clima": "Templado, resistente al frío",
+      "floracion_texto": "Flores discretas, fruto en forma de drupa amarilla",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "guaje",
+      "nombre_comun": "Guaje",
+      "otros_nombres": [],
+      "nombre_cientifico": "Leucaena leucocephala",
+      "familia": "Fabaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Guaje (Leucaena leucocephala) es una especie de la familia Fabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 0.95,
+        "ancho": 1.25
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Cálido, subtropical, semiárido",
+      "floracion_texto": "Flores blancas esféricas; frutos en vainas con semillas comestibles",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "guanabana",
+      "nombre_comun": "Guanábana",
+      "otros_nombres": [],
+      "nombre_cientifico": "Annona muricata",
+      "familia": "Annonaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Guanábana (Annona muricata) es una especie de la familia Annonaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, cálido-húmedo",
+      "floracion_texto": "Flores amarillas verdosas, fruto grande de pulpa blanca y espinosa",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "arbol-de-hierro-de-ceilan",
+      "nombre_comun": "Árbol de hierro de Ceilán",
+      "otros_nombres": [
+        "Árbol de hierro"
+      ],
+      "nombre_cientifico": "Mesua ferrea",
+      "familia": "Calophyllaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Árbol de hierro de Ceilán (Mesua ferrea) es una especie de la familia Calophyllaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas opuestas, simples, coriáceas y brillantes, de color verde oscuro",
+      "clima": "Tropical y subtropical; temperaturas cálidas (18–32 °C)",
+      "floracion_texto": "Flores blancas y fragantes, que pueden aparecer solitarias o en racimos; fruto en forma de drupa leñosa que encierra una semilla dura",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "bambu-de-la-suerte",
+      "nombre_comun": "Bambú de la suerte",
+      "otros_nombres": [],
+      "nombre_cientifico": "Dracaena sanderiana",
+      "familia": "Asparagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Bambú de la suerte (Dracaena sanderiana) es una especie de la familia Asparagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Hojas alargadas, lanceoladas, de color verde oscuro",
+      "clima": "Tropical o de interior; se adapta a ambientes controlados",
+      "floracion_texto": "Generalmente no florece en cultivo; su atractivo reside en su follaje ornamental",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "neem",
+      "nombre_comun": "Neem",
+      "otros_nombres": [
+        "Nim",
+        "Árbol de Neem"
+      ],
+      "nombre_cientifico": "Azadirachta indica",
+      "familia": "Meliaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Neem (Azadirachta indica) es una especie de la familia Meliaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#5E4B3D",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical",
+      "floracion_texto": "Flores blancas; fruto en drupa (fruto de forma redonda)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-enana",
+      "nombre_comun": "Palmera enana",
+      "otros_nombres": [],
+      "nombre_cientifico": "Chamaerops humilis",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palmera enana (Chamaerops humilis) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Mediterráneo",
+      "floracion_texto": "Flores amarillas, frutos marrones",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "ailanto",
+      "nombre_comun": "Ailanto",
+      "otros_nombres": [
+        "Árbol del cielo"
+      ],
+      "nombre_cientifico": "Ailanthus altissima",
+      "familia": "Simaroubaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Ailanto (Ailanthus altissima) es una especie de la familia Simaroubaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas, pinnadas, de tono verde amarillento",
+      "clima": "Se adapta a climas templados y urbanos; tolera altas temperaturas",
+      "floracion_texto": "Produce pequeñas flores amarillentas agrupadas y frutos en forma de drupa, poco ornamentales",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "aligustre-comun",
+      "nombre_comun": "Aligustre común",
+      "otros_nombres": [],
+      "nombre_cientifico": "Ligustrum vulgare",
+      "familia": "Oleaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Aligustre común (Ligustrum vulgare) es una especie de la familia Oleaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas opuestas, simples, de forma oval y verde brillante (perennes en climas suaves)",
+      "clima": "Templado; tolera sol directo y sombra parcial",
+      "floracion_texto": "Pequeñas flores blancas en racimos; frutos en forma de drupas oscuras, comestibles para la fauna",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cocotero",
+      "nombre_comun": "Cocotero",
+      "otros_nombres": [
+        "Coco"
+      ],
+      "nombre_cientifico": "Cocos nucifera",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Cocotero (Cocos nucifera) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Hojas pinnadas, largas y perennes, de color verde brillante",
+      "clima": "Tropical, requiere alta humedad y temperaturas cálidas",
+      "floracion_texto": "Inflorescencias pequeñas (flores amarillentas) que dan lugar a un fruto drupa grande, con cáscara fibrosa y “plumosa”",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-de-los-pantanos",
+      "nombre_comun": "Roble de los pantanos",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus palustris",
+      "familia": "Fagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Roble de los pantanos (Quercus palustris) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores poco vistosas, bellotas pequeñas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cedro-de-virginia",
+      "nombre_comun": "Cedro de Virginia",
+      "otros_nombres": [],
+      "nombre_cientifico": "Juniperus virginiana",
+      "familia": "Cupressaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Cedro de Virginia (Juniperus virginiana) es una especie de la familia Cupressaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "conica",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1.2,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Hojas diminutas, escamosas, de color verde oscuro, que en ocasiones adquieren tonos rojizos",
+      "clima": "Clima templado; resistente a sequías y frío moderado",
+      "floracion_texto": "Flores poco vistosas; fruto (cono) en forma de baya, de color azul a violáceo, utilizado por la fauna para dispersión de semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "granado",
+      "nombre_comun": "Granado",
+      "otros_nombres": [],
+      "nombre_cientifico": "Punica granatum",
+      "familia": "Lythraceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Granado (Punica granatum) es una especie de la familia Lythraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Caduco",
+      "clima": "Cálido, subtropical, templado",
+      "floracion_texto": "Flores rojas o anaranjadas; fruto redondo y de color rojo con semillas comestibles",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cedro-rojo",
+      "nombre_comun": "Cedro rojo",
+      "otros_nombres": [
+        "Cedro americano"
+      ],
+      "nombre_cientifico": "Cedrela odorata",
+      "familia": "Meliaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Cedro rojo (Cedrela odorata) es una especie de la familia Meliaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas, pinnadas, de color verde brillante, a veces aromáticas",
+      "clima": "Tropical y subtropical; requiere clima cálido y húmedo; sensible a heladas leves",
+      "floracion_texto": "Flores pequeñas y poco vistosas, de tonalidad amarillenta; fruto en forma de drupa alargada que contiene varias semillas, de la cual se extrae una madera apreciada",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "arce-negundo",
+      "nombre_comun": "Arce negundo",
+      "otros_nombres": [
+        "Acezintle"
+      ],
+      "nombre_cientifico": "Acer negundo",
+      "familia": "Sapindaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Arce negundo (Acer negundo) es una especie de la familia Sapindaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#76675A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas palmeadas de 3 a 7 lóbulos, verdes, que en otoño se tornan amarillas",
+      "clima": "Templado; se encuentra en zonas húmedas y riparias",
+      "floracion_texto": "Flores pequeñas, poco vistosas en racimos; fruto en forma de samara (ala) que facilita su dispersión",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "hibisco-maritimo",
+      "nombre_comun": "Hibisco marítimo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Hibiscus tiliaceus",
+      "familia": "Malvaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Hibisco marítimo (Hibiscus tiliaceus) es una especie de la familia Malvaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical, costero",
+      "floracion_texto": "Flores amarillas que se tornan rojizas; fruto en cápsula",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "olmo-americano",
+      "nombre_comun": "Olmo americano",
+      "otros_nombres": [],
+      "nombre_cientifico": "Ulmus americana",
+      "familia": "Ulmaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Olmo americano (Ulmus americana) es una especie de la familia Ulmaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Templado, subtropical",
+      "floracion_texto": "Flores pequeñas y discretas; fruto en samaras aladas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "tamarindo",
+      "nombre_comun": "Tamarindo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Tamarindus indica",
+      "familia": "Fabaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Tamarindo (Tamarindus indica) es una especie de la familia Fabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.45,
+        "alto": 0.95,
+        "ancho": 1.25
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores amarillas, frutos en vainas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "capulin",
+      "nombre_comun": "Capulín",
+      "otros_nombres": [
+        "Cerezo criollo"
+      ],
+      "nombre_cientifico": "Prunus serotina",
+      "familia": "Rosaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Capulín (Prunus serotina) es una especie de la familia Rosaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas compuestas palmeadas de 3 a 7 folíolos, de color verde brillante que en otoño se tornan amarillas a rojizas",
+      "clima": "Templado; prefiere climas con veranos cálidos e inviernos moderados",
+      "floracion_texto": "Flores pequeñas, de color blanco a rosáceo; fruto en forma de drupa (bellota) de color marrón, muy apreciado por la fauna para dispersión",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cafeto",
+      "nombre_comun": "Cafeto",
+      "otros_nombres": [],
+      "nombre_cientifico": "Coffea arabica",
+      "familia": "Rubiaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Cafeto (Coffea arabica) es una especie de la familia Rubiaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas perennes, lanceoladas, de color verde oscuro",
+      "clima": "Tropical de altitud moderada; clima fresco y húmedo",
+      "floracion_texto": "Principalmente por semilla o esquejes; en producción se utiliza el injerto",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-negro-de-california",
+      "nombre_comun": "Roble negro de California",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus kelloggii",
+      "familia": "Fagaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Roble negro de California (Quercus kelloggii) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas lobuladas, de color verde oscuro que se tornan doradas en otoño",
+      "clima": "Mediterráneo: inviernos húmedos y veranos secos",
+      "floracion_texto": "Flores discretas en primavera; acorns (bellotas) que maduran en otoño y sirven de alimento para fauna",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palma-areca",
+      "nombre_comun": "Palma areca",
+      "otros_nombres": [
+        "Palmera bambú",
+        "Areca"
+      ],
+      "nombre_cientifico": "Dypsis lutescens",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palma areca (Dypsis lutescens) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores amarillas, frutos ovalados y negros",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "llorasangre",
+      "nombre_comun": "Llorasangre",
+      "otros_nombres": [],
+      "nombre_cientifico": "Bocconia frutescens",
+      "familia": "Papaveraceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Llorasangre (Bocconia frutescens) es una especie de la familia Papaveraceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas simples, alternas, de forma ovate o elíptica, de color verde oscuro",
+      "clima": "Tropical y subtropical",
+      "floracion_texto": "Flores amarillas, vistosas y solitarias o en pequeños racimos; fruto en forma de cápsula dehendidora que libera numerosas semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "ceiba-roja",
+      "nombre_comun": "Ceiba roja",
+      "otros_nombres": [
+        "Algodonero de la India"
+      ],
+      "nombre_cientifico": "Bombax ceiba",
+      "familia": "Malvaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Ceiba roja (Bombax ceiba) es una especie de la familia Malvaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#D7263D",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas caducas, palmeadas, con 5–9 folíolos, de color verde brillante",
+      "clima": "Tropical y subtropical; tolera sequías estacionales",
+      "floracion_texto": "Flores grandes, vistosas y de tonos rojo-anaranjados que aparecen en primavera; fruto en forma de cápsula que al madurar se abre y libera algodón envolviendo las semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "eucalipto-gunnii",
+      "nombre_comun": "Eucalipto gunnii",
+      "otros_nombres": [
+        "Eucalipto de sidra"
+      ],
+      "nombre_cientifico": "Eucalyptus gunnii",
+      "familia": "Myrtaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Eucalipto gunnii (Eucalyptus gunnii) es una especie de la familia Myrtaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#4A6B3E",
+          "#6A8D52",
+          "#98B677"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.85,
+        "alto": 1.3,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Hojas perennes, de color verde grisáceo con matices glaucous y aroma característico",
+      "clima": "Templado, con inviernos fríos y veranos secos; tolera heladas moderadas",
+      "floracion_texto": "Flores blancas o crema agrupadas en racimos; fruto en cápsula leñosa que libera semillas al madurar",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "feijoa",
+      "nombre_comun": "Feijoa",
+      "otros_nombres": [],
+      "nombre_cientifico": "Acca sellowiana",
+      "familia": "Myrtaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Feijoa (Acca sellowiana) es una especie de la familia Myrtaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#E58DBB",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#E58DBB",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Persistente",
+      "clima": "Templado a subtropical",
+      "floracion_texto": "Flores vistosas rosadas; fruto comestible, verde y aromático",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palma-real",
+      "nombre_comun": "Palma real",
+      "otros_nombres": [],
+      "nombre_cientifico": "Roystonea regia",
+      "familia": "Arecaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Palma real (Roystonea regia) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#6B5444",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores blancas, frutos rojos",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "acacia-de-tres-espinas",
+      "nombre_comun": "Acacia de tres espinas",
+      "otros_nombres": [
+        "Acacia negra"
+      ],
+      "nombre_cientifico": "Gleditsia triacanthos",
+      "familia": "Fabaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Acacia de tres espinas (Gleditsia triacanthos) es una especie de la familia Fabaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "paraguas",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#76675A",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.45,
+        "alto": 0.95,
+        "ancho": 1.25
+      },
+      "follaje_texto": "Hojas compuestas, caducas, con numerosos folíolos pequeños",
+      "clima": "Se adapta a climas templados, tolera veranos calurosos, inviernos moderados y sequías",
+      "floracion_texto": "Florece en verano con pequeñas flores amarillentas agrupadas; produce frutos en forma de vainas alargadas que se abren al madurar y liberan semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-de-bismarck",
+      "nombre_comun": "Palmera de Bismarck",
+      "otros_nombres": [],
+      "nombre_cientifico": "Bismarckia nobilis",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palmera de Bismarck (Bismarckia nobilis) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#76675A",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Plateado",
+      "clima": "Tropical",
+      "floracion_texto": "Flores amarillas, frutos marrones",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "moringa",
+      "nombre_comun": "Moringa",
+      "otros_nombres": [],
+      "nombre_cientifico": "Moringa oleifera",
+      "familia": "Moringaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Moringa (Moringa oleifera) es una especie de la familia Moringaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#5E4B3D",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Cálido, subtropical",
+      "floracion_texto": "Flores blancas o crema con fragancia, frutos en vainas alargadas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "niaouli",
+      "nombre_comun": "Niaouli",
+      "otros_nombres": [],
+      "nombre_cientifico": "Melaleuca quinquenervia",
+      "familia": "Myrtaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Niaouli (Melaleuca quinquenervia) es una especie de la familia Myrtaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#F4F1E8",
+        "densidadFlor": 0.45,
+        "alto": 1.3,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical",
+      "floracion_texto": "Flores blancas, en espigas; fruto en cápsulas lechosas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "nopal",
+      "nombre_comun": "Nopal",
+      "otros_nombres": [],
+      "nombre_cientifico": "Opuntia ficus-indica",
+      "familia": "Cactaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Nopal (Opuntia ficus-indica) es una especie de la familia Cactaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#6B5444",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Suculento",
+      "clima": "Cálido, seco, subtropical",
+      "floracion_texto": "Flores grandes, de color amarillo o rojo; frutos comestibles (tunas)",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "arbol-de-los-lapices",
+      "nombre_comun": "Árbol de los lápices",
+      "otros_nombres": [
+        "Euforbia",
+        "Árbol de los dedos"
+      ],
+      "nombre_cientifico": "Euphorbia tirucalli",
+      "familia": "Euphorbiaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Árbol de los lápices (Euphorbia tirucalli) es una especie de la familia Euphorbiaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "abierta",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas diminutas o caducas; la fotosíntesis se realiza en los tallos",
+      "clima": "Tropical y subtropical",
+      "floracion_texto": "Por esquejes (muy frecuente) y semillas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "liquidambar",
+      "nombre_comun": "Liquidámbar",
+      "otros_nombres": [],
+      "nombre_cientifico": "Liquidambar styraciflua",
+      "familia": "Altingiaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Liquidámbar (Liquidambar styraciflua) es una especie de la familia Altingiaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Deciduo",
+      "clima": "Templado, cálido",
+      "floracion_texto": "Flores pequeñas y poco llamativas, frutos en cápsulas espinosas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "fruta-milagrosa",
+      "nombre_comun": "Fruta milagrosa",
+      "otros_nombres": [],
+      "nombre_cientifico": "Synsepalum dulcificum",
+      "familia": "Sapotaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Fruta milagrosa (Synsepalum dulcificum) es una especie de la familia Sapotaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#5E4B3D",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Tropical, subtropical",
+      "floracion_texto": "Flores pequeñas blancas; fruto rojo y carnoso",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cerezo-japones",
+      "nombre_comun": "Cerezo japonés",
+      "otros_nombres": [],
+      "nombre_cientifico": "Prunus serrulata",
+      "familia": "Rosaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Cerezo japonés (Prunus serrulata) es una especie de la familia Rosaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": "#D94F9A",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#5E4B3D",
+        "flor": "#D94F9A",
+        "densidadFlor": 0.85,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas deciduas, de color verde brillante que se tornan amarillas en otoño",
+      "clima": "Templado; requiere pleno sol y protege de heladas intensas; ideal para jardines en zonas con inviernos moderados",
+      "floracion_texto": "Floración espectacular en primavera con abundantes racimos de flores de tono magenta vibrante; fruto en forma de drupa pequeña que encierra una semilla",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "bambu-comun",
+      "nombre_comun": "Bambú común",
+      "otros_nombres": [],
+      "nombre_cientifico": "Bambusa vulgaris",
+      "familia": "Poaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Bambú común (Bambusa vulgaris) es una especie de la familia Poaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "columnar",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1.3,
+        "ancho": 0.85
+      },
+      "follaje_texto": "Hojas largas, estrechas y de color verde brillante",
+      "clima": "Tropical y subtropical; se adapta a climas cálidos",
+      "floracion_texto": "Floración es poco frecuente (puede ocurrir cada 20-120 años), dando frutos pequeños que raramente germinan en la naturaleza",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "papayo",
+      "nombre_comun": "Papayo",
+      "otros_nombres": [
+        "Papaya"
+      ],
+      "nombre_cientifico": "Carica papaya",
+      "familia": "Caricaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Papayo (Carica papaya) es una especie de la familia Caricaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#F2994A",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3E6A3A",
+          "#5C8C49",
+          "#8AB463"
+        ],
+        "tronco": "#76675A",
+        "flor": "#F2994A",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Tropical",
+      "floracion_texto": "Flores blancas, frutos anaranjados",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "guano-de-costa",
+      "nombre_comun": "Guano de costa",
+      "otros_nombres": [],
+      "nombre_cientifico": "Sabal uresana",
+      "familia": "Arecaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Guano de costa (Sabal uresana) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#F4F1E8",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Perennifolio",
+      "clima": "Cálido, semiárido, subtropical",
+      "floracion_texto": "Flores pequeñas blancas; fruto esférico negro comestible",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "roble-tanoak",
+      "nombre_comun": "Roble tanoak",
+      "otros_nombres": [],
+      "nombre_cientifico": "Notholithocarpus densiflorus",
+      "familia": "Fagaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Roble tanoak (Notholithocarpus densiflorus) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#24502E",
+          "#3B7140",
+          "#5F9850"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#EDBB1F",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores amarillentas, frutos tipo bellota",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "duranta",
+      "nombre_comun": "Duranta",
+      "otros_nombres": [],
+      "nombre_cientifico": "Duranta erecta",
+      "familia": "Verbenaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Duranta (Duranta erecta) es una especie de la familia Verbenaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#76675A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas perennes, ovales y de color verde brillante",
+      "clima": "Tropical y subtropical; requiere pleno sol",
+      "floracion_texto": "Por semilla y esquejes; la propagación por esquejes suele ser la más rápida y efectiva",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-datilera",
+      "nombre_comun": "Palmera datilera",
+      "otros_nombres": [],
+      "nombre_cientifico": "Phoenix dactylifera",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palmera datilera (Phoenix dactylifera) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Verde",
+      "clima": "Árido y semiárido",
+      "floracion_texto": "Flores amarillas, frutos dátiles",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "pistacho-chino",
+      "nombre_comun": "Pistacho chino",
+      "otros_nombres": [],
+      "nombre_cientifico": "Pistacia chinensis",
+      "familia": "Anacardiaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Pistacho chino (Pistacia chinensis) es una especie de la familia Anacardiaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#8A7B6A",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Templado",
+      "floracion_texto": "Flores rojizas, frutos rojos a azulados",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "fresno-rojo",
+      "nombre_comun": "Fresno rojo",
+      "otros_nombres": [],
+      "nombre_cientifico": "Fraxinus pennsylvanica",
+      "familia": "Oleaceae",
+      "origen": null,
+      "distribucion": null,
+      "descripcion": "Fresno rojo (Fraxinus pennsylvanica) es una especie de la familia Oleaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "caducifolio",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#3A6439",
+          "#58884A",
+          "#87B064"
+        ],
+        "tronco": "#8A7B6A",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Caduco",
+      "clima": "Templado, frío en invierno",
+      "floracion_texto": "Flores pequeñas y discretas; frutos en sámaras aladas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "encino-de-california",
+      "nombre_comun": "Encino de California",
+      "otros_nombres": [],
+      "nombre_cientifico": "Quercus agrifolia",
+      "familia": "Fagaceae",
+      "origen": "nativa",
+      "distribucion": null,
+      "descripcion": "Encino de California (Quercus agrifolia) es una especie de la familia Fagaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#5E4B3D",
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Hojas perennes, coriáceas, de color verde oscuro, resistentes al desgaste",
+      "clima": "Mediterráneo: inviernos suaves y veranos secos; tolera sequía",
+      "floracion_texto": "Flores discretas en primavera; fruto en forma de bellota que madura en otoño, esencial para la fauna",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "palmera-de-madagascar",
+      "nombre_comun": "Palmera de Madagascar",
+      "otros_nombres": [],
+      "nombre_cientifico": "Pachypodium lamerei",
+      "familia": "Apocynaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Palmera de Madagascar (Pachypodium lamerei) es una especie de la familia Apocynaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": "perenne",
+      "floracion_meses": [],
+      "color_flor": "#EDBB1F",
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Perenne",
+      "clima": "Cálido, seco",
+      "floracion_texto": "Flores blancas con centro amarillo, frutos en cápsulas alargadas",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "cariota",
+      "nombre_comun": "Cariota",
+      "otros_nombres": [
+        "Palmera cola de pez"
+      ],
+      "nombre_cientifico": "Caryota urens",
+      "familia": "Arecaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Cariota (Caryota urens) es una especie de la familia Arecaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": null,
+      "sprite": {
+        "copa": "palmera",
+        "hojas": [
+          "#2F5E35",
+          "#4A8044",
+          "#78AA5A"
+        ],
+        "tronco": "#76675A",
+        "alto": 1.3,
+        "ancho": 0.9
+      },
+      "follaje_texto": "Hojas palmadas o pinnadas, de forma característica en \"cola de pez\"",
+      "clima": "Tropical y subtropical; requiere clima cálido y húmedo",
+      "floracion_texto": "Produce inflorescencias emergentes del tronco; fruto en forma de drupa, agrupado en racimos",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
+    },
+    {
+      "slug": "pimienta-de-brasil",
+      "nombre_comun": "Pimienta de Brasil",
+      "otros_nombres": [],
+      "nombre_cientifico": "Schinus terebinthifolia",
+      "familia": "Anacardiaceae",
+      "origen": "introducida",
+      "distribucion": null,
+      "descripcion": "Pimienta de Brasil (Schinus terebinthifolia) es una especie de la familia Anacardiaceae registrada en el inventario de árboles de CUCEI.",
+      "dato_curioso": null,
+      "beneficios": [],
+      "altura_max_m": null,
+      "follaje": null,
+      "floracion_meses": [],
+      "color_flor": "#D7263D",
+      "sprite": {
+        "copa": "redonda",
+        "hojas": [
+          "#2C5A32",
+          "#447A42",
+          "#6CA05A"
+        ],
+        "tronco": "#7C6A58",
+        "flor": "#D7263D",
+        "densidadFlor": 0.45,
+        "alto": 1,
+        "ancho": 1
+      },
+      "follaje_texto": "Verde",
+      "clima": "Subtropical",
+      "floracion_texto": "Flores blancas, frutos rojos",
+      "fuente": "Inventario de árboles de CUCEI",
+      "revisar": true
     }
   ]
 }

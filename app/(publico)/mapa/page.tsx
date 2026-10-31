@@ -8,8 +8,8 @@ import { refrescarEstados } from "@/lib/servicios/alertas";
 
 export const metadata: Metadata = { title: "Mapa del arbolado" };
 
-export default async function PaginaMapa({ searchParams }: { searchParams: Promise<{ arbol?: string }> }) {
-  const [usuario, { arbol }] = await Promise.all([usuarioActual(), searchParams]);
+export default async function PaginaMapa({ searchParams }: { searchParams: Promise<{ arbol?: string; especie?: string }> }) {
+  const [usuario, { arbol, especie }] = await Promise.all([usuarioActual(), searchParams]);
   await refrescarEstados(pool(), await leerAjustes());
   const puntos = await arbolesParaMapa(usuario?.id ?? null);
   return (
@@ -21,7 +21,8 @@ export default async function PaginaMapa({ searchParams }: { searchParams: Promi
       <MapaArboles
         puntos={puntos}
         conSesion={!!usuario}
-        inicial={arbol}
+        inicial={arbol?.toUpperCase()}
+        especie={especie}
         className="h-[calc(100dvh-19rem)] min-h-[420px] md:h-[calc(100dvh-15rem)]"
       />
     </div>

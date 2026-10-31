@@ -218,6 +218,11 @@ export async function arbolParaEditar(codigo: string) {
     fecha_registro: string;
     altura_m: number | null;
     diametro_cm: number | null;
+    ancho_copa_m: number | null;
+    circunferencia_cm: number | null;
+    co2_kg: number | null;
+    estado_fitosanitario: string | null;
+    fuente: "inventario" | "panel";
     estado_actual: string;
     foto_principal: string | null;
     ultima_inspeccion: string | null;
@@ -233,11 +238,13 @@ export async function especiesParaSelector() {
 }
 
 export async function zonas() {
-  return (await consulta<{ zona: string }>("SELECT DISTINCT zona FROM arboles ORDER BY zona")).map((z) => z.zona);
+  // Orden natural: «Sector 2» antes que «Sector 10».
+  const filas = await consulta<{ zona: string }>("SELECT DISTINCT zona FROM arboles");
+  return filas.map((z) => z.zona).sort((a, b) => a.localeCompare(b, "es", { numeric: true }));
 }
 
 export async function listarEspeciesAdmin() {
-  return consulta<{ id: number; slug: string; nombre_comun: string; nombre_cientifico: string; familia: string; origen: string; sprite: GenomaSprite; ejemplares: number; observaciones: number }>(
+  return consulta<{ id: number; slug: string; nombre_comun: string; nombre_cientifico: string; familia: string; origen: string | null; sprite: GenomaSprite; ejemplares: number; observaciones: number }>(
     `SELECT e.id, e.slug, e.nombre_comun, e.nombre_cientifico, e.familia, e.origen, e.sprite,
             (SELECT count(*) FROM arboles a WHERE a.especie_id = e.id AND a.activo) AS ejemplares,
             (SELECT count(*) FROM observaciones o JOIN arboles a ON a.id = o.arbol_id WHERE a.especie_id = e.id) AS observaciones

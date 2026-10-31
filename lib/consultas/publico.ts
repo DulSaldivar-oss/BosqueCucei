@@ -9,7 +9,8 @@ export interface EspecieResumen {
   nombre_comun: string;
   nombre_cientifico: string;
   familia: string;
-  origen: "nativa" | "introducida";
+  /** null mientras no se haya confirmado (especies nuevas del inventario). */
+  origen: "nativa" | "introducida" | null;
   sprite: GenomaSprite;
   color_flor: string | null;
   floracion_meses: number[];
@@ -28,6 +29,10 @@ export interface Especie extends EspecieResumen {
   wikipedia_url: string | null;
   foto_url: string | null;
   foto_credito: string | null;
+  /** Textos del inventario oficial. */
+  follaje_texto: string | null;
+  clima: string | null;
+  floracion_texto: string | null;
 }
 
 export interface Arbol {
@@ -41,6 +46,11 @@ export interface Arbol {
   fecha_registro: string;
   altura_m: number | null;
   diametro_cm: number | null;
+  campus: string;
+  estado_fitosanitario: string | null;
+  ancho_copa_m: number | null;
+  circunferencia_cm: number | null;
+  co2_kg: number | null;
   estado_actual: string;
   foto_principal: string | null;
   ultima_observacion: Date | null;
@@ -64,13 +74,13 @@ export async function resumenCampus() {
 
 const COLUMNAS_ESPECIE = `e.id, e.slug, e.nombre_comun, e.nombre_cientifico, e.familia, e.origen, e.sprite, e.color_flor,
   e.floracion_meses, e.otros_nombres, e.distribucion, e.descripcion, e.dato_curioso, e.beneficios, e.altura_max_m,
-  e.follaje, e.wikipedia_url, e.foto_url, e.foto_credito`;
+  e.follaje, e.wikipedia_url, e.foto_url, e.foto_credito, e.follaje_texto, e.clima, e.floracion_texto`;
 
 export async function arbolPorCodigo(codigo: string): Promise<Arbol | null> {
   const fila = await una<Omit<Arbol, "especie"> & { especie: Omit<Especie, "rareza"> }>(
     `SELECT a.id, a.codigo, a.qr_id, a.apodo, a.latitud, a.longitud, a.zona, a.fecha_registro, a.altura_m,
-            a.diametro_cm, a.estado_actual, a.foto_principal, a.ultima_observacion, a.ultima_inspeccion,
-            a.notas_publicas,
+            a.diametro_cm, a.campus, a.estado_fitosanitario, a.ancho_copa_m, a.circunferencia_cm, a.co2_kg,
+            a.estado_actual, a.foto_principal, a.ultima_observacion, a.ultima_inspeccion, a.notas_publicas,
             (SELECT count(*) FROM observaciones o WHERE o.arbol_id = a.id) AS observaciones,
             (SELECT count(*) FROM usuario_arbol ua WHERE ua.arbol_id = a.id) AS guardianes,
             (SELECT row_to_json(x) FROM (
@@ -84,7 +94,7 @@ export async function arbolPorCodigo(codigo: string): Promise<Arbol | null> {
   return { ...fila, especie: conRareza(fila.especie) };
 }
 
-/** Resuelve el contenido leído de un QR: código, identificador del QR o una URL que los contenga. */
+/** Resuelve el contenido leído de un QR o tecleado: código, número de placa, identificador del QR o una URL que los contenga. */
 export async function resolverQr(texto: string): Promise<string | null> {
   const limpio = texto.trim();
   const candidatos = new Set([limpio]);
@@ -96,8 +106,14 @@ export async function resolverQr(texto: string): Promise<string | null> {
   } catch {
     // No es URL.
   }
-  const codigo = /CUCEI[-_ ]?\d{1,5}/i.exec(limpio)?.[0];
-  if (codigo) candidatos.add(codigo.replace(/[_ ]/, "-").toUpperCase());
+  const codigo = /CUCEI[-_ ]?(\d{1,5})/i.exec(limpio);
+  if (codigo) {
+    candidatos.add(codigo[0].replace(/[_ ]/, "-").toUpperCase());
+    candidatos.add(`CUCEI-${codigo[1].padStart(4, "0")}`);
+  }
+  // Número de árbol a secas («27» o «#27»): las placas del inventario muestran el número.
+  const numero = /^#?\s*(\d{1,5})$/.exec(limpio)?.[1];
+  if (numero) candidatos.add(`CUCEI-${numero.padStart(4, "0")}`);
   const fila = await una<{ codigo: string }>(
     `SELECT codigo FROM arboles WHERE activo AND (qr_id = ANY($1) OR upper(codigo) = ANY($2)) LIMIT 1`,
     [[...candidatos], [...candidatos].map((c) => c.toUpperCase())],
