@@ -1,0 +1,42 @@
+# Despliegue manual a la máquina de Oracle desde la pestaña Actions («Run workflow»).
+# Configura en Settings → Secrets and variables → Actions:
+#   ORACLE_HOST      IP o dominio de la máquina
+#   ORACLE_USUARIO   usuario SSH (normalmente ubuntu)
+#   ORACLE_SSH_KEY   llave privada SSH con acceso a la máquina
+# y, si el repositorio no está en ~/BosqueCucei, la variable ORACLE_RUTA (relativa al home del
+# usuario SSH o absoluta).
+name: Desplegar en Oracle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: despliegue-produccion
+  cancel-in-progress: false
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conectar por SSH y desplegar
+        env:
+          HOST: ${{ secrets.ORACLE_HOST }}
+          USUARIO: ${{ secrets.ORACLE_USUARIO }}
+          LLAVE: ${{ secrets.ORACLE_SSH_KEY }}
+          RUTA: ${{ vars.ORACLE_RUTA }}
+        run: |
+          if [ -z "$HOST" ] || [ -z "$LLAVE" ]; then
+            echo "::error::Faltan los secretos ORACLE_HOST y ORACLE_SSH_KEY (ver el encabezado de este workflow)."
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$LLAVE" > ~/.ssh/oracle
+          chmod 600 ~/.ssh/oracle
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # La ruta se resuelve en la máquina remota (relativa a su home), no en la de GitHub.
+          ruta="${RUTA:-BosqueCucei}"
+          ssh -i ~/.ssh/oracle "${USUARIO:-ubuntu}@$HOST" \
+            "cd '$ruta' && git checkout main && ./scripts/desplegar.sh"

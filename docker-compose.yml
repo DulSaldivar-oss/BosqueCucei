@@ -1,11 +1,20 @@
-# Producción en la máquina de Oracle:  docker compose up -d --build
+# Producción en la máquina de Oracle:  ./scripts/desplegar.sh   (o docker compose up -d --build)
 # Desarrollo local (solo la base):     docker compose up -d db
 name: bosque-cucei
+
+# Rota los registros para que no llenen el disco de la máquina.
+x-registros: &registros
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
 
 services:
   db:
     image: postgres:17-alpine
     restart: unless-stopped
+    <<: *registros
     environment:
       POSTGRES_USER: bosque
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bosque}
@@ -23,10 +32,12 @@ services:
       timeout: 5s
       retries: 10
 
+  # Aplica migraciones y semillas pendientes en cada arranque, antes que la app.
   migrar:
     build:
       context: .
       target: herramientas
+    <<: *registros
     environment:
       DATABASE_URL: postgres://bosque:${POSTGRES_PASSWORD:-bosque}@db:5432/bosque
     depends_on:
@@ -40,9 +51,11 @@ services:
       context: .
       target: app
     restart: unless-stopped
+    <<: *registros
     environment:
       DATABASE_URL: postgres://bosque:${POSTGRES_PASSWORD:-bosque}@db:5432/bosque
       URL_SITIO: https://${DOMINIO:-localhost}
+      TZ: America/Mexico_City
     volumes:
       - fotos:/datos/fotos
     depends_on:
@@ -55,9 +68,9 @@ services:
   caddy:
     image: caddy:2-alpine
     restart: unless-stopped
+    <<: *registros
     environment:
       DOMINIO: ${DOMINIO:-localhost}
-      CORREO_ACME: ${CORREO_ACME:-}
     ports:
       - "80:80"
       - "443:443"
@@ -67,7 +80,8 @@ services:
       - caddy_datos:/data
       - caddy_config:/config
     depends_on:
-      - app
+      app:
+        condition: service_healthy
     profiles: ["app"]
 
 volumes:
