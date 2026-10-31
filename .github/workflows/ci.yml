@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    name: Lint, tipos, pruebas y build
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: bosque
+          POSTGRES_PASSWORD: bosque
+          POSTGRES_DB: bosque_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U bosque -d bosque_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL_PRUEBAS: postgres://bosque:bosque@localhost:5432/bosque_test
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  imagen:
+    name: Imagen Docker (${{ matrix.plataforma }})
+    runs-on: ${{ matrix.maquina }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - plataforma: linux/amd64
+            maquina: ubuntu-24.04
+          # Las máquinas Always Free de Oracle (Ampere A1) son ARM.
+          - plataforma: linux/arm64
+            maquina: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Compilar la app
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: app
+          platforms: ${{ matrix.plataforma }}
+          push: false
+          cache-from: type=gha,scope=${{ matrix.plataforma }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.plataforma }}
+      - name: Compilar las herramientas (migraciones)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: herramientas
+          platforms: ${{ matrix.plataforma }}
+          push: false
+          cache-from: type=gha,scope=${{ matrix.plataforma }}
+
+  despliegue:
+    name: Despliegue completo con Docker Compose
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configurar .env como en producción
+        run: |
+          cp .env.produccion.example .env
+          sed -i 's/^DOMINIO=.*/DOMINIO=localhost/; s/^POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=ci0prueba0segura/' .env
+          cat .env
+      - name: Desplegar con el script de producción
+        run: ./scripts/desplegar.sh --sin-actualizar
+      - name: Probar el sitio por HTTPS (a través de Caddy)
+        run: |
+          set -e
+          for ruta in /api/salud / /entrar /registro /mapa /herbario /escanear /manifest.webmanifest; do
+            codigo=$(curl -sk -o /dev/null -w '%{http_code}' "https://localhost$ruta")
+            echo "$codigo $ruta"
+            test "$codigo" = 200
+          done
+          curl -skI https://localhost/ | grep -i "strict-transport-security"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost/)" = 308
+      - name: Datos de demostración y ficha de un árbol
+        run: |
+          docker compose run --rm migrar npm run db:migrar -- --demo
+          docker compose run --rm migrar npm run db:demo
+          test "$(curl -sk -o /dev/null -w '%{http_code}' https://localhost/arbol/CUCEI-0001)" = 200
+          curl -sk https://localhost/ | grep -q "árboles con placa"
+      - name: Registros
+        if: always()
+        run: |
+          docker compose ps -a
+          docker compose logs --tail 80
+      - name: Apagar
+        if: always()
+        run: docker compose down -v

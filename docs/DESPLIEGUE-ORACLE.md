@@ -7,34 +7,35 @@ Internet ──443──▶ Caddy (HTTPS automático) ──▶ app Next.js :300
                                                    └─ volumen «fotos»
 ```
 
+**Resumen**, una vez creada la máquina y abiertos los puertos en la VCN (pasos 1 y 2):
+
+```bash
+git clone https://github.com/DulSaldivar-oss/BosqueCucei.git && cd BosqueCucei
+sudo ./scripts/preparar-servidor.sh      # Docker, firewall y swap; luego sal y vuelve a entrar por SSH
+cp .env.produccion.example .env && nano .env
+./scripts/desplegar.sh
+```
+
 ## 1. Crear la máquina
 
 1. En la consola de OCI: **Compute → Instances → Create instance**.
 2. Imagen: **Ubuntu 24.04**.
-3. Forma: **VM.Standard.A1.Flex** (Ampere, ARM). En la capa *Always Free* alcanza con **2 OCPU y 12 GB de RAM** para el piloto. Las imágenes de Docker del proyecto funcionan en ARM y en x86.
+3. Forma: **VM.Standard.A1.Flex** (Ampere, ARM). En la capa *Always Free* alcanza con **2 OCPU y 12 GB de RAM** para el piloto. Las imágenes de Docker del proyecto funcionan en ARM y en x86 (el CI compila ambas).
 4. Agrega tu llave SSH pública y crea la instancia. Anota la **IP pública**.
 
-## 2. Abrir los puertos 80 y 443
+> También funciona en la forma gratuita **VM.Standard.E2.1.Micro** (1 GB de RAM): el script del paso 4 agrega swap para que la compilación no se quede sin memoria, aunque tarda más.
 
-Oracle bloquea el tráfico en **dos lugares**; hay que abrir ambos.
+## 2. Abrir los puertos 80 y 443 en la red
 
-**a) En la red (VCN):** *Networking → Virtual Cloud Networks → tu VCN → Security Lists → Default Security List → Add Ingress Rules*:
+Oracle bloquea el tráfico en **dos lugares**: la red (aquí) y el firewall de la instancia (lo resuelve el script del paso 4).
+
+*Networking → Virtual Cloud Networks → tu VCN → Security Lists → Default Security List → Add Ingress Rules*:
 
 | Origen | Protocolo | Puerto destino |
 | --- | --- | --- |
 | `0.0.0.0/0` | TCP | 80 |
 | `0.0.0.0/0` | TCP | 443 |
 | `0.0.0.0/0` | UDP | 443 (HTTP/3, opcional) |
-
-**b) En el firewall de la instancia** (las imágenes de Ubuntu de Oracle traen reglas de iptables propias):
-
-```bash
-ssh ubuntu@IP_PUBLICA
-sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
-sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
-sudo iptables -I INPUT 6 -m state --state NEW -p udp --dport 443 -j ACCEPT
-sudo netfilter-persistent save
-```
 
 ## 3. Dominio (obligatorio para la cámara)
 
@@ -43,40 +44,58 @@ Los navegadores solo permiten usar la cámara (escáner QR) en sitios con **HTTP
 - **Ideal:** pedir a la coordinación de TI un subdominio institucional (p. ej. `bosque.cucei.udg.mx`) con un registro **A** hacia la IP pública.
 - **Para el piloto, sin trámites:** usar [sslip.io](https://sslip.io), que resuelve cualquier nombre con la IP incluida: si la IP es `203.0.113.10`, el dominio `bosque.203-0-113-10.sslip.io` ya apunta a tu máquina y Caddy puede obtener su certificado.
 
-## 4. Instalar Docker
+## 4. Preparar la máquina
 
 ```bash
-curl -fsSL https://get.docker.com | sudo sh
-sudo usermod -aG docker ubuntu
-exit   # vuelve a entrar por SSH para que tome el grupo
+ssh ubuntu@IP_PUBLICA
+git clone https://github.com/DulSaldivar-oss/BosqueCucei.git
+cd BosqueCucei
+sudo ./scripts/preparar-servidor.sh
+exit        # vuelve a entrar por SSH para usar docker sin sudo
 ```
 
-## 5. Descargar y configurar
+`preparar-servidor.sh` se corre una vez y puede repetirse sin problema:
+
+- instala Docker y agrega a tu usuario al grupo `docker`;
+- abre 80/TCP, 443/TCP y 443/UDP en iptables, antes de la regla `REJECT` que traen las imágenes de Oracle, y guarda las reglas;
+- si la máquina tiene menos de 4 GB de RAM, crea 2 GB de swap.
+
+## 5. Configurar
 
 ```bash
-git clone https://github.com/DulSaldivar-oss/BosqueCucei.git
 cd BosqueCucei
 cp .env.produccion.example .env
 nano .env
 ```
 
-En `.env`:
+| Variable | Valor |
+| --- | --- |
+| `DOMINIO` | El dominio del paso 3. |
+| `POSTGRES_PASSWORD` | Solo letras y números, porque va dentro de una URL de conexión. Genérala con `openssl rand -hex 24`. |
+| `COMPOSE_PROFILES` | `app` (ya viene). Hace que se levanten la app, las migraciones y Caddy. |
 
-- `DOMINIO`: el dominio del paso 3.
-- `CORREO_ACME`: correo para avisos de Let's Encrypt.
-- `POSTGRES_PASSWORD`: genera una con `openssl rand -base64 24`.
-- `COMPOSE_PROFILES=app` (ya viene): hace que se levanten la app, las migraciones y Caddy.
-
-## 6. Levantar
+## 6. Desplegar
 
 ```bash
-docker compose up -d --build
-docker compose logs -f app      # Ctrl+C para salir
+./scripts/desplegar.sh
 ```
 
-La primera compilación en ARM tarda unos minutos. El servicio `migrar` aplica el esquema y las semillas (ajustes, especies y misiones) antes de que arranque la app; se vuelve a ejecutar en cada `up` y solo aplica lo pendiente.
+El script:
 
-Abre `https://TU_DOMINIO`.
+1. Revisa que `.env` esté completo (no deja pasar los valores de ejemplo ni contraseñas con caracteres que rompen la URL).
+2. Trae los cambios con `git pull --ff-only` (usa `--sin-actualizar` para omitirlo).
+3. Compila y levanta todo con `docker compose up -d --build`. El servicio `migrar` aplica el esquema y las semillas (ajustes, especies y misiones) antes de que arranque la app, y vuelve a correr en cada despliegue aplicando solo lo pendiente.
+4. Espera a que `/api/salud` responda (app arriba y conectada a la base) y limpia imágenes viejas.
+
+La primera compilación en ARM tarda unos minutos. Después abre `https://TU_DOMINIO`.
+
+Para revisar el estado en cualquier momento:
+
+```bash
+docker compose ps
+curl -s https://TU_DOMINIO/api/salud      # {"ok":true,"base_de_datos":"ok"}
+docker compose logs -f app                # Ctrl+C para salir
+```
 
 ## 7. Datos iniciales
 
@@ -115,19 +134,46 @@ Restaurar la base:
 docker compose exec -T db pg_restore -U bosque -d bosque --clean < respaldos/bosque_FECHA.dump
 ```
 
+Los registros de los contenedores rotan solos (3 archivos de 10 MB por servicio), así que no llenan el disco.
+
 ## 10. Actualizar
 
+En la máquina:
+
 ```bash
-git pull
-docker compose up -d --build
+./scripts/desplegar.sh
 ```
+
+O desde GitHub, sin entrar por SSH: pestaña **Actions → Desplegar en Oracle → Run workflow** (ver la sección siguiente).
+
+## Integración continua y despliegue desde GitHub
+
+**`.github/workflows/ci.yml`** corre en cada pull request y en cada cambio a `main`:
+
+| Trabajo | Qué comprueba |
+| --- | --- |
+| Lint, tipos, pruebas y build | ESLint, TypeScript, las pruebas con Vitest (incluidas las de integración contra PostgreSQL 17) y `next build`. |
+| Imagen Docker | Compila las imágenes `app` y `herramientas` para `linux/amd64` y `linux/arm64` (la arquitectura de las máquinas Ampere). |
+| Despliegue completo | Levanta el `docker-compose.yml` real con `./scripts/desplegar.sh`, como en producción. Prueba el sitio por HTTPS a través de Caddy, la redirección de HTTP, las cabeceras de seguridad, y carga los datos de demostración. |
+
+**`.github/workflows/desplegar.yml`** despliega a la máquina por SSH cuando lo lanzas a mano. Configúralo una vez en *Settings → Secrets and variables → Actions*:
+
+| Nombre | Tipo | Valor |
+| --- | --- | --- |
+| `ORACLE_HOST` | Secreto | IP pública o dominio de la máquina. |
+| `ORACLE_USUARIO` | Secreto | Usuario SSH, normalmente `ubuntu`. |
+| `ORACLE_SSH_KEY` | Secreto | Llave privada SSH con acceso a la máquina. Conviene crear una exclusiva para esto y agregar la pública a `~/.ssh/authorized_keys`. |
+| `ORACLE_RUTA` | Variable (opcional) | Carpeta del repositorio en la máquina, relativa al home o absoluta, si no es `~/BosqueCucei`. |
+
+El workflow entra a la máquina, se cambia a `main` y corre `./scripts/desplegar.sh`.
 
 ## Problemas comunes
 
 | Síntoma | Causa probable |
 | --- | --- |
-| El sitio no abre desde fuera | Falta abrir 80/443 en la Security List **o** en iptables (paso 2). |
+| El sitio no abre desde fuera | Falta abrir 80/443 en la Security List (paso 2) o no corriste `preparar-servidor.sh` (paso 4). |
 | Caddy no obtiene el certificado | El dominio no apunta a la IP pública o el puerto 80 está cerrado. Revisa `docker compose logs caddy`. |
 | «Cámara no disponible» | El sitio no está en HTTPS o la persona negó el permiso en el navegador. |
-| La app no conecta a la base | Revisa `POSTGRES_PASSWORD` en `.env`; si la cambiaste después del primer arranque, el volumen conserva la contraseña anterior. |
+| `/api/salud` responde `503` | La app no alcanza la base. Revisa `docker compose logs db app`. Si cambiaste `POSTGRES_PASSWORD` después del primer arranque, el volumen de la base conserva la contraseña anterior. |
+| La compilación se detiene sin error claro | Falta memoria. Corre `sudo ./scripts/preparar-servidor.sh` para agregar swap. |
 | Fotos que desaparecen | Las fotos viven en el volumen `bosque-cucei_fotos`; no lo borres con `docker compose down -v`. |

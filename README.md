@@ -1,5 +1,7 @@
 # Bosque CUCEI
 
+[![CI](https://github.com/DulSaldivar-oss/BosqueCucei/actions/workflows/ci.yml/badge.svg)](https://github.com/DulSaldivar-oss/BosqueCucei/actions/workflows/ci.yml)
+
 Plataforma comunitaria para conocer, monitorear y cuidar el arbolado de CUCEI, convertida en un juego: cada árbol real tiene una placa con QR; al escanearlo y registrar cómo se ve, su gemelo virtual crece en el jardín de la persona. Las observaciones de la comunidad generan alertas para el equipo de Sustentabilidad.
 
 Basado en la *Propuesta de desarrollo · Bosque CUCEI* (octubre 2026).
@@ -60,7 +62,7 @@ Para dar acceso de administración a una cuenta real: regístrala en `/registro`
 | --- | --- |
 | `npm run dev` / `build` / `start` | Desarrollo, compilación y servidor de producción. |
 | `npm test` | Pruebas (Vitest). Con `DATABASE_URL_PRUEBAS` también corre las de integración contra PostgreSQL. |
-| `npm run lint` | ESLint. |
+| `npm run lint` / `typecheck` | ESLint y TypeScript. |
 | `npm run db:migrar` | Aplica `db/migraciones/*.sql` pendientes y las semillas que cambiaron. `-- --demo` incluye el inventario de demostración. |
 | `npm run db:sql` | Regenera los scripts SQL de semillas desde `data/especies.json` y `data/arboles-demo.json`. |
 | `npm run db:demo` | Personas y observaciones de ejemplo (`-- --reiniciar` para rehacerlas). |
@@ -106,13 +108,22 @@ lib/servicios/      registrar observación, misiones y alertas (transacciones)
 lib/sprites/        generador de sprites
 db/                 migraciones y semillas SQL
 data/               catálogo de especies e inventario de demostración
-scripts/            migrador, generadores, importador de especies, demo y respaldos
+scripts/            migrador, generadores, importador de especies, demo, respaldos y despliegue
 docs/               despliegue en Oracle Cloud
 ```
 
 ## Despliegue
 
-Ver [docs/DESPLIEGUE-ORACLE.md](docs/DESPLIEGUE-ORACLE.md): máquina Always Free en Oracle Cloud con Docker Compose (PostgreSQL, la app y Caddy con HTTPS automático).
+Guía completa en [docs/DESPLIEGUE-ORACLE.md](docs/DESPLIEGUE-ORACLE.md): máquina Always Free en Oracle Cloud con Docker Compose (PostgreSQL, la app y Caddy con HTTPS automático). Una vez creada la máquina y abiertos los puertos 80 y 443 en la VCN:
+
+```bash
+git clone https://github.com/DulSaldivar-oss/BosqueCucei.git && cd BosqueCucei
+sudo ./scripts/preparar-servidor.sh      # Docker, firewall de la instancia y swap
+cp .env.produccion.example .env && nano .env
+./scripts/desplegar.sh                   # compila, migra, levanta y espera a /api/salud
+```
+
+El CI (`.github/workflows/ci.yml`) comprueba en cada PR el código, las imágenes Docker para x86 y ARM, y un despliegue completo con Caddy. El workflow manual «Desplegar en Oracle» actualiza la máquina por SSH.
 
 ## Pendiente para después del MVP
 
