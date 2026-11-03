@@ -19,6 +19,11 @@ interface Valores {
   fecha_registro: string;
   altura_m: number | null;
   diametro_cm: number | null;
+  ancho_copa_m: number | null;
+  circunferencia_cm: number | null;
+  co2_kg: number | null;
+  estado_fitosanitario: string | null;
+  fuente?: "inventario" | "panel";
   notas_publicas: string | null;
   activo: boolean;
 }
@@ -59,6 +64,15 @@ export function FormularioArbol({
   return (
     <form action={accion} className="space-y-5">
       {valores.id && <input type="hidden" name="id" value={valores.id} />}
+      {valores.fuente === "inventario" && (
+        <p className="flex gap-2 rounded-2xl bg-agua-claro px-4 py-3 text-sm text-[#1d5d8c]">
+          <Icono nombre="info" className="mt-0.5 size-4 shrink-0" />
+          <span>
+            Viene del <strong>inventario oficial</strong>. La especie, la ubicación, el sector, el estado y las medidas se sincronizan con el
+            Excel: corrígelos ahí para que no se pierdan en la próxima importación. Apodo, QR, foto y nota pública son solo de la app.
+          </span>
+        </p>
+      )}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {campo("Código de la placa", <input name="codigo" required defaultValue={valores.codigo} placeholder="CUCEI-0072" className={`${estiloEntrada} font-mono uppercase`} />)}
         {campo(
@@ -77,9 +91,9 @@ export function FormularioArbol({
             ))}
           </select>,
         )}
-        {campo("Apodo (opcional)", <input name="apodo" defaultValue={valores.apodo ?? ""} placeholder="La abuela del Módulo O" className={estiloEntrada} />)}
+        {campo("Apodo (opcional)", <input name="apodo" defaultValue={valores.apodo ?? ""} placeholder="La abuela del Sector 4" className={estiloEntrada} />)}
         {campo(
-          "Zona",
+          "Sector o zona",
           <>
             <input name="zona" required list="zonas" defaultValue={valores.zona} className={estiloEntrada} />
             <datalist id="zonas">
@@ -112,9 +126,27 @@ export function FormularioArbol({
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {campo("Altura aproximada (m)", <input name="altura_m" inputMode="decimal" defaultValue={valores.altura_m ?? ""} className={estiloEntrada} />)}
+        {campo("Ancho de la copa (m)", <input name="ancho_copa_m" inputMode="decimal" defaultValue={valores.ancho_copa_m ?? ""} className={estiloEntrada} />)}
+        {campo(
+          "Vuelta del tronco (cm)",
+          <input name="circunferencia_cm" inputMode="decimal" defaultValue={valores.circunferencia_cm ?? ""} className={estiloEntrada} />,
+          "Si dejas vacío el diámetro, se calcula con esta medida.",
+        )}
         {campo("Diámetro del tronco (cm)", <input name="diametro_cm" inputMode="decimal" defaultValue={valores.diametro_cm ?? ""} className={estiloEntrada} />)}
-        {campo("Fotografía principal", <input name="foto" type="file" accept="image/jpeg,image/png,image/webp" className="block w-full text-sm file:mr-3 file:rounded-full file:border-0 file:bg-musgo-claro file:px-4 file:py-2.5 file:font-bold file:text-musgo-oscuro" />)}
+        {campo("CO₂ almacenado (kg)", <input name="co2_kg" inputMode="decimal" defaultValue={valores.co2_kg ?? ""} className={estiloEntrada} />)}
+        {campo(
+          "Estado fitosanitario",
+          <>
+            <input name="estado_fitosanitario" list="fitosanitario" defaultValue={valores.estado_fitosanitario ?? ""} className={estiloEntrada} />
+            <datalist id="fitosanitario">
+              {["Sin evaluar", "Sano", "Con plaga", "Enfermo", "Muerto"].map((v) => (
+                <option key={v} value={v} />
+              ))}
+            </datalist>
+          </>,
+        )}
       </div>
+      {campo("Fotografía principal", <input name="foto" type="file" accept="image/jpeg,image/png,image/webp" className="block w-full text-sm file:mr-3 file:rounded-full file:border-0 file:bg-musgo-claro file:px-4 file:py-2.5 file:font-bold file:text-musgo-oscuro" />)}
       {campo("Nota pública (opcional)", <textarea name="notas_publicas" rows={3} defaultValue={valores.notas_publicas ?? ""} placeholder="Algo que la comunidad deba saber de este ejemplar." className={`${estiloEntrada} resize-y`} />)}
       <label className="flex items-center gap-2 text-sm font-semibold">
         <input type="checkbox" name="activo" value="si" defaultChecked={valores.activo} className="size-4 accent-musgo" /> Activo (visible en la app)

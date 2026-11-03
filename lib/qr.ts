@@ -13,3 +13,13 @@ export async function qrSvg(qrId: string, color = "#1e2b22") {
     color: { dark: color, light: "#ffffff00" },
   });
 }
+
+/** QR en SVG de una página del sitio (por ejemplo, para abrir /entrar en el teléfono desde la computadora). */
+export async function qrSvgPagina(ruta: string, color = "#1e2b22") {
+  return QRCode.toString(`${urlSitio()}${ruta}`, {
+    type: "svg",
+    margin: 1,
+    errorCorrectionLevel: "M",
+    color: { dark: color, light: "#ffffff00" },
+  });
+}

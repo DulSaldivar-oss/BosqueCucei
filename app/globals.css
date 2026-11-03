@@ -276,12 +276,73 @@ body {
   font-family: var(--font-sans);
   background: var(--color-papel-2);
 }
+/* --pin: tamaño del marcador según el zoom (data-zoom lo pone MapaArboles). */
+.mapa-arboles {
+  --pin: 28px;
+}
+.mapa-arboles[data-zoom="lejos"] {
+  --pin: 9px;
+}
+.mapa-arboles[data-zoom="medio"] {
+  --pin: 13px;
+}
+.mapa-arboles[data-zoom="cerca"] {
+  --pin: 20px;
+}
 .marcador-arbol {
-  transition: transform 0.2s var(--ease-resorte);
+  position: absolute;
+  left: calc(var(--pin) * -0.11);
+  top: calc(var(--pin) * -0.96);
+  display: block;
+  width: var(--pin);
+  height: var(--pin);
+  transition:
+    transform 0.2s var(--ease-resorte),
+    width 0.2s var(--ease-resorte),
+    height 0.2s var(--ease-resorte);
+}
+.marcador-arbol.elegido {
+  --pin: 38px;
 }
 .marcador-arbol:hover {
   transform: scale(1.15);
-  z-index: 1000 !important;
+}
+.marcador-gota {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px 999px 999px 4px;
+  transform: rotate(-45deg);
+  box-shadow: 0 6px 14px -6px rgb(30 43 34 / 0.6);
+}
+.marcador-centro {
+  position: absolute;
+  inset: calc(var(--pin) * 0.2);
+  border-radius: 999px;
+  border: max(1px, calc(var(--pin) * 0.07)) solid #fffcf6;
+}
+.marcador-pulso {
+  position: absolute;
+  inset: calc(var(--pin) * -0.2);
+  border-radius: 999px;
+  border: 3px solid;
+  animation: pulso-marcador 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes pulso-marcador {
+  75%,
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+.marcador-regado {
+  position: absolute;
+  right: calc(var(--pin) * -0.14);
+  top: calc(var(--pin) * -0.14);
+  width: calc(var(--pin) * 0.5);
+  height: calc(var(--pin) * 0.5);
+  border-radius: 99px;
+  background: #3b9ae1;
+  border: max(1px, calc(var(--pin) * 0.07)) solid #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {

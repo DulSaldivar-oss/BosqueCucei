@@ -51,9 +51,11 @@ export default async function PaginaEspecie({ params }: Props) {
             <span className="rounded-full px-2.5 py-1 text-xs font-bold" style={{ backgroundColor: `${rareza.color}22`, color: rareza.color }}>
               {rareza.etiqueta} · {especie.ejemplares} {especie.ejemplares === 1 ? "ejemplar" : "ejemplares"}
             </span>
-            <span className="rounded-full bg-papel-2 px-2.5 py-1 text-xs font-bold text-tinta-suave">
-              {especie.origen === "nativa" ? "Nativa de México" : "Introducida"}
-            </span>
+            {especie.origen && (
+              <span className="rounded-full bg-papel-2 px-2.5 py-1 text-xs font-bold text-tinta-suave">
+                {especie.origen === "nativa" ? "Nativa de México" : "Introducida"}
+              </span>
+            )}
             <span className="rounded-full bg-papel-2 px-2.5 py-1 text-xs font-bold text-tinta-suave">{especie.familia}</span>
           </div>
           <h1 className="font-display text-4xl leading-none font-bold sm:text-5xl">{especie.nombre_comun}</h1>
@@ -76,9 +78,25 @@ export default async function PaginaEspecie({ params }: Props) {
             </div>
             <div className="col-span-2 rounded-2xl border border-linea bg-tarjeta px-3 py-2.5 sm:col-span-1">
               <dt className="text-xs font-semibold text-tinta-suave">Origen</dt>
-              <dd className="font-bold">{especie.distribucion ?? "—"}</dd>
+              <dd className="font-bold">
+                {especie.distribucion ?? (especie.origen === "nativa" ? "México" : especie.origen === "introducida" ? "Fuera de México" : "—")}
+              </dd>
             </div>
           </dl>
+          {(especie.clima || especie.follaje_texto) && (
+            <dl className="space-y-1.5 rounded-2xl bg-papel-2/60 p-4 text-sm">
+              {especie.clima && (
+                <div>
+                  <dt className="inline font-bold">Clima:</dt> <dd className="inline text-tinta-suave">{especie.clima}</dd>
+                </div>
+              )}
+              {especie.follaje_texto && (
+                <div>
+                  <dt className="inline font-bold">Follaje:</dt> <dd className="inline text-tinta-suave">{especie.follaje_texto}</dd>
+                </div>
+              )}
+            </dl>
+          )}
           {especie.wikipedia_url && (
             <a href={especie.wikipedia_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-bold text-musgo hover:underline">
               Leer más en Wikipedia <Icono nombre="flechaDer" className="size-4" />
@@ -105,8 +123,8 @@ export default async function PaginaEspecie({ params }: Props) {
 
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="rounded-[28px] border border-linea bg-tarjeta p-5 shadow-tarjeta">
-          <h2 className="font-display mb-3 text-xl font-bold">Floración</h2>
-          <Floracion meses={especie.floracion_meses} color={especie.color_flor} />
+          <h2 className="font-display mb-3 text-xl font-bold">{especie.floracion_meses.length ? "Floración" : "Flores y frutos"}</h2>
+          <Floracion meses={especie.floracion_meses} color={especie.color_flor} texto={especie.floracion_texto} />
           {especie.beneficios.length > 0 && (
             <ul className="mt-4 flex flex-wrap gap-2">
               {especie.beneficios.map((b) => (
@@ -119,6 +137,12 @@ export default async function PaginaEspecie({ params }: Props) {
         </div>
         <div className="rounded-[28px] border border-linea bg-tarjeta p-5 shadow-tarjeta">
           <h2 className="font-display text-xl font-bold">Dónde encontrarla</h2>
+          <p className="text-sm text-tinta-suave">
+            {arboles.length} {arboles.length === 1 ? "árbol" : "árboles"} en el campus ·{" "}
+            <Link href={`/mapa?especie=${especie.slug}`} className="font-bold text-musgo hover:underline">
+              ver en el mapa
+            </Link>
+          </p>
           <ul className="mt-3 max-h-72 divide-y divide-linea overflow-y-auto">
             {arboles.map((a) => (
               <li key={a.codigo}>

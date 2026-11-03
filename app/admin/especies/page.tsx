@@ -21,7 +21,7 @@ export default async function Especies() {
               <p className="mt-2 font-bold">{e.nombre_comun}</p>
               <p className="text-xs text-tinta-suave italic">{e.nombre_cientifico}</p>
               <p className="mt-auto pt-2 text-xs text-tinta-suave">
-                {e.ejemplares} ejemplares · {e.observaciones} obs. · {e.origen === "nativa" ? "Nativa" : "Introducida"}
+                {e.ejemplares} ejemplares · {e.observaciones} obs. · {e.origen === "nativa" ? "Nativa" : e.origen === "introducida" ? "Introducida" : "Origen por confirmar"}
               </p>
             </Link>
           </li>

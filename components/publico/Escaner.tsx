@@ -191,14 +191,14 @@ export function Escaner() {
         className="rounded-3xl border border-linea bg-tarjeta p-4 shadow-tarjeta"
       >
         <label htmlFor="codigo-manual" className="text-sm font-bold">
-          ¿No lee el QR? Escribe el código de la placa
+          ¿No lee el QR? Escribe el número de la placa
         </label>
         <div className="mt-2 flex gap-2">
           <input
             id="codigo-manual"
             value={codigo}
             onChange={(e) => setCodigo(e.target.value)}
-            placeholder="CUCEI-0027"
+            placeholder="27 o CUCEI-0027"
             autoCapitalize="characters"
             className={`${estiloEntrada} font-mono uppercase`}
           />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnillosNivel } from "@/components/AnillosNivel";
+import { EnlaceInstalar } from "@/components/instalar/EnlaceInstalar";
 import { Icono, type NombreIcono } from "@/components/Icono";
 import { FormularioPerfil, FormularioRetro } from "@/components/publico/FormulariosPerfil";
 import { salir } from "@/lib/acciones/cuenta";
@@ -8,6 +9,7 @@ import { requiereUsuario } from "@/lib/auth";
 import { estadisticasUsuario, eventosXp } from "@/lib/consultas/publico";
 import { TIPOS_USUARIO } from "@/lib/juego/catalogos";
 import { progresoNivel, xpParaNivel } from "@/lib/juego/niveles";
+import { qrSvgPagina } from "@/lib/qr";
 
 export const metadata: Metadata = { title: "Mi perfil" };
 
@@ -16,7 +18,7 @@ const fechaLarga = new Intl.DateTimeFormat("es-MX", { month: "long", year: "nume
 
 export default async function Perfil() {
   const usuario = await requiereUsuario("/perfil");
-  const [stats, eventos] = await Promise.all([estadisticasUsuario(usuario.id), eventosXp(usuario.id)]);
+  const [stats, eventos, qr] = await Promise.all([estadisticasUsuario(usuario.id), eventosXp(usuario.id), qrSvgPagina("/entrar")]);
   const nivel = progresoNivel(usuario.xp);
   const insignias: { nombre: string; detalle: string; icono: NombreIcono; logrado: boolean; color: string }[] = [
     { nombre: "Primera semilla", detalle: "Descubre tu primer árbol", icono: "jardin", logrado: stats.arboles >= 1, color: "#2D5A3D" },
@@ -66,6 +68,8 @@ export default async function Perfil() {
           </div>
         ))}
       </dl>
+
+      <EnlaceInstalar qr={qr} variante="tarjeta" />
 
       <section aria-labelledby="insignias">
         <h2 id="insignias" className="font-display text-xl font-bold sm:text-2xl">

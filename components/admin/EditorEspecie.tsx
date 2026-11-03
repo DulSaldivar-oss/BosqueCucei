@@ -25,7 +25,7 @@ interface DatosEspecie {
   nombre_comun: string;
   nombre_cientifico: string;
   familia: string;
-  origen: string;
+  origen: string | null;
   descripcion: string;
   dato_curioso: string | null;
   sprite: GenomaSprite;
@@ -162,7 +162,8 @@ export function EditorEspecie({ especie }: { especie: DatosEspecie }) {
             </label>
             <label className="block text-sm">
               <span className="mb-1 block font-bold">Origen</span>
-              <select name="origen" defaultValue={especie.origen} className={estiloEntrada}>
+              <select name="origen" defaultValue={especie.origen ?? ""} className={estiloEntrada}>
+                <option value="">Por confirmar</option>
                 <option value="nativa">Nativa de México</option>
                 <option value="introducida">Introducida</option>
               </select>

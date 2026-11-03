@@ -37,8 +37,8 @@ Requisitos: Node 22 y PostgreSQL (o Docker para levantarlo).
 npm install
 cp .env.example .env.local          # ajusta DATABASE_URL si hace falta
 docker compose up -d db             # PostgreSQL en localhost:5432 (o usa uno propio, ver abajo)
-npm run db:migrar -- --demo         # esquema, especies, misiones y 71 árboles de demostración
-npm run db:demo                     # personas y 10 semanas de observaciones de ejemplo
+npm run db:migrar                   # esquema, especies, misiones y los 1086 árboles del inventario oficial
+npm run db:demo                     # opcional: personas y 10 semanas de observaciones de ejemplo
 npm run dev                         # http://localhost:3000
 ```
 
@@ -56,6 +56,17 @@ Para dar acceso de administración a una cuenta real: regístrala en `/registro`
 
 > La cámara del teléfono solo funciona en `https://` o en `localhost`. Para probar el escáner desde el celular en la red local usa un túnel HTTPS o despliega en la máquina de Oracle.
 
+## Instalar como app
+
+Bosque CUCEI es una app web instalable (PWA): se agrega a la pantalla de inicio y abre a pantalla completa, sin tienda de apps.
+
+- **La primera vez** que alguien abre `/entrar` o `/registro` en un dispositivo, antes de iniciar sesión aparece una guía para instalarla. Se marca como vista en cuanto aparece (en `localStorage`, clave `bosque-cucei:guia-instalar`), así que no vuelve a salir sola; tampoco sale dentro de la app ya instalada. Para verla de nuevo al probar, borra los datos del sitio en el navegador.
+- **Con un toque** en Chrome, Edge y Samsung Internet (Android y computadora): la guía usa el aviso de instalación del navegador (`beforeinstallprompt`), que `app/layout.tsx` guarda en cuanto llega.
+- **Paso a paso** donde el navegador no lo permite: iPhone y iPad (Safari o Chrome, desde Compartir → Agregar a pantalla de inicio; Apple no permite instalar con un botón), Firefox en Android y Safari en Mac. Si la página está abierta dentro de Instagram, Facebook u otra app, pide abrirla en el navegador. En la computadora muestra un QR para abrirla en el teléfono.
+- **Siempre a la mano:** enlace «Instala la app en tu teléfono» bajo los formularios de entrar y registro, y tarjeta en `/perfil`.
+- Piezas: `app/manifest.ts` (íconos, atajos y capturas de `public/instalar/` para la hoja de instalación de Android), `public/sw.js` (service worker mínimo: no guarda páginas en caché, solo muestra `public/sin-conexion.html` sin internet), `lib/instalacion.ts` (detección de teléfono y navegador, con pruebas) y `components/instalar/`.
+- La instalación necesita HTTPS (en producción lo pone Caddy) o `localhost`. El service worker solo se registra en el build de producción.
+
 ## Scripts
 
 | Comando | Qué hace |
@@ -63,22 +74,24 @@ Para dar acceso de administración a una cuenta real: regístrala en `/registro`
 | `npm run dev` / `build` / `start` | Desarrollo, compilación y servidor de producción. |
 | `npm test` | Pruebas (Vitest). Con `DATABASE_URL_PRUEBAS` también corre las de integración contra PostgreSQL. |
 | `npm run lint` / `typecheck` | ESLint y TypeScript. |
-| `npm run db:migrar` | Aplica `db/migraciones/*.sql` pendientes y las semillas que cambiaron. `-- --demo` incluye el inventario de demostración. |
-| `npm run db:sql` | Regenera los scripts SQL de semillas desde `data/especies.json` y `data/arboles-demo.json`. |
-| `npm run db:demo` | Personas y observaciones de ejemplo (`-- --reiniciar` para rehacerlas). |
+| `npm run db:migrar` | Aplica `db/migraciones/*.sql` pendientes y las semillas que cambiaron (incluido el inventario de árboles). |
+| `npm run inventario:importar` | Lee el Excel oficial (`data/inventario/arboles-cucei.xlsx`) y actualiza `data/arboles.json`, agrega a `data/especies.json` las especies nuevas y escribe `data/inventario/REPORTE.md`. Ver [docs/INVENTARIO.md](docs/INVENTARIO.md). |
+| `npm run db:sql` | Regenera las semillas SQL desde `data/especies.json` y `data/arboles.json`. |
+| `npm run db:demo` | Personas y observaciones de ejemplo sobre el inventario (`-- --reiniciar` para rehacerlas). No usar en producción. |
 | `npm run especies:importar` | Enriquece el catálogo con GBIF, Wikipedia e iNaturalist (necesita internet). `-- --descubrir` lista las especies observadas en iNaturalist cerca de CUCEI. |
 | `npm run sprites` | Exporta los sprites de cada especie a `public/sprites/` (`-- --png` también en PNG con Playwright). |
 | `npm run admin:crear -- correo` | Da acceso al panel a una cuenta existente. |
 
 ## Datos, scripts SQL y sprites
 
-- **Catálogo de especies** (`data/especies.json`): 29 especies frecuentes en el arbolado urbano de Guadalajara (jacaranda, primavera, rosa morada, tabachín, fresno, ficus, parota, ahuehuete, pochote…), con nombre científico, familia, origen, descripción, dato curioso, floración y beneficios. Fue curado a mano; **hay que validarlo con Sustentabilidad** y contra el inventario real. `npm run especies:importar` lo enriquece desde bases públicas:
+- **Inventario de árboles** (`data/inventario/arboles-cucei.xlsx`): el Excel oficial con los 1086 árboles de CUCEI (número, especie, nombre científico, sector, coordenadas, estado fitosanitario, medidas, CO₂, familia, follaje, clima y floración). Es la semilla inicial y la vía para las actualizaciones: se reemplaza el Excel, se corre `npm run inventario:importar && npm run db:sql` y el siguiente despliegue sincroniza la base. También se puede subir desde `/admin/arboles/importar`. Detalles, reglas y avisos de calidad de datos en [docs/INVENTARIO.md](docs/INVENTARIO.md) y en `data/inventario/REPORTE.md`.
+- **Catálogo de especies** (`data/especies.json`): 132 especies. 29 fueron curadas a mano con descripción, dato curioso, calendario de floración y beneficios; las otras 103 se crearon desde el inventario con nombre común y origen revisados y un sprite propuesto, y tienen `"revisar": true` hasta completar su descripción. **Hay que validarlo con Sustentabilidad.** `npm run especies:importar` lo enriquece desde bases públicas (a las especies por revisar también les pone el resumen de Wikipedia):
   - GBIF: identificador taxonómico, familia aceptada y nombres comunes en español.
   - Wikipedia en español: enlace y resumen.
   - iNaturalist: foto con licencia Creative Commons y crédito; con `--descubrir`, las especies observadas a 1.5 km de CUCEI para detectar las que faltan (`--agregar` las suma con un sprite propuesto según su familia).
-- **Scripts SQL** (`db/`): `migraciones/001_esquema.sql` (modelo de datos de la sección 9 más experiencia, misiones, alertas y métricas) y `semillas/` (ajustes, especies, árboles de demostración y misiones). Las semillas de especies y árboles se **generan** con `npm run db:sql`.
+- **Scripts SQL** (`db/`): `migraciones/001_esquema.sql` (modelo de datos de la sección 9 más experiencia, misiones, alertas y métricas), `002_inventario.sql` (columnas del inventario oficial) y `semillas/` (ajustes, especies, inventario de árboles y misiones). Las semillas de especies y árboles se **generan** con `npm run db:sql`.
 - **Sprites**: `lib/sprites/generar.ts` dibuja cada especie a partir de su *genoma* (forma de copa, tres tonos de hoja, corteza, flor, densidad de floración, proporciones) en las 7 etapas, en SVG de capas estilo papel recortado. Cada árbol usa su código como semilla, así que dos jacarandas nunca son idénticas. Se ajustan en vivo desde `/admin/especies`. `npm run sprites` los exporta como archivos (`etapa-0.svg` … `etapa-6.svg`, `hoja.svg`, `silueta.svg`).
-- **Inventario real**: los 71 árboles de demostración tienen posiciones aproximadas. Carga el inventario real desde Excel/CSV en `/admin/arboles/importar` (detecta «;» y coma decimal). Si las placas ya tienen un QR con otro contenido (por ejemplo una URL), ponlo en la columna `qr_id` y el escáner lo reconocerá.
+- **Placas y QR**: el código de cada árbol es `CUCEI-` más su número con 4 cifras (el 27 es `CUCEI-0027`), y el escáner acepta también el número solo. Si las placas ya tienen un QR con otro contenido (por ejemplo una URL), guárdalo en el `qr_id` del árbol desde el panel y el escáner lo reconocerá.
 
 ## Correspondencia con la propuesta
 
@@ -107,9 +120,9 @@ lib/juego/          reglas puras: semanas, niveles, crecimiento, alertas, catál
 lib/servicios/      registrar observación, misiones y alertas (transacciones)
 lib/sprites/        generador de sprites
 db/                 migraciones y semillas SQL
-data/               catálogo de especies e inventario de demostración
-scripts/            migrador, generadores, importador de especies, demo, respaldos y despliegue
-docs/               despliegue en Oracle Cloud
+data/               catálogo de especies e inventario oficial (Excel, JSON normalizado y reporte)
+scripts/            migrador, generadores, importadores de inventario y especies, demo, respaldos y despliegue
+docs/               despliegue en Oracle Cloud e inventario
 ```
 
 ## Despliegue

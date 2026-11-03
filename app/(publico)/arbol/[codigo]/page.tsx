@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArbolSprite } from "@/components/ArbolSprite";
 import { ChipEstado } from "@/components/ChipEstado";
 import { Floracion } from "@/components/Floracion";
-import { Icono } from "@/components/Icono";
+import { Icono, type NombreIcono } from "@/components/Icono";
 import { Pestanas } from "@/components/Pestanas";
 import { Sello } from "@/components/Sello";
 import { BotonGuardian } from "@/components/publico/BotonGuardian";
@@ -92,9 +92,11 @@ export default async function FichaArbol({ params }: Props) {
               <span className="rounded-full px-2.5 py-1 text-xs font-bold" style={{ backgroundColor: `${rareza.color}22`, color: rareza.color }}>
                 {rareza.etiqueta} en el campus
               </span>
-              <span className="rounded-full bg-papel-2 px-2.5 py-1 text-xs font-bold text-tinta-suave">
-                {e.origen === "nativa" ? "Nativa de México" : "Introducida"}
-              </span>
+              {e.origen && (
+                <span className="rounded-full bg-papel-2 px-2.5 py-1 text-xs font-bold text-tinta-suave">
+                  {e.origen === "nativa" ? "Nativa de México" : "Introducida"}
+                </span>
+              )}
             </div>
             <h1 className="font-display mt-3 text-[2rem] leading-[1.05] font-bold tracking-tight sm:text-5xl">
               {arbol.apodo ?? e.nombre_comun}
@@ -108,22 +110,34 @@ export default async function FichaArbol({ params }: Props) {
           </header>
 
           <dl className="grid grid-cols-2 gap-2 text-sm min-[420px]:grid-cols-3">
-            {[
-              { t: "Ubicación", d: arbol.zona, i: "ubicacion" as const },
-              { t: "Altura aprox.", d: arbol.altura_m ? `${arbol.altura_m} m` : "—", i: "flechaArriba" as const },
-              { t: "Diámetro", d: arbol.diametro_cm ? `${arbol.diametro_cm} cm` : "—", i: "mira" as const },
-              { t: "Familia", d: e.familia, i: "hoja" as const },
-              { t: "Observaciones", d: String(arbol.observaciones), i: "ojo" as const },
-              { t: "Última", d: arbol.ultima_observacion ? haceCuanto(arbol.ultima_observacion) : "Sin datos", i: "reloj" as const },
-            ].map((x) => (
+            {datosDelArbol(arbol).map((x) => (
               <div key={x.t} className="rounded-2xl border border-linea bg-tarjeta px-3 py-2.5">
                 <dt className="flex items-center gap-1 text-xs font-semibold text-tinta-suave">
                   <Icono nombre={x.i} className="size-3.5" /> {x.t}
                 </dt>
-                <dd className="mt-0.5 truncate font-bold">{x.d}</dd>
+                <dd className="mt-0.5 truncate font-bold" title={x.d}>
+                  {x.d}
+                </dd>
               </div>
             ))}
           </dl>
+
+          <div className="flex flex-wrap gap-2 text-sm font-bold">
+            <Link
+              href={`/mapa?arbol=${arbol.codigo}`}
+              className="inline-flex items-center gap-1.5 rounded-full border border-linea bg-tarjeta px-4 py-2 transition hover:-translate-y-0.5 hover:border-musgo/40"
+            >
+              <Icono nombre="mapa" className="size-4" /> Verlo en el mapa
+            </Link>
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${arbol.latitud},${arbol.longitud}&travelmode=walking`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-linea bg-tarjeta px-4 py-2 transition hover:-translate-y-0.5 hover:border-musgo/40"
+            >
+              <Icono nombre="ruta" className="size-4" /> Cómo llegar
+            </a>
+          </div>
 
           <TuArbol arbol={arbol} relacion={relacion} conSesion={!!usuario} />
 
@@ -152,9 +166,19 @@ export default async function FichaArbol({ params }: Props) {
                       ))}
                     </ul>
                   )}
-                  <p className="text-sm text-tinta-suave">
-                    <strong className="text-tinta">Origen:</strong> {e.distribucion ?? (e.origen === "nativa" ? "México" : "Fuera de México")}
-                  </p>
+                  <dl className="space-y-1.5 text-sm text-tinta-suave">
+                    {[
+                      { t: "Origen", d: e.distribucion ?? (e.origen === "nativa" ? "México" : e.origen === "introducida" ? "Fuera de México" : null) },
+                      { t: "Clima", d: e.clima },
+                      { t: "Follaje", d: e.follaje_texto },
+                    ]
+                      .filter((x) => x.d)
+                      .map((x) => (
+                        <div key={x.t}>
+                          <dt className="inline font-bold text-tinta">{x.t}:</dt> <dd className="inline">{x.d}</dd>
+                        </div>
+                      ))}
+                  </dl>
                 </div>
                 <div className="space-y-4">
                   {e.dato_curioso && (
@@ -166,8 +190,8 @@ export default async function FichaArbol({ params }: Props) {
                     </div>
                   )}
                   <div className="rounded-3xl border border-linea bg-tarjeta p-5 shadow-tarjeta">
-                    <p className="mb-3 text-sm font-bold">Calendario de floración</p>
-                    <Floracion meses={e.floracion_meses} color={e.color_flor} />
+                    <p className="mb-3 text-sm font-bold">{e.floracion_meses.length ? "Calendario de floración" : "Flores y frutos"}</p>
+                    <Floracion meses={e.floracion_meses} color={e.color_flor} texto={e.floracion_texto} />
                   </div>
                   <Link href={`/especie/${e.slug}`} className="flex items-center justify-between rounded-3xl border border-linea bg-tarjeta px-5 py-4 font-bold shadow-tarjeta transition hover:-translate-y-0.5">
                     Ver la especie y sus {e.ejemplares} ejemplares <Icono nombre="flechaDer" className="size-5" />
@@ -225,6 +249,26 @@ export default async function FichaArbol({ params }: Props) {
       </div>
     </div>
   );
+}
+
+const decimal = new Intl.NumberFormat("es-MX", { maximumFractionDigits: 1 });
+
+/** Datos de la placa: siempre sector y familia; las medidas solo si el inventario las trae. */
+function datosDelArbol(arbol: Arbol) {
+  const medida = (valor: number | null, unidad: string) => (valor == null ? null : `${decimal.format(valor)} ${unidad}`);
+  const datos: { t: string; d: string | null; i: NombreIcono }[] = [
+    { t: "Sector", d: arbol.zona, i: "ubicacion" },
+    { t: "Familia", d: arbol.especie.familia, i: "hoja" },
+    { t: "Fitosanitario", d: arbol.estado_fitosanitario, i: "info" },
+    { t: "Altura", d: medida(arbol.altura_m, "m"), i: "flechaArriba" },
+    { t: "Copa", d: medida(arbol.ancho_copa_m, "m"), i: "arbol" },
+    { t: "Diámetro", d: medida(arbol.diametro_cm, "cm"), i: "mira" },
+    { t: "CO₂ almacenado", d: medida(arbol.co2_kg, "kg"), i: "nube" },
+    { t: "Observaciones", d: String(arbol.observaciones), i: "ojo" },
+    { t: "Última", d: arbol.ultima_observacion ? haceCuanto(arbol.ultima_observacion) : "Sin datos", i: "reloj" },
+    { t: "Registrado", d: fechaCorta.format(new Date(`${arbol.fecha_registro}T12:00:00Z`)), i: "calendario" },
+  ];
+  return datos.filter((x): x is { t: string; d: string; i: NombreIcono } => x.d != null);
 }
 
 function BotonObservar({ destino, conSesion, yaRegado }: { destino: string; conSesion: boolean; yaRegado: boolean }) {
