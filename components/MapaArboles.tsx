@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ChipEstado } from "@/components/ChipEstado";
 import { Icono } from "@/components/Icono";
 import { distanciaMetros, fueraDeLugar } from "@/lib/geo";
+import { FONDO_OSM, type FondoMapa } from "@/lib/mapa";
 import { ESTADOS_ARBOL, type EstadoArbol } from "@/lib/juego/catalogos";
 
 export interface PuntoDelMapa {
@@ -54,6 +55,7 @@ export function MapaArboles({
   conSesion = false,
   inicial,
   especie: especieInicial,
+  fondo = FONDO_OSM,
   className = "h-[60vh]",
   enlaceBase = "/arbol",
 }: {
@@ -62,6 +64,8 @@ export function MapaArboles({
   inicial?: string;
   /** Slug de especie para mostrar solo sus árboles. */
   especie?: string;
+  /** Teselas del fondo (lib/mapa.ts); por defecto OpenStreetMap. */
+  fondo?: FondoMapa;
   className?: string;
   enlaceBase?: string;
 }) {
@@ -99,11 +103,21 @@ export function MapaArboles({
       const Lf = modulo.default ?? modulo;
       leaflet.current = Lf;
       const m = Lf.map(contenedor.current, { zoomControl: false, attributionControl: true, maxZoom: 20 });
-      Lf.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: "abcd",
-        maxZoom: 20,
-      }).addTo(m);
+      const teselas = (f: FondoMapa) =>
+        Lf.tileLayer(f.url, { attribution: f.atribucion, subdomains: f.subdominios, maxNativeZoom: f.zoomMaxNativo, maxZoom: 20 });
+      const capaFondo = teselas(fondo).addTo(m);
+      // Si el proveedor configurado falla (llave inválida, sin servicio) antes de cargar algo, se usa OpenStreetMap.
+      if (fondo.url !== FONDO_OSM.url) {
+        let errores = 0;
+        let cargadas = 0;
+        capaFondo.on("tileload", () => cargadas++);
+        capaFondo.on("tileerror", () => {
+          if (++errores === 4 && cargadas === 0) {
+            m.removeLayer(capaFondo);
+            teselas(FONDO_OSM).addTo(m);
+          }
+        });
+      }
       Lf.control.zoom({ position: "bottomright" }).addTo(m);
       // Encuadre inicial: los árboles (de la especie, si hay filtro) sin los que tienen coordenadas fuera de lugar.
       const base = especie ? puntos.filter((p) => p.slug === especie) : puntos;

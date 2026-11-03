@@ -7,6 +7,7 @@ import { Encabezado, Indicador, NivelAlerta, Tarjeta } from "@/components/admin/
 import { leerAjustes } from "@/lib/ajustes";
 import { arbolesPrioritarios, fotosRecientes, indicadores, listarAlertas, metricasPiloto, observacionesPorDia } from "@/lib/consultas/admin";
 import { arbolesParaMapa } from "@/lib/consultas/publico";
+import { fondoMapa } from "@/lib/mapa";
 import { pool } from "@/lib/db";
 import { urlFoto } from "@/lib/fotos";
 import { refrescarEstados } from "@/lib/servicios/alertas";
@@ -118,7 +119,7 @@ export default async function Resumen() {
 
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-[1.4fr_1fr]">
         <Tarjeta titulo="Mapa de estado">
-          <MapaArboles puntos={puntos} className="h-[420px]" enlaceBase="/admin/arboles" />
+          <MapaArboles puntos={puntos} className="h-[420px]" enlaceBase="/admin/arboles" fondo={fondoMapa()} />
         </Tarjeta>
         <div className="space-y-4">
           <Tarjeta titulo="Alertas abiertas" accion={<Link href="/admin/alertas" className="text-sm font-bold text-musgo">Ver todas</Link>}>

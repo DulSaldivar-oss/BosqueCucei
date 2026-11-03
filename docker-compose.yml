@@ -56,6 +56,11 @@ services:
       DATABASE_URL: postgres://bosque:${POSTGRES_PASSWORD:-bosque}@db:5432/bosque
       URL_SITIO: https://${DOMINIO:-localhost}
       TZ: America/Mexico_City
+      # Fondo del mapa (opcional; vacío = OpenStreetMap, sin llave). Ver lib/mapa.ts.
+      MAPA_TILES_URL: ${MAPA_TILES_URL:-}
+      MAPA_TILES_LLAVE: ${MAPA_TILES_LLAVE:-}
+      MAPA_TILES_ATRIBUCION: ${MAPA_TILES_ATRIBUCION:-}
+      MAPA_TILES_ZOOM_MAX: ${MAPA_TILES_ZOOM_MAX:-}
     volumes:
       - fotos:/datos/fotos
     depends_on:
