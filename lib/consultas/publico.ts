@@ -246,16 +246,52 @@ export interface PuntoMapa {
   regado: boolean;
 }
 
-export async function arbolesParaMapa(usuarioId: number | null): Promise<PuntoMapa[]> {
+const COLUMNAS_PUNTO = `a.id, a.codigo, a.apodo, a.latitud, a.longitud, a.zona, a.estado_actual AS estado,
+  e.nombre_comun AS especie, e.slug, coalesce(e.color_flor, e.sprite->'hojas'->>1) AS color,
+  (ua.usuario_id IS NOT NULL) AS descubierto, coalesce(ua.ultima_semana = $2, false) AS regado`;
+
+const DESDE_PUNTOS = `FROM arboles a JOIN especies e ON e.id = a.especie_id
+  LEFT JOIN usuario_arbol ua ON ua.arbol_id = a.id AND ua.usuario_id = $1`;
+
+/** Todos los árboles activos para el mapa, o solo los de una especie. */
+export async function arbolesParaMapa(usuarioId: number | null, especie?: string): Promise<PuntoMapa[]> {
   return consulta<PuntoMapa>(
-    `SELECT a.id, a.codigo, a.apodo, a.latitud, a.longitud, a.zona, a.estado_actual AS estado,
-            e.nombre_comun AS especie, e.slug, coalesce(e.color_flor, e.sprite->'hojas'->>1) AS color,
-            (ua.usuario_id IS NOT NULL) AS descubierto,
-            coalesce(ua.ultima_semana = $2, false) AS regado
-     FROM arboles a JOIN especies e ON e.id = a.especie_id
-     LEFT JOIN usuario_arbol ua ON ua.arbol_id = a.id AND ua.usuario_id = $1
-     WHERE a.activo ORDER BY a.codigo`,
-    [usuarioId, claveSemana()],
+    `SELECT ${COLUMNAS_PUNTO} ${DESDE_PUNTOS}
+     WHERE a.activo AND ($3::text IS NULL OR e.slug = $3) ORDER BY a.codigo`,
+    [usuarioId, claveSemana(), especie ?? null],
+  );
+}
+
+/**
+ * Árboles a no más de `radio` metros de un punto (distancia sobre la esfera), del más cercano al
+ * más lejano, y el más cercano de todos aunque quede fuera del radio (para decir a cuánto está).
+ */
+export async function arbolesCerca(usuarioId: number | null, latitud: number, longitud: number, radio: number) {
+  const filas = await consulta<PuntoMapa & { distancia: number }>(
+    `WITH d AS (
+       SELECT ${COLUMNAS_PUNTO},
+              2 * 6371000 * asin(sqrt(
+                power(sin(radians(a.latitud - $3) / 2), 2) +
+                cos(radians($3)) * cos(radians(a.latitud)) * power(sin(radians(a.longitud - $4) / 2), 2)
+              )) AS distancia
+       ${DESDE_PUNTOS}
+       WHERE a.activo
+     )
+     SELECT * FROM d
+     WHERE distancia <= $5 OR id = (SELECT id FROM d ORDER BY distancia LIMIT 1)
+     ORDER BY distancia`,
+    [usuarioId, claveSemana(), latitud, longitud, radio],
+  );
+  const puntos = filas.filter((f) => f.distancia <= radio);
+  const masCercano = filas[0] ? { codigo: filas[0].codigo, distancia: Math.round(filas[0].distancia) } : null;
+  return { puntos, masCercano };
+}
+
+/** Coordenadas de un árbol activo por su código (para centrar el mapa en él). */
+export async function ubicacionArbol(codigo: string) {
+  return una<{ codigo: string; latitud: number; longitud: number }>(
+    "SELECT codigo, latitud, longitud FROM arboles WHERE upper(codigo) = upper($1) AND activo",
+    [codigo],
   );
 }
 

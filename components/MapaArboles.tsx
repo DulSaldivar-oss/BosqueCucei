@@ -58,6 +58,9 @@ export function MapaArboles({
   fondo = FONDO_OSM,
   className = "h-[60vh]",
   enlaceBase = "/arbol",
+  ubicacion,
+  radio,
+  aviso,
 }: {
   puntos: PuntoDelMapa[];
   conSesion?: boolean;
@@ -68,6 +71,12 @@ export function MapaArboles({
   fondo?: FondoMapa;
   className?: string;
   enlaceBase?: string;
+  /** Ubicación que sigue el mapa «cerca de mí» (la obtiene MapaCercano). */
+  ubicacion?: { punto: [number, number]; precision: number } | null;
+  /** Radio dibujado alrededor de la ubicación, en metros. */
+  radio?: number;
+  /** Mensaje sobre el mapa (buscando ubicación, sin permiso, lejos del campus…). */
+  aviso?: React.ReactNode;
 }) {
   const contenedor = useRef<HTMLDivElement>(null);
   const mapa = useRef<L.Map | null>(null);
@@ -75,6 +84,8 @@ export function MapaArboles({
   const leaflet = useRef<typeof L | null>(null);
   const marcadores = useRef(new Map<string, L.Marker>());
   const yoMarcador = useRef<L.CircleMarker | null>(null);
+  const circulos = useRef<L.Circle[]>([]);
+  const seguir = useRef(true);
   const [listo, setListo] = useState(false);
   const [filtro, setFiltro] = useState<Filtro>("todos");
   const [especie, setEspecie] = useState<string | null>(
@@ -82,7 +93,8 @@ export function MapaArboles({
   );
   const [elegido, setElegido] = useState<string | null>(inicial ?? null);
   const elegidoActual = useRef(elegido);
-  const [yo, setYo] = useState<[number, number] | null>(null);
+  const [yoPropio, setYo] = useState<[number, number] | null>(null);
+  const yo = ubicacion?.punto ?? yoPropio;
   const [errorUbicacion, setErrorUbicacion] = useState("");
 
   const visibles = useMemo(
@@ -127,6 +139,10 @@ export function MapaArboles({
       else m.setView([20.6566, -103.3253], 17);
       const escalar = () => contenedor.current?.setAttribute("data-zoom", escalaPorZoom(m.getZoom()));
       m.on("zoomend", escalar);
+      // Si la persona mueve el mapa a mano, deja de seguir su ubicación hasta que toque «Centrar».
+      m.on("dragstart", () => {
+        seguir.current = false;
+      });
       escalar();
       capa.current = Lf.layerGroup().addTo(m);
       mapa.current = m;
@@ -181,12 +197,26 @@ export function MapaArboles({
 
   useEffect(() => {
     const Lf = leaflet.current;
-    if (!listo || !Lf || !mapa.current) return;
+    const m = mapa.current;
+    if (!listo || !Lf || !m) return;
     yoMarcador.current?.remove();
-    yoMarcador.current = yo
-      ? Lf.circleMarker(yo, { radius: 9, color: "#fff", weight: 3, fillColor: "#3B9AE1", fillOpacity: 1 }).addTo(mapa.current)
-      : null;
-  }, [listo, yo]);
+    circulos.current.forEach((c) => c.remove());
+    circulos.current = [];
+    if (!yo) {
+      yoMarcador.current = null;
+      return;
+    }
+    if (radio) {
+      const area = Lf.circle(yo, { radius: radio, color: "#2D5A3D", weight: 2, dashArray: "6 6", fillColor: "#B5D334", fillOpacity: 0.08, interactive: false }).addTo(m);
+      circulos.current.push(area);
+      // La precisión del GPS, si es útil mostrarla (bajo los árboles suele ser de 10 a 30 m).
+      if (ubicacion && ubicacion.precision > 8 && ubicacion.precision < radio * 4) {
+        circulos.current.push(Lf.circle(yo, { radius: ubicacion.precision, stroke: false, fillColor: "#3B9AE1", fillOpacity: 0.12, interactive: false }).addTo(m));
+      }
+      if (seguir.current) m.fitBounds(area.getBounds(), { padding: [24, 24], maxZoom: 19 });
+    }
+    yoMarcador.current = Lf.circleMarker(yo, { radius: 9, color: "#fff", weight: 3, fillColor: "#3B9AE1", fillOpacity: 1 }).addTo(m);
+  }, [listo, yo, radio, ubicacion]);
 
   useEffect(() => {
     if (!listo || !inicial) return;
@@ -196,6 +226,14 @@ export function MapaArboles({
 
   function ubicarme() {
     setErrorUbicacion("");
+    if (ubicacion) {
+      // Modo «cerca de mí»: vuelve a centrar y a seguir a la persona.
+      seguir.current = true;
+      const Lf = leaflet.current;
+      if (Lf && radio) mapa.current?.fitBounds(Lf.latLng(ubicacion.punto).toBounds(radio * 2), { padding: [24, 24], maxZoom: 19 });
+      else mapa.current?.setView(ubicacion.punto, 19);
+      return;
+    }
     if (!navigator.geolocation) {
       setErrorUbicacion("Tu navegador no permite ubicarte.");
       return;
@@ -219,7 +257,7 @@ export function MapaArboles({
     : [];
   const seleccion = puntos.find((p) => p.codigo === elegido) ?? null;
   const filtros: [Filtro, string][] = [
-    ["todos", `Todos · ${puntos.length}`],
+    ["todos", `${radio && ubicacion !== undefined ? `A ${radio} m` : "Todos"} · ${puntos.length}`],
     ["atencion", `Requieren atención · ${puntos.filter((p) => ATENCION.has(p.estado)).length}`],
   ];
   if (conSesion) filtros.push(["jardin", "Mi jardín"], ["pendientes", "Por descubrir"]);
@@ -256,13 +294,17 @@ export function MapaArboles({
         <div ref={contenedor} className="mapa-arboles absolute inset-0 z-0" aria-label="Mapa del campus con los árboles" role="application" />
         {!listo && <div className="absolute inset-0 z-10 animate-pulse bg-papel-2" aria-hidden="true" />}
 
+        {ubicacion !== null && (
         <button
           type="button"
           onClick={ubicarme}
           className="absolute top-3 right-3 z-[500] inline-flex items-center gap-1.5 rounded-full bg-tarjeta px-3.5 py-2 text-sm font-bold text-agua shadow-flotante transition active:scale-95"
         >
-          <Icono nombre="mira" className="size-4" grosor={2.2} /> Cerca de mí
+          <Icono nombre="mira" className="size-4" grosor={2.2} /> {ubicacion ? "Centrar" : "Cerca de mí"}
         </button>
+        )}
+
+        {aviso && <div className="absolute inset-x-3 top-16 z-[550] mx-auto max-w-md">{aviso}</div>}
 
         <details className="group absolute top-3 left-3 z-[500] rounded-2xl bg-tarjeta/95 text-xs shadow-flotante backdrop-blur">
           <summary className="flex cursor-pointer list-none items-center gap-1.5 px-3 py-2 font-bold">
