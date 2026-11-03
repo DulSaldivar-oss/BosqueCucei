@@ -12,6 +12,19 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // pg trae dependencias opcionales nativas que no deben empaquetarse.
   serverExternalPackages: ["pg"],
+  async headers() {
+    return [
+      {
+        // El service worker siempre se revisa en la red para que las versiones nuevas lleguen de inmediato.
+        source: "/sw.js",
+        headers: [
+          { key: "Content-Type", value: "application/javascript; charset=utf-8" },
+          { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
+          { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self'" },
+        ],
+      },
+    ];
+  },
   experimental: {
     serverActions: {
       // Las fotos se comprimen en el teléfono; esto deja margen para formularios del panel.

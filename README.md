@@ -56,6 +56,17 @@ Para dar acceso de administración a una cuenta real: regístrala en `/registro`
 
 > La cámara del teléfono solo funciona en `https://` o en `localhost`. Para probar el escáner desde el celular en la red local usa un túnel HTTPS o despliega en la máquina de Oracle.
 
+## Instalar como app
+
+Bosque CUCEI es una app web instalable (PWA): se agrega a la pantalla de inicio y abre a pantalla completa, sin tienda de apps.
+
+- **La primera vez** que alguien abre `/entrar` o `/registro` en un dispositivo, antes de iniciar sesión aparece una guía para instalarla. Se marca como vista en cuanto aparece (en `localStorage`, clave `bosque-cucei:guia-instalar`), así que no vuelve a salir sola; tampoco sale dentro de la app ya instalada. Para verla de nuevo al probar, borra los datos del sitio en el navegador.
+- **Con un toque** en Chrome, Edge y Samsung Internet (Android y computadora): la guía usa el aviso de instalación del navegador (`beforeinstallprompt`), que `app/layout.tsx` guarda en cuanto llega.
+- **Paso a paso** donde el navegador no lo permite: iPhone y iPad (Safari o Chrome, desde Compartir → Agregar a pantalla de inicio; Apple no permite instalar con un botón), Firefox en Android y Safari en Mac. Si la página está abierta dentro de Instagram, Facebook u otra app, pide abrirla en el navegador. En la computadora muestra un QR para abrirla en el teléfono.
+- **Siempre a la mano:** enlace «Instala la app en tu teléfono» bajo los formularios de entrar y registro, y tarjeta en `/perfil`.
+- Piezas: `app/manifest.ts` (íconos, atajos y capturas de `public/instalar/` para la hoja de instalación de Android), `public/sw.js` (service worker mínimo: no guarda páginas en caché, solo muestra `public/sin-conexion.html` sin internet), `lib/instalacion.ts` (detección de teléfono y navegador, con pruebas) y `components/instalar/`.
+- La instalación necesita HTTPS (en producción lo pone Caddy) o `localhost`. El service worker solo se registra en el build de producción.
+
 ## Scripts
 
 | Comando | Qué hace |
