@@ -115,6 +115,18 @@ docker compose run --rm migrar npm run db:demo
 docker compose run --rm migrar npm run admin:crear -- tu-correo@dominio
 ```
 
+## Mapa
+
+El fondo del mapa usa **OpenStreetMap** y no necesita llave ni cuenta. Sus servidores son de uso justo: para el piloto alcanzan, pero si el tráfico crece conviene un proveedor con llave gratuita, como [MapTiler](https://www.maptiler.com/). Para cambiarlo, agrega a `.env` y vuelve a desplegar:
+
+```bash
+MAPA_TILES_URL=https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key={llave}
+MAPA_TILES_LLAVE=tu-llave            # en MapTiler, restríngela a tu dominio
+MAPA_TILES_ATRIBUCION=&copy; MapTiler &copy; OpenStreetMap
+```
+
+Si el proveedor configurado falla (por ejemplo, una llave inválida), el mapa vuelve solo a OpenStreetMap.
+
 ## 8. Imprimir las placas
 
 En `/admin/arboles/qr` se generan etiquetas de 6 × 9 cm con el QR de cada árbol, filtrables por zona. El QR apunta a `https://TU_DOMINIO/a/<qr_id>`. Si las placas ya colocadas tienen otro QR, no hace falta reimprimir: guarda su contenido en la columna `qr_id` del árbol.

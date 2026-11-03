@@ -25,7 +25,7 @@ El juego premia la constancia y la variedad de árboles, no escanear muchas vece
 
 ## Pila
 
-Next.js 16 (App Router, Server Actions) · React 19 · Tailwind CSS 4 · PostgreSQL 17 · `motion` para animaciones · Leaflet (mapa) · jsQR (escáner) · Docker + Caddy para la máquina en Oracle.
+Next.js 16 (App Router, Server Actions) · React 19 · Tailwind CSS 4 · PostgreSQL 17 · `motion` para animaciones · Leaflet con teselas de OpenStreetMap (mapa, sin llave; otro proveedor se configura con `MAPA_TILES_URL`, ver `lib/mapa.ts`) · jsQR (escáner) · Docker + Caddy para la máquina en Oracle.
 
 Tipografías Fraunces y Manrope empaquetadas localmente (no dependen de Google Fonts).
 

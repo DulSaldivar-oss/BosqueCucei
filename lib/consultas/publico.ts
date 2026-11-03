@@ -1,3 +1,4 @@
+import { candidatosQr } from "@/lib/codigos";
 import { consulta, una } from "@/lib/db";
 import { rarezaPorEjemplares, type Rareza } from "@/lib/juego/catalogos";
 import { claveSemana, inicioDeSemana } from "@/lib/juego/semana";
@@ -96,27 +97,10 @@ export async function arbolPorCodigo(codigo: string): Promise<Arbol | null> {
 
 /** Resuelve el contenido leído de un QR o tecleado: código, número de placa, identificador del QR o una URL que los contenga. */
 export async function resolverQr(texto: string): Promise<string | null> {
-  const limpio = texto.trim();
-  const candidatos = new Set([limpio]);
-  try {
-    const url = new URL(limpio);
-    const segmentos = url.pathname.split("/").filter(Boolean);
-    if (segmentos.length) candidatos.add(decodeURIComponent(segmentos[segmentos.length - 1]));
-    for (const valor of url.searchParams.values()) candidatos.add(valor);
-  } catch {
-    // No es URL.
-  }
-  const codigo = /CUCEI[-_ ]?(\d{1,5})/i.exec(limpio);
-  if (codigo) {
-    candidatos.add(codigo[0].replace(/[_ ]/, "-").toUpperCase());
-    candidatos.add(`CUCEI-${codigo[1].padStart(4, "0")}`);
-  }
-  // Número de árbol a secas («27» o «#27»): las placas del inventario muestran el número.
-  const numero = /^#?\s*(\d{1,5})$/.exec(limpio)?.[1];
-  if (numero) candidatos.add(`CUCEI-${numero.padStart(4, "0")}`);
+  const candidatos = candidatosQr(texto);
   const fila = await una<{ codigo: string }>(
     `SELECT codigo FROM arboles WHERE activo AND (qr_id = ANY($1) OR upper(codigo) = ANY($2)) LIMIT 1`,
-    [[...candidatos], [...candidatos].map((c) => c.toUpperCase())],
+    [candidatos, candidatos.map((c) => c.toUpperCase())],
   );
   return fila?.codigo ?? null;
 }

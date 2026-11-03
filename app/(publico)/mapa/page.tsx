@@ -3,6 +3,7 @@ import { MapaArboles } from "@/components/MapaArboles";
 import { leerAjustes } from "@/lib/ajustes";
 import { usuarioActual } from "@/lib/auth";
 import { arbolesParaMapa } from "@/lib/consultas/publico";
+import { fondoMapa } from "@/lib/mapa";
 import { pool } from "@/lib/db";
 import { refrescarEstados } from "@/lib/servicios/alertas";
 
@@ -23,6 +24,7 @@ export default async function PaginaMapa({ searchParams }: { searchParams: Promi
         conSesion={!!usuario}
         inicial={arbol?.toUpperCase()}
         especie={especie}
+        fondo={fondoMapa()}
         className="h-[calc(100dvh-19rem)] min-h-[420px] md:h-[calc(100dvh-15rem)]"
       />
     </div>
