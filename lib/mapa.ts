@@ -8,6 +8,9 @@
  *   MAPA_TILES_ZOOM_MAX     último nivel de zoom que entrega el proveedor (más cerca se amplía la imagen)
  */
 
+/** Radio del mapa «cerca de mí»: solo se cargan y dibujan los árboles a esta distancia. */
+export const RADIO_CERCA_M = 50;
+
 export interface FondoMapa {
   url: string;
   atribucion: string;

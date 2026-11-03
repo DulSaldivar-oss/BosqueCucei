@@ -103,7 +103,7 @@ Bosque CUCEI es una app web instalable (PWA): se agrega a la pantalla de inicio 
 | D. Árboles que cuido | Botón «Cuidar este árbol» y sección en `/jardin` |
 | E. Guardianes | Pestaña en la ficha y «Guardianes de la semana» en inicio |
 | F. Herbario | `/herbario` (especies por descubrir como silueta con pista) |
-| G. Mapa | `/mapa` (semáforo, filtros, «cerca de mí») |
+| G. Mapa | `/mapa`: por defecto solo los árboles a 50 m de tu ubicación (te sigue al caminar; el radio está en `RADIO_CERCA_M`, `lib/mapa.ts`), con «Todo el campus», semáforo y filtros |
 | H. Misiones | `/misiones` y `/admin/misiones` |
 | I. Panel de Sustentabilidad | `/admin` |
 | 13. ¿Funciona el piloto? | Tarjeta de indicadores en `/admin` y comentarios desde el perfil |
