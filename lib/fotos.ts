@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -22,16 +22,33 @@ function extension(bytes: Uint8Array): "jpg" | "png" | "webp" | null {
   return null;
 }
 
-/** Guarda la imagen si es JPG, PNG o WebP real y devuelve el nombre del archivo. */
-export async function guardarFoto(archivo: File): Promise<string> {
+export interface FotoRevisada {
+  bytes: Uint8Array;
+  ext: "jpg" | "png" | "webp";
+  /** Huella SHA-256 del contenido: la misma foto da la misma huella. */
+  huella: string;
+}
+
+/** Revisa que sea un JPG, PNG o WebP real y de tamaño permitido, sin guardarlo todavía. */
+export async function revisarFoto(archivo: File): Promise<FotoRevisada> {
   if (archivo.size > TAMANO_MAXIMO_FOTO) throw new Error("La foto pesa más de 5 MB.");
   const bytes = new Uint8Array(await archivo.arrayBuffer());
   const ext = extension(bytes);
   if (!ext) throw new Error("La foto debe ser JPG, PNG o WebP.");
-  const nombre = `${randomUUID()}.${ext}`;
+  return { bytes, ext, huella: createHash("sha256").update(bytes).digest("hex") };
+}
+
+/** Escribe una foto ya revisada y devuelve el nombre del archivo. */
+export async function escribirFoto(foto: FotoRevisada): Promise<string> {
+  const nombre = `${randomUUID()}.${foto.ext}`;
   await mkdir(carpetaFotos(), { recursive: true });
-  await writeFile(path.join(/*turbopackIgnore: true*/ carpetaFotos(), nombre), bytes);
+  await writeFile(path.join(/*turbopackIgnore: true*/ carpetaFotos(), nombre), foto.bytes);
   return nombre;
+}
+
+/** Guarda la imagen si es JPG, PNG o WebP real y devuelve el nombre del archivo. */
+export async function guardarFoto(archivo: File): Promise<string> {
+  return escribirFoto(await revisarFoto(archivo));
 }
 
 export async function leerFoto(nombre: string) {

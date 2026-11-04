@@ -6,12 +6,13 @@ import { EnlaceInstalar } from "@/components/instalar/EnlaceInstalar";
 import { PanelCuenta } from "@/components/publico/PanelCuenta";
 import { usuarioActual } from "@/lib/auth";
 import { qrSvgPagina } from "@/lib/qr";
+import { destinoSeguro } from "@/lib/seguridad";
 
 export const metadata: Metadata = { title: "Entrar" };
 
 export default async function Entrar({ searchParams }: { searchParams: Promise<{ siguiente?: string }> }) {
-  const { siguiente = "/" } = await searchParams;
-  if (await usuarioActual()) redirect(siguiente.startsWith("/") ? siguiente : "/");
+  const siguiente = destinoSeguro((await searchParams).siguiente);
+  if (await usuarioActual()) redirect(siguiente);
   const qr = await qrSvgPagina("/entrar");
   return (
     <PanelCuenta titulo="Qué gusto verte" subtitulo="Entra para seguir cuidando tu jardín.">

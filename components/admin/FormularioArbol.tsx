@@ -11,6 +11,7 @@ interface Valores {
   id?: number;
   codigo: string;
   qr_id: string;
+  qr_verificable?: boolean;
   especie_id: number | "";
   apodo: string | null;
   latitud: number | "";
@@ -77,7 +78,16 @@ export function FormularioArbol({
         {campo("Código de la placa", <input name="codigo" required defaultValue={valores.codigo} placeholder="CUCEI-0072" className={`${estiloEntrada} font-mono uppercase`} />)}
         {campo(
           "Contenido del QR",
-          <input name="qr_id" defaultValue={valores.qr_id} placeholder="Igual al código si se deja vacío" className={`${estiloEntrada} font-mono`} />,
+          <>
+            <input name="qr_id" defaultValue={valores.qr_id} placeholder="Igual al código si se deja vacío" className={`${estiloEntrada} font-mono`} />
+            <label className="mt-2 flex items-start gap-2 text-xs">
+              <input type="checkbox" name="qr_verificable" value="si" defaultChecked={valores.qr_verificable} className="mt-0.5 size-4 accent-musgo" />
+              <span>
+                <strong>QR verificable:</strong> el contenido es único y no se puede adivinar, así que escanearlo prueba la visita. Un QR que solo
+                dice el código o el número nunca cuenta como prueba.
+              </span>
+            </label>
+          </>,
           "Si las placas ya tienen un QR con otro texto o URL, cópialo aquí para que el escáner lo reconozca.",
         )}
         {campo(

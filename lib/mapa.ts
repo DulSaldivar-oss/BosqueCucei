@@ -1,3 +1,5 @@
+import { RADIO_VISITA_M } from "@/lib/juego/presencia";
+
 /**
  * Fondo del mapa (teselas). Por defecto OpenStreetMap, que no pide llave. Se puede cambiar sin tocar
  * el código con variables de entorno del servidor (se leen al mostrar la página, no al compilar):
@@ -8,8 +10,8 @@
  *   MAPA_TILES_ZOOM_MAX     último nivel de zoom que entrega el proveedor (más cerca se amplía la imagen)
  */
 
-/** Radio del mapa «cerca de mí»: solo se cargan y dibujan los árboles a esta distancia. */
-export const RADIO_CERCA_M = 50;
+/** Radio del mapa «cerca de mí»: el mismo de la visita válida (lib/juego/presencia.ts). */
+export const RADIO_CERCA_M = RADIO_VISITA_M;
 
 export interface FondoMapa {
   url: string;

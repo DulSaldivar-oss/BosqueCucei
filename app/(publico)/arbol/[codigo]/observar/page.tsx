@@ -5,6 +5,7 @@ import { requiereUsuario } from "@/lib/auth";
 import { arbolPorCodigo, relacionConArbol } from "@/lib/consultas/publico";
 import { etapaPorVisitas } from "@/lib/juego/crecimiento";
 import { claveSemana } from "@/lib/juego/semana";
+import { placaVigente } from "@/lib/presencia";
 
 export const metadata: Metadata = { title: "Registrar observación" };
 
@@ -13,7 +14,7 @@ export default async function Observar({ params }: { params: Promise<{ codigo: s
   const usuario = await requiereUsuario(`/arbol/${codigo}/observar`);
   const arbol = await arbolPorCodigo(codigo);
   if (!arbol) notFound();
-  const relacion = await relacionConArbol(usuario.id, arbol.id);
+  const [relacion, placa] = await Promise.all([relacionConArbol(usuario.id, arbol.id), placaVigente(arbol.id, usuario.id)]);
   return (
     <FormularioObservacion
       arbol={{
@@ -23,7 +24,10 @@ export default async function Observar({ params }: { params: Promise<{ codigo: s
         especie: arbol.especie.nombre_comun,
         sprite: arbol.especie.sprite,
         etapa: etapaPorVisitas(relacion?.numero_visitas ?? 0),
+        latitud: arbol.latitud,
+        longitud: arbol.longitud,
       }}
+      placaVerificada={placa}
       yaRegado={relacion?.ultima_semana === claveSemana()}
     />
   );

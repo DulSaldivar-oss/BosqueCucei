@@ -7,21 +7,16 @@ import { cerrarSesion, crearSesion } from "@/lib/auth";
 import { hashContrasena, verificarContrasena } from "@/lib/contrasenas";
 import { consulta, una } from "@/lib/db";
 import { permitir } from "@/lib/limite";
+import { ipCliente as ipDe } from "@/lib/red";
+import { destinoSeguro } from "@/lib/seguridad";
 
 export interface EstadoFormulario {
   error?: string;
   campos?: Record<string, string>;
 }
 
-/** Solo rutas internas para evitar redirecciones abiertas. */
-function destinoSeguro(valor: FormDataEntryValue | null) {
-  const texto = typeof valor === "string" ? valor : "";
-  return texto.startsWith("/") && !texto.startsWith("//") ? texto : "/";
-}
-
 async function ipCliente() {
-  const h = await headers();
-  return h.get("x-forwarded-for")?.split(",")[0].trim() ?? h.get("x-real-ip") ?? "local";
+  return ipDe(await headers());
 }
 
 export async function iniciarSesion(_: EstadoFormulario, datos: FormData): Promise<EstadoFormulario> {

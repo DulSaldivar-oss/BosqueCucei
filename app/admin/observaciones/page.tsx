@@ -81,7 +81,12 @@ export default async function Observaciones({ searchParams }: { searchParams: Pr
                     </span>
                     {o.categorias.length > 0 && <p className="text-xs font-semibold">{o.categorias.map(etiquetaCategoria).join(" · ")}</p>}
                     {o.comentario && <p className="mt-1 text-xs text-tinta-suave">“{o.comentario}”</p>}
-                    <p className="mt-1 text-xs text-tinta-suave">{fecha.format(o.fecha)}{o.duracion_ms ? ` · ${Math.round(o.duracion_ms / 1000)} s` : ""}</p>
+                    <p className="mt-1 text-xs text-tinta-suave">
+                      {fecha.format(o.fecha)}
+                      {o.duracion_ms ? ` · ${Math.round(o.duracion_ms / 1000)} s` : ""}
+                      {o.prueba_presencia === "placa" && " · placa escaneada"}
+                      {o.prueba_presencia === "gps" && ` · GPS a ${Math.round(o.distancia_m ?? 0)} m`}
+                    </p>
                   </td>
                   <td className="px-4 py-3 font-semibold">{o.alias}</td>
                   <td className="px-4 py-3">
