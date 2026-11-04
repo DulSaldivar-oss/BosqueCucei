@@ -1,12 +1,12 @@
 /**
  * Aplica el esquema y las semillas a PostgreSQL.
  *
- *   npm run db:migrar   migraciones pendientes + semillas que cambiaron
+ *   bun run db:migrar   migraciones pendientes + semillas que cambiaron
  *
  * db/migraciones/*.sql  se aplican una sola vez, en orden. No se editan una vez aplicadas:
  *                       los cambios van en un archivo nuevo (002_…sql).
  * db/semillas/*.sql     son idempotentes y se vuelven a correr cuando cambia su contenido
- *                       (03_arboles.sql es el inventario oficial: se actualiza con npm run inventario:importar).
+ *                       (03_arboles.sql es el inventario oficial: se actualiza con bun run inventario:importar).
  */
 import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";

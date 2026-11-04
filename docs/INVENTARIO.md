@@ -4,12 +4,12 @@ El Excel oficial del inventario (`data/inventario/arboles-cucei.xlsx`) es la fue
 
 ```
 data/inventario/arboles-cucei.xlsx   Excel oficial (se reemplaza por la versión nueva)
-        │  npm run inventario:importar
+        │  bun run inventario:importar
         ▼
 data/arboles.json                    árboles normalizados (no se edita a mano)
 data/especies.json                   + especies nuevas con "revisar": true
 data/inventario/REPORTE.md           avisos y filas a revisar en campo
-        │  npm run db:sql
+        │  bun run db:sql
         ▼
 db/semillas/03_arboles.sql           semilla que aplica «migrar» en cada despliegue en que cambie
 ```
@@ -20,14 +20,14 @@ db/semillas/03_arboles.sql           semilla que aplica «migrar» en cada despl
 
 ```bash
 cp ~/Descargas/arboles-todos-los-campus-AAAA-MM-DD.xlsx data/inventario/arboles-cucei.xlsx
-npm run inventario:importar     # normaliza, agrega especies nuevas y escribe el reporte
+bun run inventario:importar     # normaliza, agrega especies nuevas y escribe el reporte
 # revisa data/inventario/REPORTE.md y cura las especies nuevas en data/especies.json
-npm run db:sql                  # regenera las semillas SQL
-npm run sprites                 # opcional: exporta los SVG de las especies nuevas
+bun run db:sql                  # regenera las semillas SQL
+bun run sprites                 # opcional: exporta los SVG de las especies nuevas
 git add data db public/sprites && git commit -m "Actualizar inventario de árboles"
 ```
 
-Al desplegar (`./scripts/desplegar.sh` o la acción **Desplegar en Oracle**), el servicio `migrar` ve que la semilla cambió y la vuelve a aplicar. En local: `npm run db:migrar`.
+Al desplegar (`./scripts/desplegar.sh` o la acción **Desplegar en Oracle**), el servicio `migrar` ve que la semilla cambió y la vuelve a aplicar. En local: `bun run db:migrar`.
 
 ### Desde el panel (sin desplegar)
 
@@ -75,7 +75,7 @@ Con un nombre científico que no está en `data/especies.json`, la importación 
 - un **sprite propuesto** según su familia (palmeras, coníferas, leguminosas en sombrilla, copas abiertas…) y el color de flor que mencione la floración;
 - `"origen": null` y `"revisar": true`.
 
-**Curar una especie nueva** en `data/especies.json`: confirma `nombre_comun` y `otros_nombres`, pon `origen` (`"nativa"` o `"introducida"`), escribe `descripcion`, `dato_curioso`, `floracion_meses` y `beneficios`, ajusta el `sprite` (el editor de `/admin/especies` lo muestra en vivo) y quita `"revisar"`. Las importaciones siguientes respetan lo curado: solo completan textos que falten. `npm run especies:importar` puede traer la familia aceptada (GBIF), el resumen de Wikipedia y una foto de iNaturalist; necesita internet.
+**Curar una especie nueva** en `data/especies.json`: confirma `nombre_comun` y `otros_nombres`, pon `origen` (`"nativa"` o `"introducida"`), escribe `descripcion`, `dato_curioso`, `floracion_meses` y `beneficios`, ajusta el `sprite` (el editor de `/admin/especies` lo muestra en vivo) y quita `"revisar"`. Las importaciones siguientes respetan lo curado: solo completan textos que falten. `bun run especies:importar` puede traer la familia aceptada (GBIF), el resumen de Wikipedia y una foto de iNaturalist; necesita internet.
 
 ## Calidad de los datos del Excel actual (31 de octubre de 2026)
 

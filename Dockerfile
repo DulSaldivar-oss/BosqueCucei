@@ -1,19 +1,24 @@
-# Bosque CUCEI · imagen para la máquina en Oracle Cloud (funciona en ARM Ampere y en x86).
+# Bosque CUCEI · imagen para el servidor (funciona en ARM Ampere y en x86).
+# Bun instala las dependencias y corre los scripts (migraciones, demo, administradores);
+# Next.js compila y sirve con Node, que es su entorno oficial.
 
-FROM node:22-alpine AS dependencias
+FROM node:22-alpine AS base
+COPY --from=oven/bun:1.4.4-alpine /usr/local/bin/bun /usr/local/bin/bun
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund
+
+FROM base AS dependencias
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
 FROM dependencias AS compilacion
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+RUN bun run build
 
 # Herramientas: migraciones, datos de demostración y alta de administradores.
 FROM dependencias AS herramientas
 COPY . .
-CMD ["npm", "run", "db:migrar"]
+CMD ["bun", "run", "db:migrar"]
 
 # Servidor: solo la salida autocontenida de Next.js.
 FROM node:22-alpine AS app

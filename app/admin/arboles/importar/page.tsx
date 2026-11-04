@@ -34,7 +34,7 @@ export default function Importar() {
               <li>
                 Para conservarlo, guarda también el Excel en el repositorio (
                 <code className="font-mono text-xs">data/inventario/arboles-cucei.xlsx</code>) y corre{" "}
-                <code className="font-mono text-xs">npm run inventario:importar</code>: la semilla se vuelve a aplicar cada vez que cambia.
+                <code className="font-mono text-xs">bun run inventario:importar</code>: la semilla se vuelve a aplicar cada vez que cambia.
               </li>
             </ul>
           </Tarjeta>

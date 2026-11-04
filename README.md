@@ -31,15 +31,20 @@ Tipografías Fraunces y Manrope empaquetadas localmente (no dependen de Google F
 
 ## Empezar en local
 
-Requisitos: Node 22 y PostgreSQL (o Docker para levantarlo).
+Requisitos: [Bun](https://bun.sh) 1.4 (instala dependencias y corre los scripts), Node 22 (Next.js compila y corre sobre Node) y PostgreSQL (o Docker para levantarlo).
 
 ```bash
-npm install
+curl -fsSL https://bun.sh/install | bash         # Linux y macOS
+powershell -c "irm bun.sh/install.ps1 | iex"     # Windows
+```
+
+```bash
+bun install
 cp .env.example .env.local          # ajusta DATABASE_URL si hace falta
 docker compose up -d db             # PostgreSQL en localhost:5432 (o usa uno propio, ver abajo)
-npm run db:migrar                   # esquema, especies, misiones y los 1086 árboles del inventario oficial
-npm run db:demo                     # opcional: personas y 10 semanas de observaciones de ejemplo
-npm run dev                         # http://localhost:3000
+bun run db:migrar                   # esquema, especies, misiones y los 1086 árboles del inventario oficial
+bun run db:demo                     # opcional: personas y 10 semanas de observaciones de ejemplo
+bun run dev                         # http://localhost:3000
 ```
 
 **¿«port 5432 already in use»?** Ya tienes otro PostgreSQL en ese puerto. Tienes dos caminos:
@@ -52,9 +57,19 @@ Cuentas de demostración (contraseña `bosque123`):
 - `demo@cucei.demo`: jugador con jardín avanzado.
 - `sustentabilidad@cucei.demo`: acceso a `/admin`.
 
-Para dar acceso de administración a una cuenta real: regístrala en `/registro` y luego `npm run admin:crear -- correo@dominio`.
+Para dar acceso de administración a una cuenta real: regístrala en `/registro` y luego `bun run admin:crear correo@dominio`.
 
 > La cámara del teléfono solo funciona en `https://` o en `localhost`. Para probar el escáner desde el celular en la red local usa un túnel HTTPS o despliega en la máquina de Oracle.
+
+## Antitrampa
+
+Las reglas del juego se revisan en el servidor; el teléfono solo muestra el resultado.
+
+- **Visita junto al árbol** (`lib/juego/presencia.ts`): una observación se acepta solo si la persona está a 50 m del árbol por GPS (se descuentan hasta 15 m del error del GPS; con más de 100 m de error no se acepta) o si escaneó hace menos de 30 min la placa con un **QR verificable** (con parte aleatoria, generado en `/admin/arboles/qr`). El escaneo deja un token en una cookie httpOnly que vale solo para ese árbol y para la primera persona que lo use.
+- **Sin teletransporte**: no se aceptan observaciones de árboles separados por más de 75 m a más de 8 m/s (≈ 29 km/h).
+- **Una foto, una vez**: no se acepta una foto que ya se usó (huella SHA-256), así que no se puede reciclar para el bono ni para la misión «Fotógrafo».
+- **Lo que ya había**: una visita válida por semana y árbol (índice único en la base), la experiencia la calcula el servidor, límites de intentos en entrar, registro, observaciones y escaneos, sesiones guardadas como huella, fotos revisadas por contenido y redirecciones solo a rutas del sitio.
+- El panel muestra cómo se comprobó cada observación (GPS a N m o placa escaneada).
 
 ## Instalar como app
 
@@ -71,26 +86,26 @@ Bosque CUCEI es una app web instalable (PWA): se agrega a la pantalla de inicio 
 
 | Comando | Qué hace |
 | --- | --- |
-| `npm run dev` / `build` / `start` | Desarrollo, compilación y servidor de producción. |
-| `npm test` | Pruebas (Vitest). Con `DATABASE_URL_PRUEBAS` también corre las de integración contra PostgreSQL. |
-| `npm run lint` / `typecheck` | ESLint y TypeScript. |
-| `npm run db:migrar` | Aplica `db/migraciones/*.sql` pendientes y las semillas que cambiaron (incluido el inventario de árboles). |
-| `npm run inventario:importar` | Lee el Excel oficial (`data/inventario/arboles-cucei.xlsx`) y actualiza `data/arboles.json`, agrega a `data/especies.json` las especies nuevas y escribe `data/inventario/REPORTE.md`. Ver [docs/INVENTARIO.md](docs/INVENTARIO.md). |
-| `npm run db:sql` | Regenera las semillas SQL desde `data/especies.json` y `data/arboles.json`. |
-| `npm run db:demo` | Personas y observaciones de ejemplo sobre el inventario (`-- --reiniciar` para rehacerlas). No usar en producción. |
-| `npm run especies:importar` | Enriquece el catálogo con GBIF, Wikipedia e iNaturalist (necesita internet). `-- --descubrir` lista las especies observadas en iNaturalist cerca de CUCEI. |
-| `npm run sprites` | Exporta los sprites de cada especie a `public/sprites/` (`-- --png` también en PNG con Playwright). |
-| `npm run admin:crear -- correo` | Da acceso al panel a una cuenta existente. |
+| `bun run dev` / `build` / `start` | Desarrollo, compilación y servidor de producción. |
+| `bun run test` | Pruebas (Vitest). Con `DATABASE_URL_PRUEBAS` también corre las de integración contra PostgreSQL. |
+| `bun run lint` / `typecheck` | ESLint y TypeScript. |
+| `bun run db:migrar` | Aplica `db/migraciones/*.sql` pendientes y las semillas que cambiaron (incluido el inventario de árboles). |
+| `bun run inventario:importar` | Lee el Excel oficial (`data/inventario/arboles-cucei.xlsx`) y actualiza `data/arboles.json`, agrega a `data/especies.json` las especies nuevas y escribe `data/inventario/REPORTE.md`. Ver [docs/INVENTARIO.md](docs/INVENTARIO.md). |
+| `bun run db:sql` | Regenera las semillas SQL desde `data/especies.json` y `data/arboles.json`. |
+| `bun run db:demo` | Personas y observaciones de ejemplo sobre el inventario (`--reiniciar` para rehacerlas). No usar en producción. |
+| `bun run especies:importar` | Enriquece el catálogo con GBIF, Wikipedia e iNaturalist (necesita internet). `--descubrir` lista las especies observadas en iNaturalist cerca de CUCEI. |
+| `bun run sprites` | Exporta los sprites de cada especie a `public/sprites/` (`--png` también en PNG con Playwright). |
+| `bun run admin:crear correo` | Da acceso al panel a una cuenta existente. |
 
 ## Datos, scripts SQL y sprites
 
-- **Inventario de árboles** (`data/inventario/arboles-cucei.xlsx`): el Excel oficial con los 1086 árboles de CUCEI (número, especie, nombre científico, sector, coordenadas, estado fitosanitario, medidas, CO₂, familia, follaje, clima y floración). Es la semilla inicial y la vía para las actualizaciones: se reemplaza el Excel, se corre `npm run inventario:importar && npm run db:sql` y el siguiente despliegue sincroniza la base. También se puede subir desde `/admin/arboles/importar`. Detalles, reglas y avisos de calidad de datos en [docs/INVENTARIO.md](docs/INVENTARIO.md) y en `data/inventario/REPORTE.md`.
-- **Catálogo de especies** (`data/especies.json`): 132 especies. 29 fueron curadas a mano con descripción, dato curioso, calendario de floración y beneficios; las otras 103 se crearon desde el inventario con nombre común y origen revisados y un sprite propuesto, y tienen `"revisar": true` hasta completar su descripción. **Hay que validarlo con Sustentabilidad.** `npm run especies:importar` lo enriquece desde bases públicas (a las especies por revisar también les pone el resumen de Wikipedia):
+- **Inventario de árboles** (`data/inventario/arboles-cucei.xlsx`): el Excel oficial con los 1086 árboles de CUCEI (número, especie, nombre científico, sector, coordenadas, estado fitosanitario, medidas, CO₂, familia, follaje, clima y floración). Es la semilla inicial y la vía para las actualizaciones: se reemplaza el Excel, se corre `bun run inventario:importar && bun run db:sql` y el siguiente despliegue sincroniza la base. También se puede subir desde `/admin/arboles/importar`. Detalles, reglas y avisos de calidad de datos en [docs/INVENTARIO.md](docs/INVENTARIO.md) y en `data/inventario/REPORTE.md`.
+- **Catálogo de especies** (`data/especies.json`): 132 especies. 29 fueron curadas a mano con descripción, dato curioso, calendario de floración y beneficios; las otras 103 se crearon desde el inventario con nombre común y origen revisados y un sprite propuesto, y tienen `"revisar": true` hasta completar su descripción. **Hay que validarlo con Sustentabilidad.** `bun run especies:importar` lo enriquece desde bases públicas (a las especies por revisar también les pone el resumen de Wikipedia):
   - GBIF: identificador taxonómico, familia aceptada y nombres comunes en español.
   - Wikipedia en español: enlace y resumen.
   - iNaturalist: foto con licencia Creative Commons y crédito; con `--descubrir`, las especies observadas a 1.5 km de CUCEI para detectar las que faltan (`--agregar` las suma con un sprite propuesto según su familia).
-- **Scripts SQL** (`db/`): `migraciones/001_esquema.sql` (modelo de datos de la sección 9 más experiencia, misiones, alertas y métricas), `002_inventario.sql` (columnas del inventario oficial) y `semillas/` (ajustes, especies, inventario de árboles y misiones). Las semillas de especies y árboles se **generan** con `npm run db:sql`.
-- **Sprites**: `lib/sprites/generar.ts` dibuja cada especie a partir de su *genoma* (forma de copa, tres tonos de hoja, corteza, flor, densidad de floración, proporciones) en las 7 etapas, en SVG de capas estilo papel recortado. Cada árbol usa su código como semilla, así que dos jacarandas nunca son idénticas. Se ajustan en vivo desde `/admin/especies`. `npm run sprites` los exporta como archivos (`etapa-0.svg` … `etapa-6.svg`, `hoja.svg`, `silueta.svg`).
+- **Scripts SQL** (`db/`): `migraciones/001_esquema.sql` (modelo de datos de la sección 9 más experiencia, misiones, alertas y métricas), `002_inventario.sql` (columnas del inventario oficial) y `semillas/` (ajustes, especies, inventario de árboles y misiones). Las semillas de especies y árboles se **generan** con `bun run db:sql`.
+- **Sprites**: `lib/sprites/generar.ts` dibuja cada especie a partir de su *genoma* (forma de copa, tres tonos de hoja, corteza, flor, densidad de floración, proporciones) en las 7 etapas, en SVG de capas estilo papel recortado. Cada árbol usa su código como semilla, así que dos jacarandas nunca son idénticas. Se ajustan en vivo desde `/admin/especies`. `bun run sprites` los exporta como archivos (`etapa-0.svg` … `etapa-6.svg`, `hoja.svg`, `silueta.svg`).
 - **Placas y QR**: el código de cada árbol es `CUCEI-` más su número con 4 cifras (el 27 es `CUCEI-0027`), y el escáner acepta también el número solo. Si las placas ya tienen un QR con otro contenido (por ejemplo una URL), guárdalo en el `qr_id` del árbol desde el panel y el escáner lo reconocerá.
 
 ## Correspondencia con la propuesta

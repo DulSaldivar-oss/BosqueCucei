@@ -1,6 +1,6 @@
 /**
  * Da rol de administración (panel de Sustentabilidad) a una cuenta existente.
- *   npm run admin:crear -- correo@cucei.udg.mx
+ *   bun run admin:crear correo@cucei.udg.mx
  * La persona primero se registra normalmente en /registro.
  */
 import pg from "pg";
@@ -8,7 +8,7 @@ import { urlBaseDatos } from "./entorno";
 
 const correo = process.argv[2]?.toLowerCase();
 if (!correo) {
-  console.error("Uso: npm run admin:crear -- correo@dominio");
+  console.error("Uso: bun run admin:crear correo@dominio");
   process.exit(1);
 }
 const cliente = new pg.Client({ connectionString: urlBaseDatos() });
