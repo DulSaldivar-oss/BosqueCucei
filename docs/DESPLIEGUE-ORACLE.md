@@ -104,7 +104,7 @@ docker compose logs -f app                # Ctrl+C para salir
 **Personas y observaciones de ejemplo** (solo para presentar el prototipo, no en producción real):
 
 ```bash
-docker compose run --rm migrar bun run db:demo
+./scripts/bosque.sh db:demo
 ```
 
 > Si en esta máquina ya habías cargado el inventario de demostración (`db:migrar -- --demo`), sus códigos CUCEI-0001…0071 ahora son los árboles reales. Los cinco que no existen en el inventario (CUCEI-0024, 0025, 0052, 0054 y 0066) quedan como árboles del panel: desactívalos en `/admin/arboles`.
@@ -112,8 +112,10 @@ docker compose run --rm migrar bun run db:demo
 **Primer administrador:** regístrate en `/registro` y después:
 
 ```bash
-docker compose run --rm migrar bun run admin:crear tu-correo@dominio
+./scripts/bosque.sh admin:crear tu-correo@dominio
 ```
+
+> **En la máquina no se instala Bun, Node ni npm.** Vienen dentro de la imagen de Docker. `./scripts/bosque.sh` corre los comandos del proyecto dentro del contenedor, que ya tiene la conexión a la base (equivale a `docker compose run --rm migrar bun run …`). Si escribes `bun run …` o `npm run …` directo en la máquina, fallará con «command not found» o «Falta DATABASE_URL».
 
 ## Mapa
 

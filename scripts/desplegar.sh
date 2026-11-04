@@ -55,6 +55,7 @@ for _ in $(seq 1 60); do
     docker compose ps
     docker image prune -f >/dev/null
     echo "✓ Bosque CUCEI está en línea: https://$DOMINIO"
+    echo "  Para dar acceso al panel: ./scripts/bosque.sh admin:crear tu-correo (después de registrarte en el sitio)"
     exit 0
   fi
   sleep 5

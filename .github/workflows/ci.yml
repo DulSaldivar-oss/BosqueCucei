@@ -119,7 +119,7 @@ jobs:
           test "$(curl -sk 'https://localhost/api/qr?texto=27' | grep -o CUCEI-0027)" = CUCEI-0027
           curl -sk https://localhost/ | grep -q "árboles con placa"
       - name: Datos de demostración (personas y observaciones)
-        run: docker compose run --rm migrar bun run db:demo
+        run: ./scripts/bosque.sh db:demo
       - name: Registros
         if: always()
         run: |

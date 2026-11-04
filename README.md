@@ -57,7 +57,7 @@ Cuentas de demostración (contraseña `bosque123`):
 - `demo@cucei.demo`: jugador con jardín avanzado.
 - `sustentabilidad@cucei.demo`: acceso a `/admin`.
 
-Para dar acceso de administración a una cuenta real: regístrala en `/registro` y luego `bun run admin:crear correo@dominio`.
+Para dar acceso de administración a una cuenta real: regístrala en `/registro` y luego `bun run admin:crear correo@dominio` (en el servidor: `./scripts/bosque.sh admin:crear correo@dominio`).
 
 > La cámara del teléfono solo funciona en `https://` o en `localhost`. Para probar el escáner desde el celular en la red local usa un túnel HTTPS o despliega en la máquina de Oracle.
 
@@ -149,7 +149,10 @@ git clone https://github.com/DulSaldivar-oss/BosqueCucei.git && cd BosqueCucei
 sudo ./scripts/preparar-servidor.sh      # Docker, firewall de la instancia y swap
 cp .env.produccion.example .env && nano .env
 ./scripts/desplegar.sh                   # compila, migra, levanta y espera a /api/salud
+./scripts/bosque.sh admin:crear tu-correo@dominio   # después de registrarte en /registro
 ```
+
+En la máquina solo se instala Docker: Bun y Node vienen dentro de la imagen. Los comandos del proyecto se corren con `./scripts/bosque.sh <comando>` (dentro del contenedor), no con `bun run` directo.
 
 El CI (`.github/workflows/ci.yml`) comprueba en cada PR el código, las imágenes Docker para x86 y ARM, y un despliegue completo con Caddy. El workflow manual «Desplegar en Oracle» actualiza la máquina por SSH.
 
