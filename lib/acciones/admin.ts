@@ -1,10 +1,12 @@
 "use server";
 
+import { randomBytes } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { leerAjustes } from "@/lib/ajustes";
 import { requiereAdmin } from "@/lib/auth";
+import { candidatosQr } from "@/lib/codigos";
 import { consulta, transaccion, una } from "@/lib/db";
 import { guardarFoto } from "@/lib/fotos";
 import { leerCsv } from "@/lib/csv";
@@ -129,6 +131,7 @@ const esquemaArbol = z.object({
     .max(40)
     .regex(/^[A-Za-z0-9_-]+$/, "El código solo puede tener letras, números, guion y guion bajo."),
   qr_id: z.string().trim().max(500),
+  qr_verificable: z.string().optional(),
   especie_id: z.coerce.number().int().positive("Elige la especie."),
   apodo: z.string().trim().max(80),
   latitud: z.coerce.number().min(-90).max(90),
@@ -188,22 +191,25 @@ export async function guardarArbol(_: EstadoAccion, datos: FormData): Promise<Es
     circunferencia,
     co2,
     d.estado_fitosanitario || null,
+    // Un QR que es solo el código o el número se puede escribir a mano: no prueba la visita.
+    d.qr_verificable === "si" && !candidatosQr(d.codigo).some((c) => c.toUpperCase() === (d.qr_id || d.codigo).toUpperCase()),
   ];
   try {
     if (d.id) {
       await consulta(
         `UPDATE arboles SET codigo = $2, qr_id = $3, especie_id = $4, apodo = $5, latitud = $6, longitud = $7, zona = $8,
            fecha_registro = $9, altura_m = $10, diametro_cm = $11, notas_publicas = $12, activo = $13,
-           ancho_copa_m = $14, circunferencia_cm = $15, co2_kg = $16, estado_fitosanitario = $17,
-           foto_principal = coalesce($18, foto_principal)
+           ancho_copa_m = $14, circunferencia_cm = $15, co2_kg = $16, estado_fitosanitario = $17, qr_verificable = $18,
+           foto_principal = coalesce($19, foto_principal)
          WHERE id = $1`,
         [d.id, ...valores, foto],
       );
     } else {
       await consulta(
         `INSERT INTO arboles (codigo, qr_id, especie_id, apodo, latitud, longitud, zona, fecha_registro, altura_m, diametro_cm,
-                              notas_publicas, activo, ancho_copa_m, circunferencia_cm, co2_kg, estado_fitosanitario, foto_principal)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)`,
+                              notas_publicas, activo, ancho_copa_m, circunferencia_cm, co2_kg, estado_fitosanitario,
+                              qr_verificable, foto_principal)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)`,
         [...valores, foto],
       );
     }
@@ -215,6 +221,37 @@ export async function guardarArbol(_: EstadoAccion, datos: FormData): Promise<Es
   }
   revalidatePath("/admin/arboles");
   redirect(`/admin/arboles/${d.codigo.toUpperCase()}?guardado=1`);
+}
+
+// ───────────────────────── QR verificables ─────────────────────────
+
+/** Sin 0/O ni 1/I/L para que se pueda leer y dictar sin confusiones. */
+const ALFABETO_QR = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+
+function sufijoAleatorio(largo = 8) {
+  const bytes = randomBytes(largo);
+  return Array.from(bytes, (b) => ALFABETO_QR[b % ALFABETO_QR.length]).join("");
+}
+
+/**
+ * Da a los árboles (de una zona o todos) un QR que no se puede adivinar: CUCEI-0048-K7Q2M9XD.
+ * Escanearlo prueba que la persona estuvo frente a la placa. Los que ya tienen uno no cambian.
+ */
+export async function asignarQrSeguros(datos: FormData) {
+  await requiereAdmin();
+  const zona = String(datos.get("zona") ?? "");
+  const arboles = await consulta<{ id: number; codigo: string }>(
+    "SELECT id, codigo FROM arboles WHERE activo AND NOT qr_verificable AND ($1 = '' OR zona = $1)",
+    [zona],
+  );
+  if (arboles.length) {
+    await consulta(
+      `UPDATE arboles SET qr_id = v.qr, qr_verificable = true
+       FROM unnest($1::int[], $2::text[]) AS v (id, qr) WHERE arboles.id = v.id`,
+      [arboles.map((a) => a.id), arboles.map((a) => `${a.codigo}-${sufijoAleatorio()}`)],
+    );
+  }
+  revalidatePath("/admin/arboles/qr");
 }
 
 export interface ResultadoImportacion extends EstadoAccion {

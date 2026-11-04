@@ -7,6 +7,9 @@
 		X-Content-Type-Options "nosniff"
 		Referrer-Policy "strict-origin-when-cross-origin"
 		Permissions-Policy "camera=(self), geolocation=(self), microphone=()"
+		# Nadie puede mostrar el sitio dentro de un iframe (evita el «clickjacking»).
+		Content-Security-Policy "frame-ancestors 'none'"
+		X-Frame-Options "DENY"
 		-Server
 	}
 	reverse_proxy app:3000

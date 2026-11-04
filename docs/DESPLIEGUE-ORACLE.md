@@ -104,7 +104,7 @@ docker compose logs -f app                # Ctrl+C para salir
 **Personas y observaciones de ejemplo** (solo para presentar el prototipo, no en producción real):
 
 ```bash
-docker compose run --rm migrar npm run db:demo
+./scripts/bosque.sh db:demo
 ```
 
 > Si en esta máquina ya habías cargado el inventario de demostración (`db:migrar -- --demo`), sus códigos CUCEI-0001…0071 ahora son los árboles reales. Los cinco que no existen en el inventario (CUCEI-0024, 0025, 0052, 0054 y 0066) quedan como árboles del panel: desactívalos en `/admin/arboles`.
@@ -112,8 +112,10 @@ docker compose run --rm migrar npm run db:demo
 **Primer administrador:** regístrate en `/registro` y después:
 
 ```bash
-docker compose run --rm migrar npm run admin:crear -- tu-correo@dominio
+./scripts/bosque.sh admin:crear tu-correo@dominio
 ```
+
+> **En la máquina no se instala Bun, Node ni npm.** Vienen dentro de la imagen de Docker. `./scripts/bosque.sh` corre los comandos del proyecto dentro del contenedor, que ya tiene la conexión a la base (equivale a `docker compose run --rm migrar bun run …`). Si escribes `bun run …` o `npm run …` directo en la máquina, fallará con «command not found» o «Falta DATABASE_URL».
 
 ## Mapa
 
@@ -129,7 +131,11 @@ Si el proveedor configurado falla (por ejemplo, una llave inválida), el mapa vu
 
 ## 8. Imprimir las placas
 
-En `/admin/arboles/qr` se generan etiquetas de 6 × 9 cm con el QR de cada árbol, filtrables por zona. El QR apunta a `https://TU_DOMINIO/a/<qr_id>`. Si las placas ya colocadas tienen otro QR, no hace falta reimprimir: guarda su contenido en la columna `qr_id` del árbol.
+En `/admin/arboles/qr` se generan etiquetas de 6 × 9 cm con el QR de cada árbol, filtrables por zona. El QR apunta a `https://TU_DOMINIO/a/<qr_id>`.
+
+**Antes de imprimir, toca «Generar QR verificables».** Una visita solo cuenta si la persona está a 50 m del árbol (GPS) o escanea su placa, y solo un QR con una parte aleatoria (`CUCEI-0048-K7Q2M9XD`) prueba que estuvo frente a ella: un QR que dice solo el código o el número se puede escribir a mano. Las etiquetas viejas siguen abriendo la ficha, pero no cuentan como prueba.
+
+Si las placas de metal ya colocadas tienen otro QR, no hace falta reimprimir: guarda su contenido en el `qr_id` del árbol y marca «QR verificable» solo si ese contenido es único y no se puede adivinar.
 
 ## 9. Respaldos
 

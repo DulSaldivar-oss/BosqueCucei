@@ -15,7 +15,11 @@ export interface DatosObservacion {
   categorias: string[];
   comentario?: string | null;
   fotografia?: string | null;
+  /** Huella del contenido de la foto (no se acepta la misma foto dos veces). */
+  fotoHash?: string | null;
   duracionMs?: number | null;
+  /** Cómo se comprobó que la persona estaba junto al árbol (la API lo exige; ver lib/juego/presencia.ts). */
+  presencia?: { prueba: "gps" | "placa"; distancia: number | null; precision: number | null } | null;
 }
 
 export interface ResultadoObservacion {
@@ -96,10 +100,13 @@ export async function registrarObservacion(datos: DatosObservacion, ahora: Date 
 
     const [{ id: observacionId }] = await consulta<{ id: number }>(
       `INSERT INTO observaciones (arbol_id, usuario_id, fecha, semana, cuenta, estado_reportado, categorias,
-                                  comentario, fotografia, xp_otorgada, duracion_ms)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id`,
+                                  comentario, fotografia, xp_otorgada, duracion_ms, foto_hash,
+                                  prueba_presencia, distancia_m, precision_m)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING id`,
       [arbol.id, datos.usuarioId, ahora, semana, cuenta, datos.estado, categorias, comentario,
-        datos.fotografia ?? null, xp.total, duracion],
+        datos.fotografia ?? null, xp.total, duracion, datos.fotoHash ?? null, datos.presencia?.prueba ?? null,
+        datos.presencia?.distancia == null ? null : Math.round(datos.presencia.distancia * 10) / 10,
+        datos.presencia?.precision == null ? null : Math.round(datos.presencia.precision * 10) / 10],
       c,
     );
 

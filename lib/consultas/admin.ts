@@ -145,6 +145,9 @@ export interface FilaObservacion {
   cuenta: boolean;
   validada: boolean | null;
   duracion_ms: number | null;
+  /** Cómo se comprobó que estaba junto al árbol (null en observaciones anteriores al antitrampa). */
+  prueba_presencia: "gps" | "placa" | null;
+  distancia_m: number | null;
 }
 
 export async function listarObservaciones(filtros: { filtro?: string; arbolId?: number; desde?: Date; pagina?: number }) {
@@ -167,7 +170,7 @@ export async function listarObservaciones(filtros: { filtro?: string; arbolId?: 
   params.push(porPagina + 1, Math.max(0, (filtros.pagina ?? 1) - 1) * porPagina);
   const filas = await consulta<FilaObservacion>(
     `SELECT o.id, o.fecha, a.codigo, e.nombre_comun AS especie, a.zona, u.alias, o.estado_reportado, o.categorias,
-            o.comentario, o.fotografia, o.cuenta, o.validada, o.duracion_ms
+            o.comentario, o.fotografia, o.cuenta, o.validada, o.duracion_ms, o.prueba_presencia, o.distancia_m
      FROM observaciones o JOIN arboles a ON a.id = o.arbol_id JOIN especies e ON e.id = a.especie_id
      JOIN usuarios u ON u.id = o.usuario_id
      ${donde}
@@ -223,6 +226,7 @@ export async function arbolParaEditar(codigo: string) {
     co2_kg: number | null;
     estado_fitosanitario: string | null;
     fuente: "inventario" | "panel";
+    qr_verificable: boolean;
     estado_actual: string;
     foto_principal: string | null;
     ultima_inspeccion: string | null;

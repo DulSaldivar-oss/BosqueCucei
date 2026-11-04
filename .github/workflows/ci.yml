@@ -36,15 +36,22 @@ jobs:
       NEXT_TELEMETRY_DISABLED: 1
     steps:
       - uses: actions/checkout@v4
+      # Node para Next.js y Vitest; Bun (la misma versión de «packageManager») instala y corre los scripts.
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: npm
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
-      - run: npm run build
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+      - run: bun install --frozen-lockfile
+      - run: bun run lint
+      - run: bun run typecheck
+      # Las migraciones y semillas corren con Bun sobre la base vacía (las pruebas la reinician después).
+      - run: bun run db:migrar
+        env:
+          DATABASE_URL: postgres://bosque:bosque@localhost:5432/bosque_test
+      - run: bun run test
+      - run: bun run build
 
   imagen:
     name: Imagen Docker (${{ matrix.plataforma }})
@@ -112,7 +119,7 @@ jobs:
           test "$(curl -sk 'https://localhost/api/qr?texto=27' | grep -o CUCEI-0027)" = CUCEI-0027
           curl -sk https://localhost/ | grep -q "árboles con placa"
       - name: Datos de demostración (personas y observaciones)
-        run: docker compose run --rm migrar npm run db:demo
+        run: ./scripts/bosque.sh db:demo
       - name: Registros
         if: always()
         run: |

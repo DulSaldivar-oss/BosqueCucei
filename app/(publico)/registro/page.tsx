@@ -6,11 +6,12 @@ import { EnlaceInstalar } from "@/components/instalar/EnlaceInstalar";
 import { PanelCuenta } from "@/components/publico/PanelCuenta";
 import { usuarioActual } from "@/lib/auth";
 import { qrSvgPagina } from "@/lib/qr";
+import { destinoSeguro } from "@/lib/seguridad";
 
 export const metadata: Metadata = { title: "Crear cuenta" };
 
 export default async function Registro({ searchParams }: { searchParams: Promise<{ siguiente?: string }> }) {
-  const { siguiente = "/" } = await searchParams;
+  const siguiente = destinoSeguro((await searchParams).siguiente);
   if (await usuarioActual()) redirect("/");
   const qr = await qrSvgPagina("/entrar");
   return (

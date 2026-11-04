@@ -6,16 +6,16 @@
  *   iNaturalist   fotografía con licencia Creative Commons y su crédito
  *
  * Uso:
- *   npm run especies:importar                    enriquece todas las especies
- *   npm run especies:importar -- --solo jacaranda
- *   npm run especies:importar -- --sobrescribir  reemplaza descripción con el resumen de Wikipedia
- *   npm run especies:importar -- --descubrir     lista especies observadas en iNaturalist cerca de CUCEI
+ *   bun run especies:importar                    enriquece todas las especies
+ *   bun run especies:importar --solo jacaranda
+ *   bun run especies:importar --sobrescribir  reemplaza descripción con el resumen de Wikipedia
+ *   bun run especies:importar --descubrir     lista especies observadas en iNaturalist cerca de CUCEI
  *                                                (data/candidatas-inaturalist.json)
- *   npm run especies:importar -- --descubrir --agregar
+ *   bun run especies:importar --descubrir --agregar
  *                                                además agrega las candidatas leñosas al catálogo con un
  *                                                sprite propuesto según su familia (revisar a mano)
  *
- * Después: npm run db:sql && npm run db:migrar && npm run sprites
+ * Después: bun run db:sql && bun run db:migrar && bun run sprites
  */
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -289,4 +289,4 @@ for (const especie of objetivo) {
 }
 
 await writeFile(archivoEspecies, JSON.stringify(datos, null, 2) + "\n");
-console.log("✓ data/especies.json actualizado. Siguiente: npm run db:sql && npm run db:migrar && npm run sprites");
+console.log("✓ data/especies.json actualizado. Siguiente: bun run db:sql && bun run db:migrar && bun run sprites");

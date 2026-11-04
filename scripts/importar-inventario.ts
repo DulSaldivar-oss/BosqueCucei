@@ -4,10 +4,10 @@
  *   data/especies.json           agrega las especies nuevas con un sprite propuesto
  *   data/inventario/REPORTE.md   avisos y filas a revisar en campo
  *
- *   npm run inventario:importar                         usa data/inventario/arboles-cucei.xlsx
- *   npm run inventario:importar -- otra/ruta.xlsx
+ *   bun run inventario:importar                         usa data/inventario/arboles-cucei.xlsx
+ *   bun run inventario:importar otra/ruta.xlsx
  *
- * Después: npm run db:sql && npm run sprites  (y al desplegar, migrar aplica la semilla nueva).
+ * Después: bun run db:sql && bun run sprites  (y al desplegar, migrar aplica la semilla nueva).
  * El nombre científico define la especie; los nombres comunes de cada especie se curan en
  * data/especies.json y se conservan entre importaciones.
  */
@@ -107,7 +107,7 @@ const fila = (...celdas: (string | number)[]) => `| ${celdas.join(" | ")} |`;
 const reporte = [
   "# Reporte de la importación del inventario",
   "",
-  `Generado por \`npm run inventario:importar\` a partir de \`${path.relative(raiz, archivo)}\`.`,
+  `Generado por \`bun run inventario:importar\` a partir de \`${path.relative(raiz, archivo)}\`.`,
   "",
   `- Árboles: **${arboles.length}** (${arboles.filter((a) => a.activo).length} activos)`,
   `- Especies distintas: **${grupos.size}** (${nuevas.length} nuevas en esta importación)`,
@@ -138,7 +138,7 @@ const reporte = [
   "",
   "## Especies por curar",
   "",
-  "Tienen `\"revisar\": true` en `data/especies.json`: falta confirmar nombre común, origen (nativa o introducida), descripción y calendario de floración. `npm run especies:importar` puede completar parte desde GBIF, Wikipedia e iNaturalist.",
+  "Tienen `\"revisar\": true` en `data/especies.json`: falta confirmar nombre común, origen (nativa o introducida), descripción y calendario de floración. `bun run especies:importar` puede completar parte desde GBIF, Wikipedia e iNaturalist.",
   "",
   fila("Especie", "Nombre común", "Familia", "Árboles"),
   fila("---", "---", "---", "---:"),
@@ -152,4 +152,4 @@ await writeFile(path.join(raiz, "data/inventario/REPORTE.md"), reporte.join("\n"
 
 console.log(`✓ ${arboles.length} árboles · ${grupos.size} especies (${nuevas.length} nuevas) · ${lectura.avisos.length} avisos · ${conflictos.length} filas a verificar`);
 console.log("  data/arboles.json, data/especies.json y data/inventario/REPORTE.md actualizados");
-console.log("  Siguiente: npm run db:sql && npm run sprites");
+console.log("  Siguiente: bun run db:sql && bun run sprites");

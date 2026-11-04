@@ -1,6 +1,6 @@
 # Reporte de la importación del inventario
 
-Generado por `npm run inventario:importar` a partir de `data/inventario/arboles-cucei.xlsx`.
+Generado por `bun run inventario:importar` a partir de `data/inventario/arboles-cucei.xlsx`.
 
 - Árboles: **1086** (1086 activos)
 - Especies distintas: **124** (0 nuevas en esta importación)
@@ -222,7 +222,7 @@ El nombre común de estas filas corresponde a otra especie del catálogo. La app
 
 ## Especies por curar
 
-Tienen `"revisar": true` en `data/especies.json`: falta confirmar nombre común, origen (nativa o introducida), descripción y calendario de floración. `npm run especies:importar` puede completar parte desde GBIF, Wikipedia e iNaturalist.
+Tienen `"revisar": true` en `data/especies.json`: falta confirmar nombre común, origen (nativa o introducida), descripción y calendario de floración. `bun run especies:importar` puede completar parte desde GBIF, Wikipedia e iNaturalist.
 
 | Especie | Nombre común | Familia | Árboles |
 | --- | --- | --- | ---: |

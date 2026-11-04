@@ -1,5 +1,5 @@
 -- Generado por scripts/generar-sql.ts a partir de data/arboles.json (data/inventario/arboles-cucei.xlsx). No editar a mano:
--- corrige el Excel y corre «npm run inventario:importar && npm run db:sql».
+-- corrige el Excel y corre «bun run inventario:importar && bun run db:sql».
 -- Inventario oficial: 1086 árboles. Se vuelve a aplicar en cada despliegue en que cambie
 -- (reglas en lib/inventario-sql.ts). Los árboles que salgan del Excel quedan inactivos.
 DROP TABLE IF EXISTS pg_temp.inventario;

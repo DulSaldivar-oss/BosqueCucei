@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArbolSprite } from "@/components/ArbolSprite";
 import { Icono } from "@/components/Icono";
 import { CATEGORIAS, ESTADOS_REPORTE, type EstadoReporte } from "@/lib/juego/catalogos";
+import { evaluarGps, PRECISION_MAXIMA_M, RADIO_VISITA_M, type PosicionGps } from "@/lib/juego/presencia";
 import type { ResultadoObservacion } from "@/lib/servicios/observar";
 import type { GenomaSprite } from "@/lib/sprites/generar";
 import { Celebracion } from "./Celebracion";
@@ -17,6 +18,84 @@ export interface ArbolParaObservar {
   especie: string;
   sprite: GenomaSprite;
   etapa: number;
+  latitud?: number;
+  longitud?: number;
+}
+
+type Ubicacion = { estado: "buscando" } | { estado: "lista"; posicion: PosicionGps } | { estado: "sin-permiso" | "sin-gps" };
+
+/** Aviso de presencia: la observación solo se acepta junto al árbol (50 m) o con su placa escaneada. */
+function AvisoPresencia({ placa, ubicacion, arbol }: { placa: boolean; ubicacion: Ubicacion; arbol: ArbolParaObservar }) {
+  const estilo = (ok: boolean) =>
+    `animate-aparecer mt-4 flex items-start gap-3 rounded-2xl px-4 py-3 text-sm ${ok ? "bg-musgo-claro text-musgo-oscuro" : "bg-primavera/15 text-tinta"}`;
+  const escanear = (
+    <Link href="/escanear" className="mt-1 inline-flex items-center gap-1 font-bold text-musgo hover:underline">
+      <Icono nombre="escanear" className="size-4" /> Escanear la placa
+    </Link>
+  );
+  if (placa) {
+    return (
+      <p className={estilo(true)} role="status">
+        <Icono nombre="check" className="mt-0.5 size-4 shrink-0" grosor={2.6} />
+        <span>
+          <strong>Escaneaste su placa.</strong> Tu visita está confirmada.
+        </span>
+      </p>
+    );
+  }
+  if (ubicacion.estado === "buscando") {
+    return (
+      <p className={estilo(false)} role="status">
+        <span className="mt-0.5 size-4 shrink-0 animate-spin rounded-full border-2 border-musgo/30 border-t-musgo" aria-hidden="true" />
+        <span>Confirmando que estás junto al árbol…</span>
+      </p>
+    );
+  }
+  if (ubicacion.estado !== "lista" || arbol.latitud == null || arbol.longitud == null) {
+    return (
+      <div className={estilo(false)} role="status">
+        <Icono nombre="ubicacion" className="mt-0.5 size-4 shrink-0 text-tabachin" />
+        <div>
+          <p>
+            <strong>{ubicacion.estado === "sin-permiso" ? "Sin permiso de ubicación." : "No pudimos obtener tu ubicación."}</strong> Para que tu visita
+            cuente tienes que estar a {RADIO_VISITA_M} m del árbol: activa la ubicación o escanea su placa.
+          </p>
+          {escanear}
+        </div>
+      </div>
+    );
+  }
+  const gps = evaluarGps({ latitud: arbol.latitud, longitud: arbol.longitud }, ubicacion.posicion);
+  if (gps.valida) {
+    return (
+      <p className={estilo(true)} role="status">
+        <Icono nombre="ubicacion" className="mt-0.5 size-4 shrink-0" />
+        <span>
+          <strong>Estás a {Math.round(gps.distancia)} m del árbol.</strong> Tu visita está confirmada.
+        </span>
+      </p>
+    );
+  }
+  return (
+    <div className={estilo(false)} role="status">
+      <Icono nombre="ubicacion" className="mt-0.5 size-4 shrink-0 text-tabachin" />
+      <div>
+        <p>
+          {gps.motivo === "impreciso" ? (
+            <>
+              <strong>Tu ubicación es imprecisa</strong> (±{Math.round(ubicacion.posicion.precision)} m; se necesita {PRECISION_MAXIMA_M} m o menos).
+              Sal a cielo abierto unos segundos o escanea la placa.
+            </>
+          ) : (
+            <>
+              <strong>Estás a {Math.round(gps.distancia ?? 0)} m del árbol.</strong> Acércate a menos de {RADIO_VISITA_M} m o escanea su placa.
+            </>
+          )}
+        </p>
+        {escanear}
+      </div>
+    </div>
+  );
 }
 
 const CARAS: Record<EstadoReporte, string> = {
@@ -42,7 +121,16 @@ async function comprimir(archivo: File): Promise<Blob> {
   }
 }
 
-export function FormularioObservacion({ arbol, yaRegado }: { arbol: ArbolParaObservar; yaRegado: boolean }) {
+export function FormularioObservacion({
+  arbol,
+  yaRegado,
+  placaVerificada = false,
+}: {
+  arbol: ArbolParaObservar;
+  yaRegado: boolean;
+  /** La persona escaneó hace poco la placa verificable de este árbol. */
+  placaVerificada?: boolean;
+}) {
   const [estado, setEstado] = useState<EstadoReporte | null>(null);
   const [categorias, setCategorias] = useState<string[]>([]);
   const [comentario, setComentario] = useState("");
@@ -52,6 +140,28 @@ export function FormularioObservacion({ arbol, yaRegado }: { arbol: ArbolParaObs
   const [resultado, setResultado] = useState<ResultadoObservacion | null>(null);
   const inicio = useRef(0);
   const seccionDetalle = useRef<HTMLDivElement>(null);
+  const [ubicacion, setUbicacion] = useState<Ubicacion>({ estado: "buscando" });
+
+  // Ubicación en vivo para confirmar que la persona está junto al árbol (el servidor lo vuelve a revisar).
+  useEffect(() => {
+    if (!("geolocation" in navigator)) {
+      const id = setTimeout(() => setUbicacion({ estado: "sin-gps" }), 0);
+      return () => clearTimeout(id);
+    }
+    const reloj = navigator.geolocation.watchPosition(
+      (p) => setUbicacion({ estado: "lista", posicion: { latitud: p.coords.latitude, longitud: p.coords.longitude, precision: p.coords.accuracy } }),
+      (e) => setUbicacion((u) => (u.estado === "lista" ? u : { estado: e.code === e.PERMISSION_DENIED ? "sin-permiso" : "sin-gps" })),
+      { enableHighAccuracy: true, maximumAge: 10_000, timeout: 20_000 },
+    );
+    return () => navigator.geolocation.clearWatch(reloj);
+  }, []);
+
+  const presenciaLista =
+    placaVerificada ||
+    (ubicacion.estado === "lista" &&
+      arbol.latitud != null &&
+      arbol.longitud != null &&
+      evaluarGps({ latitud: arbol.latitud, longitud: arbol.longitud }, ubicacion.posicion).valida);
 
   useEffect(() => {
     inicio.current = Date.now();
@@ -90,6 +200,11 @@ export function FormularioObservacion({ arbol, yaRegado }: { arbol: ArbolParaObs
     categorias.forEach((c) => datos.append("categorias", c));
     datos.set("comentario", comentario);
     datos.set("duracion", String(Date.now() - inicio.current));
+    if (ubicacion.estado === "lista") {
+      datos.set("latitud", String(ubicacion.posicion.latitud));
+      datos.set("longitud", String(ubicacion.posicion.longitud));
+      datos.set("precision", String(ubicacion.posicion.precision));
+    }
     if (foto) datos.set("foto", foto.blob, "foto.jpg");
     try {
       const respuesta = await fetch("/api/observaciones", { method: "POST", body: datos });
@@ -128,6 +243,8 @@ export function FormularioObservacion({ arbol, yaRegado }: { arbol: ArbolParaObs
           ))}
         </div>
       </header>
+
+      <AvisoPresencia placa={placaVerificada} ubicacion={ubicacion} arbol={arbol} />
 
       {yaRegado && (
         <p className="animate-aparecer mt-4 flex items-start gap-2 rounded-2xl bg-agua-claro px-4 py-3 text-sm text-[#1d5d8c]">
@@ -282,7 +399,7 @@ export function FormularioObservacion({ arbol, yaRegado }: { arbol: ArbolParaObs
           <button
             type="button"
             onClick={enviar}
-            disabled={!estado || enviando}
+            disabled={!estado || enviando || !presenciaLista}
             className="flex w-full items-center justify-center gap-2 rounded-full bg-musgo px-6 py-4 text-base font-bold text-papel shadow-flotante transition hover:bg-musgo-oscuro active:scale-[.98] disabled:bg-tinta-suave/40 disabled:shadow-none"
           >
             {enviando ? (
@@ -290,7 +407,15 @@ export function FormularioObservacion({ arbol, yaRegado }: { arbol: ArbolParaObs
             ) : (
               <Icono nombre="regadera" className="size-5" grosor={2.2} />
             )}
-            {enviando ? "Guardando…" : estado ? (yaRegado ? "Guardar observación" : "Guardar y regar") : "Elige cómo lo ves"}
+            {enviando
+              ? "Guardando…"
+              : !presenciaLista
+                ? `Acércate a ${RADIO_VISITA_M} m del árbol`
+                : estado
+                  ? yaRegado
+                    ? "Guardar observación"
+                    : "Guardar y regar"
+                  : "Elige cómo lo ves"}
           </button>
         </div>
       </div>

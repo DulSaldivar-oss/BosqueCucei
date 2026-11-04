@@ -96,13 +96,19 @@ export async function arbolPorCodigo(codigo: string): Promise<Arbol | null> {
 }
 
 /** Resuelve el contenido leído de un QR o tecleado: código, número de placa, identificador del QR o una URL que los contenga. */
-export async function resolverQr(texto: string): Promise<string | null> {
+/**
+ * Árbol al que corresponde un QR o lo que escribió la persona. `placa` es true solo si el texto es
+ * exactamente el QR verificable del árbol (con su parte aleatoria): eso prueba que se escaneó la
+ * placa. Un código o número escrito a mano abre la ficha, pero no prueba la visita.
+ */
+export async function resolverQr(texto: string): Promise<{ codigo: string; placa: boolean } | null> {
   const candidatos = candidatosQr(texto);
-  const fila = await una<{ codigo: string }>(
-    `SELECT codigo FROM arboles WHERE activo AND (qr_id = ANY($1) OR upper(codigo) = ANY($2)) LIMIT 1`,
+  return una<{ codigo: string; placa: boolean }>(
+    `SELECT codigo, (qr_verificable AND qr_id = ANY($1)) AS placa
+     FROM arboles WHERE activo AND (qr_id = ANY($1) OR upper(codigo) = ANY($2))
+     ORDER BY placa DESC LIMIT 1`,
     [candidatos, candidatos.map((c) => c.toUpperCase())],
   );
-  return fila?.codigo ?? null;
 }
 
 export async function historialArbol(arbolId: number, limite = 12) {

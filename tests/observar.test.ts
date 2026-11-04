@@ -1,6 +1,6 @@
 /**
  * Prueba de integración contra PostgreSQL. Necesita una base vacía de pruebas:
- *   DATABASE_URL_PRUEBAS=postgres://bosque:bosque@localhost:5432/bosque_test npm test
+ *   DATABASE_URL_PRUEBAS=postgres://bosque:bosque@localhost:5432/bosque_test bun run test
  */
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";

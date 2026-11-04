@@ -3,7 +3,7 @@
  *   db/semillas/02_especies.sql      catálogo de especies (con su genoma de sprite)
  *   db/semillas/03_arboles.sql       inventario oficial de árboles (data/arboles.json)
  *
- *   npm run db:sql
+ *   bun run db:sql
  */
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -79,7 +79,7 @@ const { arboles, fuente } = (await leer("arboles.json")) as { arboles: FilaInven
 const slugs = new Set(especies.map((e) => e.slug));
 for (const a of arboles) if (!slugs.has(a.especie)) throw new Error(`${a.codigo}: especie desconocida ${a.especie}`);
 const sqlArboles = `-- Generado por scripts/generar-sql.ts a partir de data/arboles.json (${fuente}). No editar a mano:
--- corrige el Excel y corre «npm run inventario:importar && npm run db:sql».
+-- corrige el Excel y corre «bun run inventario:importar && bun run db:sql».
 -- Inventario oficial: ${arboles.length} árboles. Se vuelve a aplicar en cada despliegue en que cambie
 -- (reglas en lib/inventario-sql.ts). Los árboles que salgan del Excel quedan inactivos.
 ${SQL_TABLA_INVENTARIO}

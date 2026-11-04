@@ -5,8 +5,8 @@
  *   silueta.svg                 versión bloqueada para el herbario
  * y public/sprites/indice.json con la lista.
  *
- *   npm run sprites            solo SVG
- *   npm run sprites -- --png   además PNG (usa el Chromium de Playwright)
+ *   bun run sprites            solo SVG
+ *   bun run sprites --png   además PNG (usa el Chromium de Playwright)
  *
  * La aplicación dibuja los sprites en línea con el mismo generador; estos archivos
  * sirven para imprimir, redes sociales o para usarlos en otros proyectos.
@@ -60,7 +60,7 @@ await writeFile(path.join(destino, "indice.json"), JSON.stringify(indice, null, 
 console.log(`✓ ${especies.length} especies × ${ETAPAS.length} etapas en public/sprites`);
 
 if (conPng) {
-  // Playwright es opcional: solo se necesita para exportar PNG (npm i -D playwright).
+  // Playwright es opcional: solo se necesita para exportar PNG (bun add -d playwright).
   const modulo = "playwright";
   const { chromium } = await import(modulo);
   const navegador = await chromium.launch();
